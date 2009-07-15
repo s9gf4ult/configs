@@ -1,0 +1,37 @@
+<vCard xmlns="vcard-temp" version="2.0" prodid="-//HandGen//NONSGML vGen v1.0//EN">
+<VERSION>3.0</VERSION>
+<FN>Gleb Chipiga</FN>
+<NICKNAME>Gleb Chipiga</NICKNAME>
+<BDAY>1985:7:11</BDAY>
+<ADR>
+<HOME />
+<LOCALITY>Saint-Petersburg</LOCALITY>
+<CTRY>Russia</CTRY>
+</ADR>
+<ADR>
+<WORK />
+</ADR>
+<TEL>
+<HOME />
+</TEL>
+<TEL>
+<WORK />
+</TEL>
+<TEL>
+<FAX />
+</TEL>
+<TEL>
+<CELL />
+</TEL>
+<EMAIL>
+<HOME />
+</EMAIL>
+<EMAIL>
+<WORK />
+</EMAIL>
+<JABBERID>gleb.chipiga@jabber.ru</JABBERID>
+<ORG>
+<ORGUNIT />
+</ORG>
+<PRODID>Kopete</PRODID>
+</vCard>

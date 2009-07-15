@@ -1,0 +1,26 @@
+<vCard xmlns="vcard-temp" version="2.0" prodid="-//HandGen//NONSGML vGen v1.0//EN">
+<FN>Андрей</FN>
+<NICKNAME>Amper</NICKNAME>
+<BDAY>30061991</BDAY>
+<ADR>
+<HOME />
+<LOCALITY>Номка</LOCALITY>
+</ADR>
+<TEL>
+<HOME />
+<VOICE />
+<NUMBER>1111299@tele2.08</NUMBER>
+</TEL>
+<EMAIL>
+<INTERNET />
+<USERID>cyam@ya.ru</USERID>
+</EMAIL>
+<TITLE>Системный аналитик, разработчик</TITLE>
+<ROLE>Очень много ))</ROLE>
+<ORG>
+<ORGNAME>Karchsoft inc.</ORGNAME>
+<ORGUNIT>Разработки и веб-дизайна</ORGUNIT>
+</ORG>
+<URL>yandex.ru</URL>
+<DESC>debian/GNU linux, ubuntu, jabber, vkontakte.ru, web-design, C++, C, техника, энергетика, Ария, Rammstein, W.A.S.P, Кукрыниксы, Евгений Гришковец</DESC>
+</vCard>
