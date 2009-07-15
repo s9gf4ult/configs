@@ -11,4 +11,7 @@
 (semantic-load-enable-code-helpers)
 (global-hl-line-mode t)
 (set-face-background 'hl-line "#404040")
-
+;;for autoindention
+(global-set-key (kbd "<RET>") 'reindent-then-newline-and-indent)
+;;for double braket showing
+(show-paren-mode 1)
