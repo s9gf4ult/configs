@@ -1,0 +1,8 @@
+set nu
+set background=dark
+set tabstop=4
+set sw=4
+set fileencodings=cp1251,utf-8
+autocmd BufRead *.c source /usr/share/vim/vim72/indent/c.vim
+autocmd BufRead *.h source /usr/share/vim/vim72/indent/c.vim
+
