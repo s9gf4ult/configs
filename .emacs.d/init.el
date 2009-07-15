@@ -15,3 +15,5 @@
 (global-set-key (kbd "<RET>") 'reindent-then-newline-and-indent)
 ;;for double braket showing
 (show-paren-mode 1)
+;;fast gotoline
+(global-set-key (kbd "C-M-g") 'goto-line)

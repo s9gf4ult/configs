@@ -3,9 +3,9 @@
 # to files in ~/configs
 for ii in .*;do
     if [ -e $ii ];then
-	if [ ! $ii = ".git" ];then
+	if [ ! $ii = ".git" ]&&[ ! $ii = "." ]&&[ ! $ii = ".." ];then
 	    if [ -e ~/$ii ];then
-		if [ $1 = '-f' ];then
+		if [ x$1 = "x-f" ];then
 		    rm -rf ~/$ii
 		    ln -s -T ~/configs/$ii ~/$ii
 		else
