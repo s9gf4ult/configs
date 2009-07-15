@@ -4,7 +4,16 @@
 for ii in .*;do
     if [ -e $ii ];then
 	if [ ! $ii = ".git" ];then
-	    ln -s -T ~/configs/$ii ~/$ii
+	    if [ -e ~/$ii ];then
+		if [ $1 = '-f' ];then
+		    rm -rf ~/$ii
+		    ln -s -T ~/configs/$ii ~/$ii
+		else
+		    echo "you can not do that::file ~/$ii is exist"
+		fi
+	    else
+		ln -s -T ~/configs/$ii ~/$ii
+	    fi
 	fi
     fi
 done

@@ -1,8 +1,10 @@
-set nu
-set background=dark
 set tabstop=4
+set incsearch
+set ignorecase
+set showmatch
+set number
+set background=dark
 set sw=4
-set fileencodings=cp1251,utf-8
-autocmd BufRead *.c source /usr/share/vim/vim72/indent/c.vim
-autocmd BufRead *.h source /usr/share/vim/vim72/indent/c.vim
-
+set smartindent
+set fileencodings=utf8,cp1251
+autocmd BufRead *.m source /usr/share/vim/vim72/indent/matlab.vim
