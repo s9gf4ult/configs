@@ -1,0 +1,9 @@
+xterm*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
+xterm*background:#202020
+xterm*foreground:White
+xterm*eightBitInput: false
+xterm*metaSendsEscape: true
+emacs*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
+emacs*background:Black
+emacs*foreground:White
+vim*background:Black
