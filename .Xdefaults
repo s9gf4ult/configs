@@ -1,9 +1,49 @@
+urxvt*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-koi8-r
+urxvt*background:Black
+urxvt*foreground:White
+urxvt.color0: #1A1A1A
+urxvt.color1: #AA0000
+urxvt.color2: #00AA00
+urxvt.color3: #AA5500
+urxvt.color4: #0000AA
+urxvt.color5: #AA00AA
+urxvt.color6: #00AAAA
+urxvt.color7: #AAAAAA
+urxvt.color8: #555555
+urxvt.color9: #FF5555
+urxvt.color10: #55FF55
+urxvt.color11: #FFFF55
+urxvt.color12: #5555FF
+urxvt.color13: #FF55FF
+urxvt.color14: #55FFFF
+urxvt.color15: #FFFFFF
+URxvt*keysym.Home: \033[1~
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+urxvt*keysym.End: \033[4~
+urxvt*mouseWheelScrollPage:        false
+urxvt*cutchars:`'",;@&*=|?()<>[]{}
+URxvt.urlLauncher:opera
+urxvt*visualBell:false
 xterm*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
-xterm*background:#202020
+xterm*background:#303030
 xterm*foreground:White
-xterm*eightBitInput: false
-xterm*metaSendsEscape: true
+xterm.color0: #1A1A1A
+xterm.color1: #AA0000
+xterm.color2: #00AA00
+xterm.color3: #AA5500
+xterm.color4: #0000AA
+xterm.color5: #AA00AA
+xterm.color6: #00AAAA
+xterm.color7: #AAAAAA
+xterm.color8: #555555
+xterm.color9: #FF5555
+xterm.color10: #55FF55
+xterm.color11: #FFFF55
+xterm.color12: #5555FF
+xterm.color13: #FF55FF
+xterm.color14: #55FFFF
+xterm.color15: #FFFFFF
 emacs*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
-emacs*background:#202020
+emacs*background:#303030
 emacs*foreground:White
-vim*background:Black
