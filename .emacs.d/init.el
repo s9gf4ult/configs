@@ -4,7 +4,6 @@
 ;; Author: segfault <razor@localhost>
 ;; Keywords: 
 (menu-bar-mode 0)
-
 (tool-bar-mode 0)
 (semantic-load-enable-minimum-features)
 (semantic-load-enable-all-exuberent-ctags-support)
@@ -17,4 +16,14 @@
 (show-paren-mode 1)
 ;;fast gotoline
 (global-set-key (kbd "C-M-g") 'goto-line)
+;;charset
 (setq message-default-charset 'utf-8)
+;; tuning c-mode
+(defun my-c-mode-hook ()
+  "docs"
+  (interactive)
+  (c-set-style "k&r"))
+(add-hook 'c-mode-hook 'my-c-mode-hook)
+	  
+		      
+				  
