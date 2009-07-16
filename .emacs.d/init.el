@@ -17,3 +17,7 @@
 (show-paren-mode 1)
 ;;fast gotoline
 (global-set-key (kbd "C-M-g") 'goto-line)
+(setq background 'dark)
+(require 'color-theme)
+(color-theme-select "Harcoal black")
+(setq message-default-charset 'utf-8)
