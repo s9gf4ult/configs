@@ -5,9 +5,6 @@
 ;; Keywords: 
 (menu-bar-mode 0)
 (tool-bar-mode 0)
-(semantic-load-enable-minimum-features)
-(semantic-load-enable-all-exuberent-ctags-support)
-(semantic-load-enable-code-helpers)
 (global-hl-line-mode t)
 (set-face-background 'hl-line "#404040")
 ;;for autoindention
@@ -24,6 +21,12 @@
   (interactive)
   (c-set-style "k&r"))
 (add-hook 'c-mode-hook 'my-c-mode-hook)
-	  
+
+;;tuning cedet
+(load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
+(semantic-load-enable-excessive-code-helpers)
+(require 'semantic-ia)
+(require 'semantic-gcc)
+
 		      
 				  
