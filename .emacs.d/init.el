@@ -27,6 +27,8 @@
 (semantic-load-enable-excessive-code-helpers)
 (require 'semantic-ia)
 (require 'semantic-gcc)
+(semantic-add-system-include "/usr/include/gtk-2.0")
+
 
 		      
 				  
