@@ -19,15 +19,17 @@
 (defun my-c-mode-hook ()
   "docs"
   (interactive)
-  (c-set-style "k&r"))
+  (c-set-style "k&r")
+  (semantic-load-enable-excessive-code-helpers)
+  (global-set-key (kbd "<Tab>") semantic-ia-complete-symbol)
+  
+  )
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 
 ;;tuning cedet
 (load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
-(semantic-load-enable-excessive-code-helpers)
 (require 'semantic-ia)
 (require 'semantic-gcc)
-(semantic-add-system-include "/usr/include/gtk-2.0")
 
 
 		      
