@@ -16,21 +16,41 @@
 ;;charset
 (setq message-default-charset 'utf-8)
 ;; tuning c-mode
-(defun my-c-mode-hook ()
-  "docs"
+(defun c-mode-tab-func ()
   (interactive)
+  (c-indent-line)
+  (semantic-ia-complete-symbol (point)))
+
+(defun my-c-mode-hook ()
   (c-set-style "k&r")
-  (semantic-load-enable-excessive-code-helpers)
-  (global-set-key (kbd "<Tab>") semantic-ia-complete-symbol)
-  
+  (require 'semantic-gcc)
+  (semantic-add-system-include "/usr/include/Gtk-2.0")
+  (add-to-list 'semantic-lex-c-preprocessor-symbol-file "/usr/include/stdlib.h")
+  (local-set-key [tab] 'c-mode-tab-func)
   )
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 
 ;;tuning cedet
 (load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
 (require 'semantic-ia)
-(require 'semantic-gcc)
+(semantic-load-enable-excessive-code-helpers)
+
+
+
 
 
 		      
 				  
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ecb-auto-activate nil)
+ '(ecb-tip-of-the-day nil))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
