@@ -7,4 +7,5 @@ set background=dark
 set sw=4
 set smartindent
 set fileencodings=utf8,cp1251
+source /usr/share/vim/vim72/autoload/supertab.vim
 autocmd BufRead *.m source /usr/share/vim/vim72/indent/matlab.vim
