@@ -16,7 +16,7 @@ import XMonad.Layout.Accordion
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "xterm"
+myTerminal      = "xterm -tn xterm-256color"
 
 -- Width of the window border in pixels.
 --
