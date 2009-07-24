@@ -6,3 +6,7 @@ configs for:
 -gajim
 -zsh
 This is very simple and stupid dont use this
+for workable vim i need:
+	nerdcommenter
+	supertab
+	colorcheme koehler
