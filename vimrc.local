@@ -7,7 +7,7 @@ set background=dark
 set sw=4
 set smartindent
 set fileencodings=utf8,cp1251
-colorscheme koehler
+colorscheme pablo
 autocmd BufRead *.m source /usr/share/vim/vim72/indent/matlab.vim
 autocmd BufRead *.c source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead *.h source /usr/share/vim/vim72/indent/c.vim
