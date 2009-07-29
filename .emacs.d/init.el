@@ -5,6 +5,7 @@
 ;; Keywords: 
 (menu-bar-mode 0)
 (tool-bar-mode 0)
+(setq-default tab-width 4)
 (global-hl-line-mode t)
 (set-face-background 'hl-line "#404040")
 ;;for autoindention
@@ -32,9 +33,12 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(c-tab-always-indent (quote other))
  '(ecb-auto-activate nil)
  '(ecb-tip-of-the-day nil)
- '(semantic-c-dependency-system-include-path (quote ("/usr/include" "/usr/include/gtk-2.0"))))
+ '(indent-tabs-mode t)
+ '(semantic-c-dependency-system-include-path (quote ("/usr/include" "/usr/include/gtk-2.0")))
+ '(tab-stop-list nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -63,7 +67,6 @@
   (global-set-key (kbd "<RET>") 'reindent-then-newline-and-indent)
   (require 'semantic-gcc)
   (semantic-add-system-include '"/usr/include/gtk-2.0")
-  (add-to-list 'semantic-lex-c-preprocessor-symbol-file "/usr/include/gtk-2.0/gtk/gtk.h")
   ;;фунция для таба
   (defun c-mode-tab-func ()
     (interactive)
@@ -76,12 +79,6 @@
   (defun c-mode-f5-func ()
     (interactive)
     (compile "make -k all")
-    )
-  (local-set-key [f5] 'c-mode-f5-func)
- ;скоппвиилять в дебуге
-  (defun c-mode-f6-func ()
-    (interactive)
-    (compile "make -k debug")
     )
   (local-set-key [f6] 'c-mode-f6-func)
   )
