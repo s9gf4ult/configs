@@ -3,6 +3,10 @@
 
 ;; Author: segfault <razor@localhost>
 ;; Keywords: 
+(require 'ede)
+(global-ede-mode t)
+
+
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (setq-default tab-width 4)
@@ -71,7 +75,7 @@
   (defun c-mode-tab-func ()
     (interactive)
     (c-indent-line)
-    (end-of-line)
+;;    (end-of-line)
     (semantic-ia-complete-symbol (point))
     )
   (local-set-key [tab] 'c-mode-tab-func)

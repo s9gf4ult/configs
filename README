@@ -10,3 +10,5 @@ for workable vim i need:
 	nerdcommenter
 	supertab
 	colorcheme koehler
+	omnicppcomplete
+	a.vim
