@@ -9,6 +9,5 @@ This is very simple and stupid dont use this
 for workable vim i need:
 	nerdcommenter
 	supertab
-	colorcheme koehler
-	omnicppcomplete
+	colorcheme pablo
 	a.vim
