@@ -16,6 +16,10 @@ imap <F4> <ESC>:bn!<return>i
 map <F4> :bn<return>
 imap <F3> <ESC>:bp!<return>i
 map <F3> :bp!<return>
+imap <F12> <ESC>:TlistToggle<return>i
+map <F12> :TlistToggle<return>
+imap <F10> <ESC><C-w><left>
+map <F10> <C-w><left>
 autocmd BufRead *.m source /usr/share/vim/vim72/indent/matlab.vim
 autocmd BufRead *.c source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead *.h source /usr/share/vim/vim72/indent/c.vim
