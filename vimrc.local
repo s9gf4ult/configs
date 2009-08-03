@@ -22,6 +22,8 @@ imap <F11> <ESC>:TlistToggle<return><C-w><left>
 map <F11> :TlistToggle<return><C-w><left>
 imap <F10> <ESC><C-w>wi
 map  <F10> <C-w>w
+imap <F9> <ESC><C-w>oi<end>
+map <F9> <C-w>o
 autocmd BufRead *.m source /usr/share/vim/vim72/indent/matlab.vim
 autocmd BufRead *.c source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead *.h source /usr/share/vim/vim72/indent/c.vim
