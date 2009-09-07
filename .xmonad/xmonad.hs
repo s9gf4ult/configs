@@ -13,6 +13,7 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import XMonad.Layout.Accordion
+import XMonad.Hooks.DynamicLog
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
@@ -166,7 +167,21 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask, button3), (\w -> focus w >> mouseResizeWindow w))
 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
+
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
     ]
+
+
+myPP = defaultPP { ppCurrent = xmobarColor "yellow" "" . wrap "[" "]"
+	, ppTitle   = xmobarColor "green"  "" . shorten 40
+	, ppVisible = wrap "(" ")"
+}
+
+------------------------------------------------------------------------
+
 
 ------------------------------------------------------------------------
 -- Layouts:
@@ -229,7 +244,7 @@ myFocusFollowsMouse = True
 --
 -- > logHook = dynamicLogDzen
 --
-myLogHook = return ()
+--myLogHook = return ()
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -272,6 +287,6 @@ defaults = defaultConfig {
       -- hooks, layouts
         layoutHook         = myLayout,
         manageHook         = myManageHook,
-        logHook            = myLogHook,
+        logHook            = dynamicLogWithPP myPP,
         startupHook        = myStartupHook
     }
