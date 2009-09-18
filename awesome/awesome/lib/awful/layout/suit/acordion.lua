@@ -45,7 +45,7 @@ local function acordion(_, screen)
         fidx = 1
     end
 
-	local relation=0.8
+	local relation=mwfact
 	local lasty=area.y
 	if #cls == 1 then
 		focus:geometry(area)
