@@ -32,7 +32,9 @@ layouts =
 {
     awful.layout.suit.tile,
     awful.layout.suit.tile.top,
-    awful.layout.suit.magnifier
+    awful.layout.suit.magnifier,
+    awful.layout.suit.acordion
+
 }
 
 -- Table of clients that should be set floating. The index may be either
@@ -221,6 +223,7 @@ globalkeys =
     key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+	key({ modkey, 			}, 	"b",     function () mymainmenu:toggle() end ),
 
     -- Prompt
     key({ modkey }, "F1",
