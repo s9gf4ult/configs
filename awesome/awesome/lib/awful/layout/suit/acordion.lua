@@ -45,50 +45,42 @@ local function acordion(_, screen)
         fidx = 1
     end
 
-    local geometry = {}
+	local relation=0.8
+	local lasty=area.y
+	if #cls == 1 then
+		focus:geometry(area)
+		focus:raise()
+	end
     if #cls > 1 then
-        geometry.width = area.width * math.sqrt(mwfact)
-        geometry.height = area.height * math.sqrt(mwfact)
-        geometry.x = area.x + (area.width - geometry.width) / 2
-        geometry.y = area.y + (area.height - geometry.height) /2
-    else
-        geometry.x = area.x
-        geometry.y = area.y
-        geometry.width = area.width
-        geometry.height = area.height
-    end
-    focus:geometry(geometry)
-    focus:raise()
+		local geometry = {}
+		local focus_height=area.height*relation
+		local unfocus_height=area.height*(1-relation)/(#cls-1)
+		for  k,c in ipairs(cls) do
+			if c == focus then
+				geometry.width=area.width
+				geometry.height=focus_height
+				geometry.x=area.x
+				geometry.y=lasty
+				lasty=lasty+geometry.height
+				c:geometry(geometry)
+				c:raise()
+			else
+				geometry.width=area.width
+				geometry.height=unfocus_height
+				geometry.x=area.x
+				geometry.y=lasty
+				lasty=lasty+geometry.height
+				c:geometry(geometry)
+			end
+		end
+	end
 
-    if #cls > 1 then
-        geometry.x = area.x
-        geometry.y = area.y
-        geometry.height = area.height / (#cls - 1)
-        geometry.width = area.width
 
-        -- We don't know what the focus window index. Try to find it.
-        if not fidx then
-            for k, c in ipairs(cls) do
-                if c == focus then
-                    fidx = k
-                    break
-                end
-            end
-        end
 
-        -- First move clients that are before focused client.
-        for k = fidx + 1, #cls do
-            cls[k]:geometry(geometry)
-            geometry.y = geometry.y + geometry.height
-        end
 
-        -- Then move clients that are after focused client.
-        -- So the next focused window will be the one at the top of the screen.
-        for k = 1, fidx - 1 do
-            cls[k]:geometry(geometry)
-            geometry.y = geometry.y + geometry.height
-        end
-    end
+
+
+			
 end
 
 setmetatable(_M, { __call = acordion })

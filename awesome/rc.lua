@@ -30,11 +30,10 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.tile,
     awful.layout.suit.tile.top,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.acordion
-
+    awful.layout.suit.acordion,
+    awful.layout.suit.tile,
+    awful.layout.suit.magnifier
 }
 
 -- Table of clients that should be set floating. The index may be either
