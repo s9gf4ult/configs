@@ -30,4 +30,8 @@ autocmd BufRead *.h source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead *.hpp source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead *.cpp source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead *.sh source /usr/share/vim/vim72/indent/sh.vim
+autocmd BufRead *.c.m4 set syntax=c
+autocmd BufRead *.h.m4 set syntax=c
+autocmd BufRead *.cpp.m4 set syntax=c
+autocmd BufRead *.hpp.m4 set syntax=c
 
