@@ -206,7 +206,7 @@ globalkeys = awful.util.table.join(
 			  end) 
 ]]
 
-    key({ modkey }, "p",
+    awful.key({ modkey }, "p",
         function ()
             awful.prompt.run({ prompt = "Run: " },
             mypromptbox[mouse.screen].widget,
@@ -214,7 +214,7 @@ globalkeys = awful.util.table.join(
             awful.util.getdir("cache") .. "/history")
         end),
 
-    key({ modkey }, "F4",
+    awful.key({ modkey }, "F4",
         function ()
             awful.prompt.run({ prompt = "Run Lua code: " },
             mypromptbox[mouse.screen].widget,
