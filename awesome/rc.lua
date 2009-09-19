@@ -196,14 +196,34 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-
+--[[
     awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end)
+			  function ()
+				  awful.prompt.run({ prompt = "Run Lua code: " },
+				  mypromptbox[mouse.screen].widget,
+				  awful.util.eval, nil,
+				  awful.util.getdir("cache") .. "/history_eval")
+			  end) 
+]]
+
+    key({ modkey }, "p",
+        function ()
+            awful.prompt.run({ prompt = "Run: " },
+            mypromptbox[mouse.screen].widget,
+            awful.util.spawn, awful.completion.bash,
+            awful.util.getdir("cache") .. "/history")
+        end),
+
+    key({ modkey }, "F4",
+        function ()
+            awful.prompt.run({ prompt = "Run Lua code: " },
+            mypromptbox[mouse.screen].widget,
+            awful.util.eval, awful.prompt.bash,
+            awful.util.getdir("cache") .. "/history_eval")
+        end),
+
+
+
 )
 
 clientkeys = awful.util.table.join(
