@@ -4,6 +4,7 @@ require("awful.layout.suit.fair")
 require("awful.layout.suit.floating")
 require("awful.layout.suit.magnifier")
 require("awful.layout.suit.spiral")
+require("awful.layout.suit.acordion")
 
 --- Suits for awful
 module("awful.layout.suit")

@@ -5,7 +5,6 @@
 ---------------------------------------------------------------------------
 
 -- Grab environment we need
-local setmetatable = setmetatable
 local ipairs = ipairs
 local math = math
 local tag = require("awful.tag")
@@ -19,21 +18,21 @@ local client = require("awful.client")
 --- acordion layout module for awful
 module("awful.layout.suit.acordion")
 
-local function acordion(_, screen)
+local function arrange(p)
     -- Fullscreen?
-    local area = capi.screen[screen].workarea
-    local cls = client.tiled(screen)
+
+
+
+    local area = p.workarea
+    local cls = p.clients
     local focus = capi.client.focus
-    local t = tag.selected(screen)
-    local mwfact = tag.getmwfact(t)
-    local fidx -- Focus client index in cls table
+    local mwfact = tag.getmwfact(tag.selected(p.screen))
 
     -- Check that the focused window is on the right screen
     if focus and focus.screen ~= screen then focus = nil end
 
     if not focus and #cls > 0 then
         focus = cls[1]
-        fidx = 1
     end
 
     -- Abort if no clients are present
@@ -42,7 +41,6 @@ local function acordion(_, screen)
     -- If focused window is not tiled, take the first one which is tiled.
     if client.floating.get(focus) then
         focus = cls[1]
-        fidx = 1
     end
 
 	local relation=mwfact
@@ -75,12 +73,5 @@ local function acordion(_, screen)
 		end
 	end
 
-
-
-
-
-
-			
 end
-
-setmetatable(_M, { __call = acordion })
+name = "acordion"
