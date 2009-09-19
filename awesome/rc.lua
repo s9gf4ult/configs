@@ -23,8 +23,9 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.tile,
-    awful.layout.suit.magnifier,
+    awful.layout.suit.tile.top,
+    awful.layout.suit.acordion,
+    awful.layout.suit.tile.left,
     awful.layout.suit.floating
 }
 -- }}}
@@ -210,7 +211,7 @@ globalkeys = awful.util.table.join(
         function ()
             awful.prompt.run({ prompt = "Run: " },
             mypromptbox[mouse.screen].widget,
-            awful.util.spawn, nil,
+            awful.util.spawn, awful.completion.shell,
             awful.util.getdir("cache") .. "/history")
         end),
 

@@ -18,18 +18,15 @@ local client = require("awful.client")
 --- acordion layout module for awful
 module("awful.layout.suit.acordion")
 
-local function arrange(p)
+function arrange(p)
     -- Fullscreen?
-
-
-
     local area = p.workarea
     local cls = p.clients
     local focus = capi.client.focus
     local mwfact = tag.getmwfact(tag.selected(p.screen))
 
     -- Check that the focused window is on the right screen
-    if focus and focus.screen ~= screen then focus = nil end
+    if focus and focus.screen ~= p.screen then focus = nil end
 
     if not focus and #cls > 0 then
         focus = cls[1]
