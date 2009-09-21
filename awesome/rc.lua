@@ -58,7 +58,8 @@ apptags =
     -- ["mocp"] = { screen = 2, tag = 4 },
 	["Opera"] = { screen = 1,tag =5},
 	["Gajim"] = { screen = 1,tag =6},
-	["Gimmix"] = {screen =1 , tag = 9}
+	["Gimmix"] = {screen =1 , tag = 9},
+	["Firefox"] = {screen =1, tag = 5}
 }
 
 -- Define if we want to use titlebar on all applications.
@@ -225,7 +226,7 @@ globalkeys =
 	key({ modkey, 			}, 	"b",     function () mymainmenu:toggle() end ),
 
     -- Prompt
-    key({ modkey }, "F1",
+    key({ modkey }, "p",
         function ()
             awful.prompt.run({ prompt = "Run: " },
             mypromptbox[mouse.screen],
