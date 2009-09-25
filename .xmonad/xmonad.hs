@@ -16,7 +16,7 @@ import XMonad.Layout.Accordion
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "xterm -tn xterm-256color"
+myTerminal      = "xterm /bin/myshell"
 
 -- Width of the window border in pixels.
 --
@@ -66,7 +66,8 @@ myFocusedBorderColor = "#ff5000"
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- launch a terminal
-    [ ((modMask .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modMask ,              xK_Return), spawn "xterm" )
+    , ((modMask .|. shiftMask, xK_Return), spawn "xterm" )
 
     -- launch dmenu
     , ((modMask,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
