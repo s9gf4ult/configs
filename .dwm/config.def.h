@@ -21,6 +21,7 @@ static Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating */
 	{ "Gimp",     NULL,       NULL,       0,            True },
 	{ "Mplayer",  NULL, 	  NULL,       0,            True },
+	{ "Gimmix",   NULL,       NULL,       1<<8,         False}
 };
 
 /* layout(s) */
