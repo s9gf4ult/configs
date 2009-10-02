@@ -8,7 +8,7 @@ static const char normfgcolor[]     = "#000000";
 static const char selbordercolor[]  = "#0066ff";
 static const char selbgcolor[]      = "#0066ff";
 static const char selfgcolor[]      = "#ffffff";
-static unsigned int borderpx        = 1;        /* border pixel of windows */
+static unsigned int borderpx        = 3;        /* border pixel of windows */
 static unsigned int snap            = 32;       /* snap pixel */
 static Bool showbar                 = True;     /* False means no bar */
 static Bool topbar                  = True;     /* False means bottom bar */
@@ -20,7 +20,7 @@ static unsigned int tagset[] = {1, 1}; /* after start, first tag is selected */
 static Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating */
 	{ "Gimp",     NULL,       NULL,       0,            True },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       True },
+	{ "Mplayer",  NULL, 	  NULL,       0,            True },
 };
 
 /* layout(s) */
