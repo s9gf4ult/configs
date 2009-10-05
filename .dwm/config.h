@@ -19,11 +19,12 @@ static unsigned int tagset[] = {1, 1}; /* after start, first tag is selected */
 
 static Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating */
-	{ "Gimp",     NULL,       NULL,       0,            True },
+	{ "Gimp",     NULL,       NULL,       0,            False},
 	{ "Mplayer",  NULL, 	  NULL,       0,            True },
 	{ "Gimmix",   NULL,       NULL,       1<<8,         False},
 	{ "Firefox",  NULL,       NULL, 	  1<<4,         False},
-	{ "Thunderbird",NULL,     NULL,       1<<3,         False}
+	{ "Thunderbird",NULL,     NULL,       1<<3,         False},
+	{ "Gajim", 	  NULL, 	  NULL,       1<<5,         False}
 };
 
 /* layout(s) */
