@@ -1418,6 +1418,21 @@ tile(void) {
 void accordion(void)
 {
 	Client *c;
+	int x, y, w, mh, sh;
+	unsigned int i,n;
+
+	for (n=0,c=nexttiled(clients);c;n++,c=nexttiled(c->next));
+	if (!n) return;
+
+	--n;
+	mh=n ? wh*mfact : wh; //главнвя высота
+	sh=n ? wh*(1-mfact)/n : 0; //вторчная высота
+
+
+
+
+
+
 }
 
 
