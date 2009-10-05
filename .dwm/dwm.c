@@ -185,6 +185,7 @@ static void spawn(const Arg *arg);
 static void tag(const Arg *arg);
 static int textnw(const char *text, unsigned int len);
 static void tile(void);
+static void accordion(void);
 static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
 static void toggletag(const Arg *arg);
@@ -1413,6 +1414,13 @@ tile(void) {
 			y = c->y + HEIGHT(c);
 	}
 }
+
+void accordion(void)
+{
+	Client *c;
+}
+
+
 
 void
 togglebar(const Arg *arg) {
