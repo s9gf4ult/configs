@@ -20,7 +20,7 @@ static unsigned int tagset[] = {1, 1}; /* after start, first tag is selected */
 static Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating */
 	{ "Gimp",     NULL,       NULL,       0,            False},
-	{ "Mplayer",  NULL, 	  NULL,       0,            True },
+	{ "MPlayer",  NULL, 	  NULL,       0,            True },
 	{ "Gimmix",   NULL,       NULL,       1<<8,         False},
 	{ "Firefox",  NULL,       NULL, 	  1<<4,         False},
 	{ "Thunderbird",NULL,     NULL,       1<<3,         False},
@@ -33,7 +33,8 @@ static Bool resizehints = True; /* False means respect size hints in tiled resiz
 
 static Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "|-|",      tile },    /* first entry is default */
+	{ "|-|",      tileh},
+	{ "_|_",      tile },    /* first entry is default */
 	{ "\\\\\\",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "=-=",      accordion}
@@ -66,8 +67,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_a,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
