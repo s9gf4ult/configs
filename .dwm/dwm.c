@@ -184,9 +184,11 @@ static void sigchld(int signal);
 static void spawn(const Arg *arg);
 static void tag(const Arg *arg);
 static int textnw(const char *text, unsigned int len);
-static void tile(void);
+static void tileu(void);
+static void tilel(void);
+static void tiler(void);
+static void tiled(void);
 static void accordion(void);
-static void tileh(void);
 static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
 static void toggletag(const Arg *arg);
@@ -1383,7 +1385,7 @@ textnw(const char *text, unsigned int len) {
 }
 
 void
-tile(void) {
+tilel(void) {
 	int x, y, h, w, mw;
 	unsigned int i, n;
 	Client *c;
@@ -1416,23 +1418,48 @@ tile(void) {
 	}
 }
 
-void accordion(void)
-{
+void
+tiler(void) {
+	int x, y, h, w, mw;
+	unsigned int i, n;
 	Client *c;
-	int x, y, w, mh, sh;
-	unsigned int i,n;
 
-	for (n=0,c=nexttiled(clients);c;n++,c=nexttiled(c->next));
-	if (!n) return;
+	for(n = 0, c = nexttiled(clients); c; c = nexttiled(c->next), n++);
+	if(n == 0)
+		return;
 
-	--n;
-	mh=n ? wh*mfact : wh; //главнвя высота
-	sh=n ? wh*(1-mfact)/n : 0; //вторчная высота
+	/* master */
+	c = nexttiled(clients);
+	mw = mfact * ww;
+	{
+		int rmh, rmw, bww;
+		rmh=wh;
+		rmw=(n == 1 ? ww : mw);
+		bww= 2 * c->bw;
+		resize(c, wx+(ww-rmw), wy, rmw-bww, rmh-bww);
+	}
 
+	if(--n == 0)
+		return;
 
+	/* tile stack */
+	/*x = (wx + mw > c->x + c->w) ? c->x + c->w + 2 * c->bw : wx + mw;*/
+	x = wx;
+	y = wy;
+	w = (wx + mw > c->x + c->w) ? wx + ww - x : ww - mw;
+	h = wh / n;
+	if(h < bh)
+		h = wh;
+
+	for(i = 0, c = nexttiled(c->next); c; c = nexttiled(c->next), i++) {
+		resize(c, x, y, w - 2 * c->bw, /* remainder */ ((i + 1 == n)
+		       ? wy + wh - y - 2 * c->bw : h - 2 * c->bw));
+		if(h != wh)
+			y = c->y + HEIGHT(c);
+	}
 }
 
-void tileh(void)
+void tileu(void)
 {
 	int x, y, h, w, mh;
 	unsigned int i, n;
@@ -1467,6 +1494,66 @@ void tileh(void)
 
 
 }
+
+void tiled(void)
+{
+	int x, y, h, w, mh;
+	unsigned int i, n;
+	Client *c;
+
+	for(n = 0, c = nexttiled(clients); c; c = nexttiled(c->next), n++);
+	if(n == 0)
+		return;
+
+	/* master */
+	c = nexttiled(clients);
+	mh = mfact * wh;
+	{
+		int rmh, bww;
+		bww = 2 * c->bw;
+		rmh=(n == 1 ? wh : mh);
+		resize(c, wx, wy+(wh-rmh), ww-bww, rmh-bww);
+	}
+
+	if(--n == 0)
+		return;
+
+	/* tile stack */
+	/*y = (wy + mh > c->y + c->h) ? c->y + c->h + 2 * c->bw : wy + mh;*/
+	y = wy;
+	x = wx;
+	h = (wy + mh > c->y + c->h) ? wy + wh - y : wh - mh;
+	w = ww / n;
+	if(h < bh) //??
+		h = wh;
+
+	for(i = 0, c = nexttiled(c->next); c; c = nexttiled(c->next), i++) {
+		resize(c, x, y, ((i + 1 == n)
+		       ? wx + ww - x - 2 * c->bw : w - 2 * c->bw),      h - 2 * c->bw);
+		if(w != ww)
+			x = c->x + WIDTH(c);
+	}
+
+
+}
+
+
+void accordion(void)
+{
+	Client *c;
+	int x, y, w, mh, sh;
+	unsigned int i,n;
+
+	for (n=0,c=nexttiled(clients);c;n++,c=nexttiled(c->next));
+	if (!n) return;
+
+	--n;
+	mh=n ? wh*mfact : wh; //главнвя высота
+	sh=n ? wh*(1-mfact)/n : 0; //вторчная высота
+
+
+}
+
 
 
 
