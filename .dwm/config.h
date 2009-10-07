@@ -17,6 +17,7 @@ static Bool topbar                  = True;     /* False means bottom bar */
 static const char tags[][MAXTAGLEN] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static unsigned int tagset[] = {1, 1}; /* after start, first tag is selected */
 
+
 static Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating */
 	{ "Gimp",     NULL,       NULL,       0,            False},
@@ -41,6 +42,27 @@ static Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "=-=",      accordion}
 };
+#define TILE_ACCORDION (&layouts[6])
+#define TILE_LEFT (&layouts[0])
+#define TILE_RIGHT (&layouts[1])
+#define TILE_TOP (&layouts[2])
+#define TILE_BOTTOM (&layouts[3])
+
+static TagItem tagitems[] = { 
+	 // layout           mfact
+	{ TILE_ACCORDION,      0.6 },
+	{ TILE_ACCORDION,      0.6 },
+	{ TILE_TOP      ,      0.55},
+	{ TILE_TOP      ,      0.55},
+	{ TILE_TOP      ,      0.55},
+	{ TILE_TOP      ,      0.55},
+	{ TILE_TOP      ,      0.55},
+	{ TILE_TOP      ,      0.55},
+	{ TILE_RIGHT    ,      0.7}
+}
+
+
+
 
 /* key definitions */
 #define MODKEY Mod4Mask
