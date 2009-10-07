@@ -168,6 +168,7 @@ static void maprequest(XEvent *e);
 static void monocle(void);
 static void movemouse(const Arg *arg);
 static Client *nexttiled(Client *c);
+static Client * nextvisible(Client *c);
 static void propertynotify(XEvent *e);
 static void quit(const Arg *arg);
 static void resize(Client *c, int x, int y, int w, int h);
@@ -1057,6 +1058,13 @@ nexttiled(Client *c) {
 	return c;
 }
 
+Client * nextvisible( Client *c)
+{
+	while(c && !ISVISIBLE(c)) {c=c->next;};
+	return c;
+}
+
+
 void
 propertynotify(XEvent *e) {
 	Client *c;
@@ -1541,17 +1549,42 @@ void tiled(void)
 void accordion(void)
 {
 	Client *c;
-	int x, y, w, mh, sh;
-	unsigned int i,n;
+	int x, mh, sh;
+	unsigned int n;
 
-	for (n=0,c=nexttiled(clients);c;n++,c=nexttiled(c->next));
+	c=nexttiled(clients); n=0;
+	while(c){n++; c=nexttiled(c->next);};
 	if (!n) return;
+	c=nexttiled(clients);
+	if (n==1) {
+		int bww;
+		bww=2 * c->bw;
+		resize(nexttiled(clients), wx, wy, ww-bww, wh-bww);
+		return;
+	} else {
+		//find tiled wich befor or equal selected client
+		Client *maincl;
+		maincl=NULL;
 
-	--n;
-	mh=n ? wh*mfact : wh; //главнвя высота
-	sh=n ? wh*(1-mfact)/n : 0; //вторчная высота
-
-
+		while(c) {
+			if (! c->isfloating) maincl=c;
+			if (c == sel) break;
+			c=nextvisible(c->next);
+		}
+		if (! maincl) return;
+		
+		//applying resizing
+		c=nexttiled(clients);
+		mh=ww*mfact;
+		sh=ww*(1.-mfact)/(n-1);
+		x=wx;
+		while(c) {
+			int bww=2 * c->bw;
+			resize(c, x, wy, ww-bww, ((c == maincl) ? mh : sh) - bww);
+			x += HEIGHT(c);
+			c = nexttiled(c->next);
+		}
+	}
 }
 
 
