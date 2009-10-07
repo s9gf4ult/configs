@@ -725,7 +725,7 @@ focusstack(const Arg *arg) {
 	}
 	if(c) {
 		focus(c);
-		restack();
+		arrange();
 	}
 }
 
@@ -1549,7 +1549,7 @@ void tiled(void)
 void accordion(void)
 {
 	Client *c;
-	int x, mh, sh;
+	int y, mh, sh;
 	unsigned int n;
 
 	c=nexttiled(clients); n=0;
@@ -1564,6 +1564,7 @@ void accordion(void)
 	} else {
 		//find tiled wich befor or equal selected client
 		Client *maincl;
+		int i;
 		maincl=NULL;
 
 		while(c) {
@@ -1575,14 +1576,16 @@ void accordion(void)
 		
 		//applying resizing
 		c=nexttiled(clients);
-		mh=ww*mfact;
-		sh=ww*(1.-mfact)/(n-1);
-		x=wx;
+		mh=wh*mfact;
+		sh=wh*(1.-mfact)/(n-1);
+		y=wy;
+		i=1;
 		while(c) {
-			int bww=2 * c->bw;
-			resize(c, x, wy, ww-bww, ((c == maincl) ? mh : sh) - bww);
-			x += HEIGHT(c);
+			int hh = ((i != n) ? ((c == maincl) ? mh : sh) : (wh - (y - wy))); 
+			resize(c, wx, y, ww-2 * c->bw, hh - 2 * c->bw);
+			y += HEIGHT(c);
 			c = nexttiled(c->next);
+			i++;
 		}
 	}
 }
