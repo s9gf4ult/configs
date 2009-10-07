@@ -213,10 +213,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
-static float get_mfact(void);
-static Layout *get_layout(void);
-static void set_mfact(float factor);
-static void set_layout(Layout *layout);
+static TagItem *get_tagitem(void);
 
 /* variables */
 static char stext[256];
@@ -1600,32 +1597,9 @@ void accordion(void)
 }
 
 
-float get_mfact(void)
+static TagItem *get_tagitem(void)
 {
-	int i, n;
-	float mfacsum;
-	n=0;
-	mfacsum=0.;
-	for (i=0;i<LENGTH(tagitems);i++) 
-		if (tagset[seltags] & ( 1 << i)) {
-			n++;
-			mfacsum=tagitems[i].mfact;
-		}
-	return mfacsum/n;
-
 }
-
-
-Layout *get_layout(void)
-{
-	int i, withtile;
-	Layout *retlayout;
-	withtile=0;
-	for (i=0;i<LENGTH(tagitems);i++)
-		if (( 1 << i) & tagset[seltags]) { }
-
-}
-
 
 
 void
