@@ -57,7 +57,7 @@ static TagItem tagitems[] = {
 	{ TILE_LEFT     ,      0.8 },
 	{ TILE_TOP      ,      0.55},
 	{ TILE_TOP      ,      0.55},
-	{ TILE_RIGHT    ,      0.7}
+	{ TILE_LEFT     ,      0.3 }
 };
 
 
