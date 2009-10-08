@@ -1597,8 +1597,17 @@ void accordion(void)
 }
 
 
-static TagItem *get_tagitem(void)
+TagItem *get_tagitem(void)
 {
+	unsigned int i, istailed;
+	for (i=0, istailed=0; i<LENGTH(tagitems); i++)
+		if ((tagset[seltags] & 1 << i) && (tagitems[i].layout != TILE_ACCORDION)) {
+			istailed=1;
+			break;
+		}
+	
+
+
 }
 
 
