@@ -1,10 +1,10 @@
-set tabstop=4
+set tabstop=2
 set incsearch
 set ignorecase
 set showmatch
 set number
 set background=dark
-set sw=4
+set sw=2
 set smartindent
 set fileencodings=utf8,cp1251
 colorscheme pablo

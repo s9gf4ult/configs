@@ -351,8 +351,8 @@ void
 arrange(void) {
 	showhide(stack);
 	focus(NULL);
-	if(lt[sellt]->arrange)
-		lt[sellt]->arrange();
+	if((get_tagitem()->layout)->arrange)
+		(get_tagitem()->layout)->arrange();
 	restack();
 }
 
@@ -421,7 +421,11 @@ cleanup(void) {
 	Layout foo = { "", NULL };
 
 	view(&a);
-	lt[sellt] = &foo;
+	{
+		int i;
+		for (i=0;i<LENGTH(tagitems);i++) { }
+	}
+
 	while(stack)
 		unmanage(stack);
 	if(dc.font.set)
