@@ -495,7 +495,7 @@ configurerequest(XEvent *e) {
 	if((c = getclient(ev->window))) {
 		if(ev->value_mask & CWBorderWidth)
 			c->bw = ev->border_width;
-		else if(c->isfloating || !lt[sellt]->arrange) {
+		else if(c->isfloating || !(get_tagitem()->layout)->arrange) {
 			if(ev->value_mask & CWX)
 				c->x = sx + ev->x;
 			if(ev->value_mask & CWY)
@@ -587,7 +587,7 @@ drawbar(void) {
 	}
 	if(blw > 0) {
 		dc.w = blw;
-		drawtext(lt[sellt]->symbol, dc.norm, False);
+		drawtext((get_tagitem()->layout)->symbol, dc.norm, False);
 		x = dc.x + dc.w;
 	}
 	else
@@ -1050,10 +1050,10 @@ movemouse(const Arg *arg) {
 					ny = wy;
 				else if(abs((wy + wh) - (ny + HEIGHT(c))) < snap)
 					ny = wy + wh - HEIGHT(c);
-				if(!c->isfloating && lt[sellt]->arrange && (abs(nx - c->x) > snap || abs(ny - c->y) > snap))
+				if(!c->isfloating && (get_tagitem()->layout)->arrange && (abs(nx - c->x) > snap || abs(ny - c->y) > snap))
 					togglefloating(NULL);
 			}
-			if(!lt[sellt]->arrange || c->isfloating)
+			if(!(get_tagitem()->layout)->arrange || c->isfloating)
 				resize(c, nx, ny, c->w, c->h);
 			break;
 		}
@@ -1161,11 +1161,11 @@ resizemouse(const Arg *arg) {
 
 			if(snap && nw >= wx && nw <= wx + ww
 			        && nh >= wy && nh <= wy + wh) {
-				if(!c->isfloating && lt[sellt]->arrange
+				if(!c->isfloating && (get_tagitem()->layout)->arrange
 				   && (abs(nw - c->w) > snap || abs(nh - c->h) > snap))
 					togglefloating(NULL);
 			}
-			if(!lt[sellt]->arrange || c->isfloating)
+			if(!(get_tagitem()->layout)->arrange || c->isfloating)
 				resize(c, c->x, c->y, nw, nh);
 			break;
 		}
@@ -1185,9 +1185,9 @@ restack(void) {
 	drawbar();
 	if(!sel)
 		return;
-	if(sel->isfloating || !lt[sellt]->arrange)
+	if(sel->isfloating || !(get_tagitem()->layout)->arrange)
 		XRaiseWindow(dpy, sel->win);
-	if(lt[sellt]->arrange) {
+	if((get_tagitem()->layout)->arrange) {
 		wc.stack_mode = Below;
 		wc.sibling = barwin;
 		for(c = stack; c; c = c->snext)
@@ -1248,10 +1248,8 @@ setclientstate(Client *c, long state) {
 
 void
 setlayout(const Arg *arg) {
-	if(!arg || !arg->v || arg->v != lt[sellt])
-		sellt ^= 1;
 	if(arg && arg->v)
-		lt[sellt] = (Layout *)arg->v;
+		(get_tagitem()->layout) = (Layout *)arg->v;
 	if(sel)
 		arrange();
 	else
@@ -1263,7 +1261,7 @@ void
 setmfact(const Arg *arg) {
 	float f;
 
-	if(!arg || !lt[sellt]->arrange)
+	if(!arg || !(get_tagitem()->layout)->arrange)
 		return;
 	f = arg->f < 1.0 ? arg->f + mfact : arg->f - 1.0;
 	if(f < 0.1 || f > 0.9)
@@ -1353,7 +1351,7 @@ showhide(Client *c) {
 		return;
 	if(ISVISIBLE(c)) { /* show clients top down */
 		XMoveWindow(dpy, c->win, c->x, c->y);
-		if(!lt[sellt]->arrange || c->isfloating)
+		if(!(get_tagitem()->layout)->arrange || c->isfloating)
 			resize(c, c->x, c->y, c->w, c->h);
 		showhide(c->snext);
 	}
@@ -1603,15 +1601,7 @@ void accordion(void)
 
 TagItem *get_tagitem(void)
 {
-	unsigned int i, istailed;
-	for (i=0, istailed=0; i<LENGTH(tagitems); i++)
-		if ((tagset[seltags] & 1 << i) && (tagitems[i].layout != TILE_ACCORDION)) {
-			istailed=1;
-			break;
-		}
-	
-
-
+	return &tagitems[maintag];
 }
 
 
@@ -1827,11 +1817,13 @@ updatewmhints(Client *c) {
 
 void
 view(const Arg *arg) {
-	if((arg->ui & TAGMASK) == tagset[seltags])
+	if(((1 << arg->ui) & TAGMASK) == tagset[seltags])
 		return;
 	seltags ^= 1; /* toggle sel tagset */
-	if(arg->ui & TAGMASK)
-		tagset[seltags] = arg->ui & TAGMASK;
+	if((1 << arg->ui) & TAGMASK) {
+		maintag = arg->ui;
+		tagset[seltags] = (1 << arg->ui) & TAGMASK;
+	}
 	arrange();
 }
 
@@ -1872,7 +1864,7 @@ void
 zoom(const Arg *arg) {
 	Client *c = sel;
 
-	if(!lt[sellt]->arrange || lt[sellt]->arrange == monocle || (sel && sel->isfloating))
+	if(!(get_tagitem()->layout)->arrange || (get_tagitem()->layout)->arrange == monocle || (sel && sel->isfloating))
 		return;
 	if(c == nexttiled(clients))
 		if(!c || !(c = nexttiled(c->next)))
