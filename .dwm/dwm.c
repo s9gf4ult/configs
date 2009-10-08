@@ -221,7 +221,7 @@ static int screen;
 static int sx, sy, sw, sh; /* X display screen geometry x, y, width, height */ 
 static int by, bh, blw;    /* bar geometry y, height and layout symbol width */
 static int wx, wy, ww, wh; /* window area geometry x, y, width, height, bar excluded */
-static unsigned int seltags = 0, sellt = 0;
+static unsigned int seltags = 0;
 static int (*xerrorxlib)(Display *, XErrorEvent *);
 static unsigned int numlockmask = 0;
 static void (*handler[LASTEvent]) (XEvent *) = {
@@ -418,7 +418,6 @@ checkotherwm(void) {
 void
 cleanup(void) {
 	Arg a = {.ui = ~0};
-	Layout foo = { "", NULL };
 
 	view(&a);
 	{
@@ -1263,10 +1262,10 @@ setmfact(const Arg *arg) {
 
 	if(!arg || !(get_tagitem()->layout)->arrange)
 		return;
-	f = arg->f < 1.0 ? arg->f + mfact : arg->f - 1.0;
+	f = arg->f < 1.0 ? arg->f + get_tagitem()->mfact : arg->f - 1.0;
 	if(f < 0.1 || f > 0.9)
 		return;
-	mfact = f;
+	get_tagitem()->mfact = f;
 	arrange();
 }
 
@@ -1412,7 +1411,7 @@ tilel(void) {
 
 	/* master */
 	c = nexttiled(clients);
-	mw = mfact * ww;
+	mw = get_tagitem()->mfact * ww;
 	resize(c, wx, wy, (n == 1 ? ww : mw) - 2 * c->bw, wh - 2 * c->bw);
 
 	if(--n == 0)
@@ -1446,7 +1445,7 @@ tiler(void) {
 
 	/* master */
 	c = nexttiled(clients);
-	mw = mfact * ww;
+	mw = get_tagitem()->mfact * ww;
 	{
 		int rmh, rmw, bww;
 		rmh=wh;
@@ -1487,7 +1486,7 @@ void tileu(void)
 
 	/* master */
 	c = nexttiled(clients);
-	mh = mfact * wh;
+	mh = get_tagitem()->mfact * wh;
 	resize(c, wx, wy, ww - 2 * c->bw,  (n == 1 ? wh : mh) - 2 * c->bw);
 
 	if(--n == 0)
@@ -1523,7 +1522,7 @@ void tiled(void)
 
 	/* master */
 	c = nexttiled(clients);
-	mh = mfact * wh;
+	mh = get_tagitem()->mfact * wh;
 	{
 		int rmh, bww;
 		bww = 2 * c->bw;
@@ -1584,8 +1583,8 @@ void accordion(void)
 		
 		//applying resizing
 		c=nexttiled(clients);
-		mh=wh*mfact;
-		sh=wh*(1.-mfact)/(n-1);
+		mh=wh*get_tagitem()->mfact;
+		sh=wh*(1.-get_tagitem()->mfact)/(n-1);
 		y=wy;
 		i=1;
 		while(c) {

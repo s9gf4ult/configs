@@ -29,7 +29,6 @@ static Rule rules[] = {
 };
 
 /* layout(s) */
-static float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
 static Bool resizehints = True; /* False means respect size hints in tiled resizals */
 
 static Layout layouts[] = {
@@ -59,7 +58,7 @@ static TagItem tagitems[] = {
 	{ TILE_TOP      ,      0.55},
 	{ TILE_TOP      ,      0.55},
 	{ TILE_RIGHT    ,      0.7}
-}
+};
 
 
 
@@ -67,7 +66,7 @@ static TagItem tagitems[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui  TAG} }, \
+	{ MODKEY,                       KEY,      view,           {.ui = TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
