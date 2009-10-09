@@ -21,11 +21,12 @@ static unsigned int maintag = 1;
 static Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating */
 	{ "Gimp",     NULL,       NULL,       0,            False},
-	{ "MPlayer",  NULL, 	  NULL,       0,            True },
+	{ "MPlayer",  NULL, 	    NULL,       0,            True },
 	{ "Gimmix",   NULL,       NULL,       1<<8,         False},
-	{ "Firefox",  NULL,       NULL, 	  1<<4,         False},
+	{ "Firefox",  NULL,       NULL, 	    1<<4,         False},
 	{ "Thunderbird",NULL,     NULL,       1<<3,         False},
-	{ "Gajim", 	  NULL, 	  NULL,       1<<5,         False}
+	{ "Gajim", 	  NULL, 	    NULL,       1<<5,         False},
+	{ "SAPGUI",   NULL,       NULL,       0,            True}
 };
 
 /* layout(s) */
