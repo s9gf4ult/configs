@@ -381,7 +381,7 @@ buttonpress(XEvent *e) {
 		do x += TEXTW(tags[i]); while(ev->x >= x && ++i < LENGTH(tags));
 		if(i < LENGTH(tags)) {
 			click = ClkTagBar;
-			arg.ui = 1 << i;
+			arg.ui = i;
 		}
 		else if(ev->x < x + blw)
 			click = ClkLtSymbol;
@@ -1819,7 +1819,7 @@ view(const Arg *arg) {
 	if(((1 << arg->ui) & TAGMASK) == tagset[seltags])
 		return;
 	seltags ^= 1; /* toggle sel tagset */
-	if((1 << arg->ui) & TAGMASK) {
+	if((arg->ui >= 0) && (arg->ui <= 8)) {
 		maintag = arg->ui;
 		tagset[seltags] = (1 << arg->ui) & TAGMASK;
 	}
