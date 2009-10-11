@@ -381,7 +381,7 @@ buttonpress(XEvent *e) {
 		do x += TEXTW(tags[i]); while(ev->x >= x && ++i < LENGTH(tags));
 		if(i < LENGTH(tags)) {
 			click = ClkTagBar;
-			arg.ui = i;
+			arg.ui = 1 << i;
 		}
 		else if(ev->x < x + blw)
 			click = ClkLtSymbol;
@@ -1600,7 +1600,7 @@ void accordion(void)
 
 TagItem *get_tagitem(void)
 {
-	return &tagitems[maintag];
+	return &tagitems[maintag[seltags]];
 }
 
 
@@ -1816,13 +1816,19 @@ updatewmhints(Client *c) {
 
 void
 view(const Arg *arg) {
-	if(((1 << arg->ui) & TAGMASK) == tagset[seltags])
+	if((arg->ui & TAGMASK) == tagset[seltags])
 		return;
+
 	seltags ^= 1; /* toggle sel tagset */
-	if((arg->ui >= 0) && (arg->ui <= 8)) {
-		maintag = arg->ui;
-		tagset[seltags] = (1 << arg->ui) & TAGMASK;
+
+	if(arg->ui & TAGMASK) {
+		unsigned int curtagset = arg->ui & TAGMASK;
+		tagset[seltags] = curtagset;
+		int i;
+		for (i=0; (i < LENGTH(tags)) && ( ! curtagset & 1) ; i++, curtagset >>= 1);
+		maintag[seltags] = i;
 	}
+
 	arrange();
 }
 
