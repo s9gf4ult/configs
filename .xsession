@@ -1,6 +1,6 @@
 #!/bin/bash
 while true;do
-	xsetroot -name "_-=+\$ $(date +%H:%M:%S) \$+=-_"
+	xsetroot -name "_-=+\$ $(date "+%d %b %a %H:%M:%S") \$+=-_"
 	sleep 1
 done &
 xset m 0
