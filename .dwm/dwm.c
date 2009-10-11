@@ -54,6 +54,7 @@
 #define HEIGHT(x)               ((x)->h + 2 * (x)->bw)
 #define TAGMASK                 ((int)((1LL << LENGTH(tags)) - 1))
 #define TEXTW(x)                (textnw(x, strlen(x)) + dc.font.height)
+#define CURRENTTAGITEM 			(tagitems[maintag[seltags]])
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast };        /* cursor */
@@ -213,7 +214,6 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
-static TagItem *get_tagitem(void);
 
 /* variables */
 static char stext[256];
@@ -351,8 +351,8 @@ void
 arrange(void) {
 	showhide(stack);
 	focus(NULL);
-	if((get_tagitem()->layout)->arrange)
-		(get_tagitem()->layout)->arrange();
+	if((CURRENTTAGITEM.layout)->arrange)
+		(CURRENTTAGITEM.layout)->arrange();
 	restack();
 }
 
@@ -494,7 +494,7 @@ configurerequest(XEvent *e) {
 	if((c = getclient(ev->window))) {
 		if(ev->value_mask & CWBorderWidth)
 			c->bw = ev->border_width;
-		else if(c->isfloating || !(get_tagitem()->layout)->arrange) {
+		else if(c->isfloating || !(CURRENTTAGITEM.layout)->arrange) {
 			if(ev->value_mask & CWX)
 				c->x = sx + ev->x;
 			if(ev->value_mask & CWY)
@@ -586,7 +586,7 @@ drawbar(void) {
 	}
 	if(blw > 0) {
 		dc.w = blw;
-		drawtext((get_tagitem()->layout)->symbol, dc.norm, False);
+		drawtext((CURRENTTAGITEM.layout)->symbol, dc.norm, False);
 		x = dc.x + dc.w;
 	}
 	else
@@ -1049,10 +1049,10 @@ movemouse(const Arg *arg) {
 					ny = wy;
 				else if(abs((wy + wh) - (ny + HEIGHT(c))) < snap)
 					ny = wy + wh - HEIGHT(c);
-				if(!c->isfloating && (get_tagitem()->layout)->arrange && (abs(nx - c->x) > snap || abs(ny - c->y) > snap))
+				if(!c->isfloating && (CURRENTTAGITEM.layout)->arrange && (abs(nx - c->x) > snap || abs(ny - c->y) > snap))
 					togglefloating(NULL);
 			}
-			if(!(get_tagitem()->layout)->arrange || c->isfloating)
+			if(!(CURRENTTAGITEM.layout)->arrange || c->isfloating)
 				resize(c, nx, ny, c->w, c->h);
 			break;
 		}
@@ -1160,11 +1160,11 @@ resizemouse(const Arg *arg) {
 
 			if(snap && nw >= wx && nw <= wx + ww
 			        && nh >= wy && nh <= wy + wh) {
-				if(!c->isfloating && (get_tagitem()->layout)->arrange
+				if(!c->isfloating && (CURRENTTAGITEM.layout)->arrange
 				   && (abs(nw - c->w) > snap || abs(nh - c->h) > snap))
 					togglefloating(NULL);
 			}
-			if(!(get_tagitem()->layout)->arrange || c->isfloating)
+			if(!(CURRENTTAGITEM.layout)->arrange || c->isfloating)
 				resize(c, c->x, c->y, nw, nh);
 			break;
 		}
@@ -1184,9 +1184,9 @@ restack(void) {
 	drawbar();
 	if(!sel)
 		return;
-	if(sel->isfloating || !(get_tagitem()->layout)->arrange)
+	if(sel->isfloating || !(CURRENTTAGITEM.layout)->arrange)
 		XRaiseWindow(dpy, sel->win);
-	if((get_tagitem()->layout)->arrange) {
+	if((CURRENTTAGITEM.layout)->arrange) {
 		wc.stack_mode = Below;
 		wc.sibling = barwin;
 		for(c = stack; c; c = c->snext)
@@ -1248,7 +1248,7 @@ setclientstate(Client *c, long state) {
 void
 setlayout(const Arg *arg) {
 	if(arg && arg->v)
-		(get_tagitem()->layout) = (Layout *)arg->v;
+		(CURRENTTAGITEM.layout) = (Layout *)arg->v;
 	if(sel)
 		arrange();
 	else
@@ -1260,12 +1260,12 @@ void
 setmfact(const Arg *arg) {
 	float f;
 
-	if(!arg || !(get_tagitem()->layout)->arrange)
+	if(!arg || !(CURRENTTAGITEM.layout)->arrange)
 		return;
-	f = arg->f < 1.0 ? arg->f + get_tagitem()->mfact : arg->f - 1.0;
+	f = arg->f < 1.0 ? arg->f + CURRENTTAGITEM.mfact : arg->f - 1.0;
 	if(f < 0.1 || f > 0.9)
 		return;
-	get_tagitem()->mfact = f;
+	CURRENTTAGITEM.mfact = f;
 	arrange();
 }
 
@@ -1350,7 +1350,7 @@ showhide(Client *c) {
 		return;
 	if(ISVISIBLE(c)) { /* show clients top down */
 		XMoveWindow(dpy, c->win, c->x, c->y);
-		if(!(get_tagitem()->layout)->arrange || c->isfloating)
+		if(!(CURRENTTAGITEM.layout)->arrange || c->isfloating)
 			resize(c, c->x, c->y, c->w, c->h);
 		showhide(c->snext);
 	}
@@ -1411,7 +1411,7 @@ tilel(void) {
 
 	/* master */
 	c = nexttiled(clients);
-	mw = get_tagitem()->mfact * ww;
+	mw = CURRENTTAGITEM.mfact * ww;
 	resize(c, wx, wy, (n == 1 ? ww : mw) - 2 * c->bw, wh - 2 * c->bw);
 
 	if(--n == 0)
@@ -1445,7 +1445,7 @@ tiler(void) {
 
 	/* master */
 	c = nexttiled(clients);
-	mw = get_tagitem()->mfact * ww;
+	mw = CURRENTTAGITEM.mfact * ww;
 	{
 		int rmh, rmw, bww;
 		rmh=wh;
@@ -1486,7 +1486,7 @@ void tileu(void)
 
 	/* master */
 	c = nexttiled(clients);
-	mh = get_tagitem()->mfact * wh;
+	mh = CURRENTTAGITEM.mfact * wh;
 	resize(c, wx, wy, ww - 2 * c->bw,  (n == 1 ? wh : mh) - 2 * c->bw);
 
 	if(--n == 0)
@@ -1522,7 +1522,7 @@ void tiled(void)
 
 	/* master */
 	c = nexttiled(clients);
-	mh = get_tagitem()->mfact * wh;
+	mh = CURRENTTAGITEM.mfact * wh;
 	{
 		int rmh, bww;
 		bww = 2 * c->bw;
@@ -1583,8 +1583,8 @@ void accordion(void)
 		
 		//applying resizing
 		c=nexttiled(clients);
-		mh=wh*get_tagitem()->mfact;
-		sh=wh*(1.-get_tagitem()->mfact)/(n-1);
+		mh=wh*CURRENTTAGITEM.mfact;
+		sh=wh*(1.-CURRENTTAGITEM.mfact)/(n-1);
 		y=wy;
 		i=1;
 		while(c) {
@@ -1595,12 +1595,6 @@ void accordion(void)
 			i++;
 		}
 	}
-}
-
-
-TagItem *get_tagitem(void)
-{
-	return &tagitems[maintag[seltags]];
 }
 
 
@@ -1825,7 +1819,7 @@ view(const Arg *arg) {
 		unsigned int curtagset = arg->ui & TAGMASK;
 		tagset[seltags] = curtagset;
 		int i;
-		for (i=0; (i < LENGTH(tags)) && ( ! curtagset & 1) ; i++, curtagset >>= 1);
+		for (i=0; (i < LENGTH(tags)) && ( ! (curtagset & 1)) ; i++, curtagset >>= 1);
 		maintag[seltags] = i;
 	}
 
@@ -1869,7 +1863,7 @@ void
 zoom(const Arg *arg) {
 	Client *c = sel;
 
-	if(!(get_tagitem()->layout)->arrange || (get_tagitem()->layout)->arrange == monocle || (sel && sel->isfloating))
+	if(!(CURRENTTAGITEM.layout)->arrange || (CURRENTTAGITEM.layout)->arrange == monocle || (sel && sel->isfloating))
 		return;
 	if(c == nexttiled(clients))
 		if(!c || !(c = nexttiled(c->next)))
