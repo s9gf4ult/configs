@@ -569,6 +569,7 @@ drawbar(void) {
 	unsigned int i, occ = 0, urg = 0;
 	unsigned long *col;
 	Client *c;
+	if (! running) return;
 
 	for(c = clients; c; c = c->next) {
 		occ |= c->tags;
@@ -1116,6 +1117,7 @@ quit(const Arg *arg) {
 void
 resize(Client *c, int x, int y, int w, int h) {
 	XWindowChanges wc;
+	if (! running) return;
 
 	if(applysizehints(c, &x, &y, &w, &h)) {
 		c->x = wc.x = x;

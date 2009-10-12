@@ -50,8 +50,8 @@ static Layout layouts[] = {
 
 static TagItem tagitems[] = { 
 	 // layout           mfact
-	{ TILE_ACCORDION,      0.6 },
-	{ TILE_ACCORDION,      0.6 },
+	{ TILE_ACCORDION,      0.8 },
+	{ TILE_ACCORDION,      0.8 },
 	{ TILE_TOP      ,      0.55},
 	{ TILE_TOP      ,      0.55},
 	{ TILE_TOP      ,      0.55},
