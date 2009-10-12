@@ -1423,7 +1423,7 @@ Client *tilestripv(Client *c, unsigned int count, int xo, int yo, int wo, int ho
 	
 	while ((count) && (c)) {
 		int bww = c->bw * 2;
-		resize(c, xo, yo, wo - bww, (count == 1 ? ho - (yold - yo) : hoh) - bww  );
+		resize(c, xo, yo, wo - bww, (count == 1 ? ho - (yo - yold) : hoh) - bww  );
 		if (count != 1) yo += HEIGHT(c);
 		--count;
 		c = nexttiled(c->next);
