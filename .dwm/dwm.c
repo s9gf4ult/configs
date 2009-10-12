@@ -1894,5 +1894,5 @@ main(int argc, char *argv[]) {
 
 	XCloseDisplay(dpy);
 	if (!restarting)  return 0;
-	execve("./dwm", argv, __environ);
+	execve(argv[0], argv, __environ);
 }
