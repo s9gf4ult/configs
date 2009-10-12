@@ -131,6 +131,7 @@ typedef struct {
 typedef struct {
 	Layout *layout;
 	float mfact;
+	unsigned int mainarea;
 } TagItem;
 
 /* function declarations */
@@ -214,6 +215,10 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
+static Client *tilestripv(Client *c, unsigned int count, int xo, int yo, int wo, int ho);
+static void setmainarea(const Arg *arg);
+static void restart(const Arg *arg);
+static Client *tilestriph(Client *c, unsigned int count, int xo, int yo, int wo, int ho);
 
 /* variables */
 static char stext[256];
@@ -241,6 +246,7 @@ static void (*handler[LASTEvent]) (XEvent *) = {
 static Atom wmatom[WMLast], netatom[NetLast];
 static Bool otherwm;
 static Bool running = True;
+static Bool restarting = False;
 static Client *clients = NULL;
 static Client *sel = NULL;
 static Client *stack = NULL;
@@ -1114,6 +1120,13 @@ quit(const Arg *arg) {
 	running = False;
 }
 
+
+void restart(const Arg *arg)
+{
+	running = False;
+	restarting = True;
+}
+
 void
 resize(Client *c, int x, int y, int w, int h) {
 	XWindowChanges wc;
@@ -1401,10 +1414,28 @@ textnw(const char *text, unsigned int len) {
 	return XTextWidth(dc.font.xfont, text, len);
 }
 
+Client *tilestripv(Client *c, unsigned int count, int xo, int yo, int wo, int ho) 
+{
+	if (! count) return NULL;
+
+  int yold = yo;
+	int hoh = ho / count;
+	
+	while ((count) && (c)) {
+		int bww = c->bw * 2;
+		resize(c, xo, yo, wo - bww, (count == 1 ? ho - (yold - yo) : hoh) - bww  );
+		if (count != 1) yo += HEIGHT(c);
+		--count;
+		c = nexttiled(c->next);
+	}
+	return c;
+}
+
+
 void
 tilel(void) {
-	int x, y, h, w, mw;
-	unsigned int i, n;
+	int x, w, mw;
+	unsigned int  n;
 	Client *c;
 
 	for(n = 0, c = nexttiled(clients); c; c = nexttiled(c->next), n++);
@@ -1413,32 +1444,23 @@ tilel(void) {
 
 	/* master */
 	c = nexttiled(clients);
-	mw = CURRENTTAGITEM.mfact * ww;
-	resize(c, wx, wy, (n == 1 ? ww : mw) - 2 * c->bw, wh - 2 * c->bw);
-
-	if(--n == 0)
-		return;
+	Client *cc = c;
+	mw = ww * CURRENTTAGITEM.mfact;
+	c = tilestripv(c, n < CURRENTTAGITEM.mainarea ? n : CURRENTTAGITEM.mainarea, wx, wy, n <= CURRENTTAGITEM.mainarea ? ww : mw, wh);
+	if ((!c) || (n <= CURRENTTAGITEM.mainarea)) return;
 
 	/* tile stack */
-	x = (wx + mw > c->x + c->w) ? c->x + c->w + 2 * c->bw : wx + mw;
-	y = wy;
-	w = (wx + mw > c->x + c->w) ? wx + ww - x : ww - mw;
-	h = wh / n;
-	if(h < bh)
-		h = wh;
+	int onex = wx + mw;
+	int twox = cc->x + cc->w;
+	x = onex > twox ? onex : twox;
+	w = ww - (x - wx);
+	tilestripv(c, n - CURRENTTAGITEM.mainarea, x, wy, w, wh);
 
-	for(i = 0, c = nexttiled(c->next); c; c = nexttiled(c->next), i++) {
-		resize(c, x, y, w - 2 * c->bw, /* remainder */ ((i + 1 == n)
-		       ? wy + wh - y - 2 * c->bw : h - 2 * c->bw));
-		if(h != wh)
-			y = c->y + HEIGHT(c);
-	}
 }
 
 void
 tiler(void) {
-	int x, y, h, w, mw;
-	unsigned int i, n;
+	unsigned int  n;
 	Client *c;
 
 	for(n = 0, c = nexttiled(clients); c; c = nexttiled(c->next), n++);
@@ -1447,39 +1469,38 @@ tiler(void) {
 
 	/* master */
 	c = nexttiled(clients);
-	mw = CURRENTTAGITEM.mfact * ww;
-	{
-		int rmh, rmw, bww;
-		rmh=wh;
-		rmw=(n == 1 ? ww : mw);
-		bww= 2 * c->bw;
-		resize(c, wx+(ww-rmw), wy, rmw-bww, rmh-bww);
-	}
-
-	if(--n == 0)
-		return;
+	c = tilestripv(c, n < CURRENTTAGITEM.mainarea ? n : CURRENTTAGITEM.mainarea, n <= CURRENTTAGITEM.mainarea ? wx : wx + ((1 - CURRENTTAGITEM.mfact) * ww) , wy, (n <= CURRENTTAGITEM.mainarea ? 1 : CURRENTTAGITEM.mfact) * ww , wh);
+	if ((!c) || (n <= CURRENTTAGITEM.mainarea)) return;
 
 	/* tile stack */
-	/*x = (wx + mw > c->x + c->w) ? c->x + c->w + 2 * c->bw : wx + mw;*/
-	x = wx;
-	y = wy;
-	w = (wx + mw > c->x + c->w) ? wx + ww - x : ww - mw;
-	h = wh / n;
-	if(h < bh)
-		h = wh;
+	tilestripv(c, n - CURRENTTAGITEM.mainarea, wx, wy, ww * (1 - CURRENTTAGITEM.mfact), wh);
 
-	for(i = 0, c = nexttiled(c->next); c; c = nexttiled(c->next), i++) {
-		resize(c, x, y, w - 2 * c->bw, /* remainder */ ((i + 1 == n)
-		       ? wy + wh - y - 2 * c->bw : h - 2 * c->bw));
-		if(h != wh)
-			y = c->y + HEIGHT(c);
-	}
 }
+
+
+
+Client *tilestriph(Client *c, unsigned int count, int xo, int yo, int wo, int ho)
+{
+	if (! count) return NULL;
+
+	int xold = xo;
+	int woh = wo / count;
+
+	while ((count) && (c)) {
+		int bww = c->bw * 2;
+		resize(c, xo, yo, (count == 1 ? wo - (xo - xold) : woh) - bww, ho - bww);
+		if (count != 1) xo += WIDTH(c);
+		--count;
+		c = nexttiled(c->next);
+	}
+	return c;
+}
+
 
 void tileu(void)
 {
-	int x, y, h, w, mh;
-	unsigned int i, n;
+	int y, h, mh;
+	unsigned int  n;
 	Client *c;
 
 	for(n = 0, c = nexttiled(clients); c; c = nexttiled(c->next), n++);
@@ -1488,34 +1509,23 @@ void tileu(void)
 
 	/* master */
 	c = nexttiled(clients);
-	mh = CURRENTTAGITEM.mfact * wh;
-	resize(c, wx, wy, ww - 2 * c->bw,  (n == 1 ? wh : mh) - 2 * c->bw);
-
-	if(--n == 0)
-		return;
+	Client *cc = c;
+	mh = wh * CURRENTTAGITEM.mfact;
+	c = tilestriph(c, n < CURRENTTAGITEM.mainarea ? n : CURRENTTAGITEM.mainarea, wx, wy, ww, n <= CURRENTTAGITEM.mainarea ? wh : mh);
+	if ((!c) || (n <= CURRENTTAGITEM.mainarea)) return;
 
 	/* tile stack */
-	y = (wy + mh > c->y + c->h) ? c->y + c->h + 2 * c->bw : wy + mh;
-	x = wx;
-	h = (wy + mh > c->y + c->h) ? wy + wh - y : wh - mh;
-	w = ww / n;
-	if(h < bh) //??
-		h = wh;
-
-	for(i = 0, c = nexttiled(c->next); c; c = nexttiled(c->next), i++) {
-		resize(c, x, y, ((i + 1 == n)
-		       ? wx + ww - x - 2 * c->bw : w - 2 * c->bw),      h - 2 * c->bw);
-		if(w != ww)
-			x = c->x + WIDTH(c);
-	}
-
+	int oney = wy + mh;
+	int twoy = cc->y + cc->h;
+	y = oney > twoy ? oney : twoy;
+	h = wh - (y - wy);
+	tilestriph(c, n - CURRENTTAGITEM.mainarea, wx, y, ww, h);
 
 }
 
 void tiled(void)
 {
-	int x, y, h, w, mh;
-	unsigned int i, n;
+	unsigned int  n;
 	Client *c;
 
 	for(n = 0, c = nexttiled(clients); c; c = nexttiled(c->next), n++);
@@ -1524,33 +1534,11 @@ void tiled(void)
 
 	/* master */
 	c = nexttiled(clients);
-	mh = CURRENTTAGITEM.mfact * wh;
-	{
-		int rmh, bww;
-		bww = 2 * c->bw;
-		rmh=(n == 1 ? wh : mh);
-		resize(c, wx, wy+(wh-rmh), ww-bww, rmh-bww);
-	}
-
-	if(--n == 0)
-		return;
+	c = tilestriph(c, n < CURRENTTAGITEM.mainarea ? n : CURRENTTAGITEM.mainarea, wx, wy + (n <= CURRENTTAGITEM.mainarea ? 0  : ((1 - CURRENTTAGITEM.mfact) * wh)), ww, wh * (n <= CURRENTTAGITEM.mainarea ? 1 : CURRENTTAGITEM.mfact));
+	if ((!c) || (n <= CURRENTTAGITEM.mainarea)) return;
 
 	/* tile stack */
-	/*y = (wy + mh > c->y + c->h) ? c->y + c->h + 2 * c->bw : wy + mh;*/
-	y = wy;
-	x = wx;
-	h = (wy + mh > c->y + c->h) ? wy + wh - y : wh - mh;
-	w = ww / n;
-	if(h < bh) //??
-		h = wh;
-
-	for(i = 0, c = nexttiled(c->next); c; c = nexttiled(c->next), i++) {
-		resize(c, x, y, ((i + 1 == n)
-		       ? wx + ww - x - 2 * c->bw : w - 2 * c->bw),      h - 2 * c->bw);
-		if(w != ww)
-			x = c->x + WIDTH(c);
-	}
-
+	tilestriph(c, n - CURRENTTAGITEM.mainarea, wx, wy, ww, ((1 - CURRENTTAGITEM.mfact)*wh));
 
 }
 
@@ -1597,6 +1585,15 @@ void accordion(void)
 			i++;
 		}
 	}
+}
+
+void setmainarea(const Arg *arg)
+{
+	if ((arg) && (arg->i)) {
+		CURRENTTAGITEM.mainarea += arg->i;
+	}
+	if ( CURRENTTAGITEM.mainarea <= 0) CURRENTTAGITEM.mainarea = 1;
+	arrange();
 }
 
 
@@ -1896,5 +1893,6 @@ main(int argc, char *argv[]) {
 	cleanup();
 
 	XCloseDisplay(dpy);
-	return 0;
+	if (!restarting)  return 0;
+	execve("./dwm", argv, __environ);
 }

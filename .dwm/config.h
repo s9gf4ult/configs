@@ -49,16 +49,16 @@ static Layout layouts[] = {
 #define TILE_BOTTOM (&layouts[3])
 
 static TagItem tagitems[] = { 
-	 // layout           mfact
-	{ TILE_ACCORDION,      0.8 },
-	{ TILE_ACCORDION,      0.8 },
-	{ TILE_TOP      ,      0.55},
-	{ TILE_TOP      ,      0.55},
-	{ TILE_TOP      ,      0.55},
-	{ TILE_LEFT     ,      0.8 },
-	{ TILE_TOP      ,      0.55},
-	{ TILE_TOP      ,      0.55},
-	{ TILE_LEFT     ,      0.42 }
+	 // layout           mfact    mainarea
+	{ TILE_ACCORDION,      0.8 ,    1},
+	{ TILE_ACCORDION,      0.8 ,    1},
+	{ TILE_TOP      ,      0.55,    1},
+	{ TILE_TOP      ,      0.55,    1},
+	{ TILE_TOP      ,      0.55,    1},
+	{ TILE_LEFT     ,      0.8 ,    1},
+	{ TILE_TOP      ,      0.55,    1},
+	{ TILE_TOP      ,      0.55,    1},
+	{ TILE_LEFT     ,      0.42,    1}
 };
 
 
@@ -88,6 +88,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ControlMask,           XK_h,      setmainarea,    {.i = +1}  },
+	{ MODKEY|ControlMask,           XK_l,      setmainarea,    {.i = -1} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
@@ -112,6 +114,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY,                       XK_q,      restart,        {0} }
 };
 
 /* button definitions */
