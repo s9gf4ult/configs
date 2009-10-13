@@ -26,6 +26,7 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#define __USE_GNU
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -273,9 +274,9 @@ applyrules(Client *c) {
 	if(XGetClassHint(dpy, c->win, &ch)) {
 		for(i = 0; i < LENGTH(rules); i++) {
 			r = &rules[i];
-			if((!r->title || strstr(c->name, r->title))
-			&& (!r->class || (ch.res_class && strstr(ch.res_class, r->class)))
-			&& (!r->instance || (ch.res_name && strstr(ch.res_name, r->instance)))) {
+			if((!r->title || strcasestr(c->name, r->title))
+			&& (!r->class || (ch.res_class && strcasestr(ch.res_class, r->class)))
+			&& (!r->instance || (ch.res_name && strcasestr(ch.res_name, r->instance)))) {
 				c->isfloating = r->isfloating;
 				c->tags |= r->tags; 
 			}
