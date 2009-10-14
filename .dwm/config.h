@@ -26,6 +26,7 @@ static Rule rules[] = {
 	{ "Firefox",  NULL,       NULL, 	    1<<4,         False},
 	{ "Thunderbird",NULL,     NULL,       1<<3,         False},
 	{ "Gajim", 	  NULL, 	    NULL,       1<<5,         False},
+	{ "Tkabber",  NULL,       NULL,       1<<5,         False},
 	{ "SAPGUI",   NULL,       NULL,       0,            True},
 	{ "VirtualBox",NULL,      NULL,       0,            True}
 };
