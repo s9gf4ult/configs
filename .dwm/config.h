@@ -3,7 +3,7 @@
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#000000";
-static const char selbordercolor[]  = "#0e8dc2";
+static const char selbordercolor[]  = "#8517d2";
 static const char normbgcolor[]     = "#cccccc";
 static const char normfgcolor[]     = "#000000";
 static const char selbgcolor[]      = "#8517d2";
@@ -28,7 +28,8 @@ static Rule rules[] = {
 	{ "Gajim", 	  NULL, 	    NULL,       1<<5,         False},
 	{ "Tkabber",  NULL,       NULL,       1<<5,         False},
 	{ "SAPGUI",   NULL,       NULL,       0,            True},
-	{ "VirtualBox",NULL,      NULL,       0,            True}
+	{ "VirtualBox",NULL,      NULL,       0,            True},
+	{ NULL, "gtk_file_chooser",NULL,      0,            True}
 };
 
 /* layout(s) */
