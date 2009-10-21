@@ -256,6 +256,8 @@ static Display *dpy;
 static DC dc;
 static Layout *lt[] = { NULL, NULL };
 static Window root, barwin;
+static char tmpstr[256];
+
 /* configuration, allows nested code to access above variables */
 #include "config.h"
 
@@ -1781,8 +1783,14 @@ updatesizehints(Client *c) {
 
 void
 updatetitle(Client *c) {
-	if(!gettextprop(c->win, netatom[NetWMName], c->name, sizeof c->name))
-		gettextprop(c->win, XA_WM_NAME, c->name, sizeof c->name);
+	if(!gettextprop(c->win, netatom[NetWMName], tmpstr, sizeof(tmpstr)))
+		gettextprop(c->win, XA_WM_NAME, tmpstr, sizeof(tmpstr));
+	XClassHint ch;
+	if (XGetClassHint(dpy ,c->win, &ch)) {
+		snprintf(c->name, sizeof(c->name), "{%s} %s",ch.res_class, tmpstr);
+	} else {
+		strncpy(c->name, tmpstr, sizeof(c->name));
+	}
 }
 
 void
