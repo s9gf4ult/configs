@@ -25,6 +25,7 @@ static Rule rules[] = {
 	{ "Gimmix",   NULL,       NULL,       1<<8,         False},
 	{ "Firefox",  NULL,       NULL, 	    1<<4,         False},
 	{ "Firefox",  NULL,  "Настройки",     0,            True},
+	{ "Firefox",  NULL,  "Загрузки",     0,            True},
 	{ "Thunderbird-bin",NULL,     NULL,   1<<3,         False},
 	{ "Thunderbird-bin",NULL,"Настройки", 0,            True },
 	{ "Gajim", 	  NULL, 	    NULL,       1<<5,         False},
