@@ -7,6 +7,7 @@ set background=dark
 set sw=2
 set smartindent
 set fileencodings=utf8,cp1251
+set tags=./tags,tags,/home/razor/.vim/tags/tags
 colorscheme pablo
 imap <F2> <ESC>:A!<return>i
 map <F2> :A!<return>
