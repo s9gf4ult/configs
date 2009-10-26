@@ -32,7 +32,8 @@ static Rule rules[] = {
 	{ "Tkabber",  NULL,       NULL,       1<<5,         False},
 	{ "SAPGUI",   NULL,       NULL,       0,            True},
 	{ "VirtualBox",NULL,      NULL,       0,            True},
-	{ NULL, "gtk_file_chooser",NULL,      0,            True}
+	{ NULL, "gtk_file_chooser",NULL,      0,            True},
+	{ "Vncviewer", NULL,      NULL,       0,            True}
 };
 
 /* layout(s) */
