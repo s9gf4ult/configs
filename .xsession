@@ -4,5 +4,6 @@ while true;do
 	sleep 1
 done &
 xset m 0
+xset r rate 250 60
 ${HOME}/.dwm/dwm 
 kill %1
