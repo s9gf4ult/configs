@@ -32,6 +32,7 @@ autocmd BufRead,BufNewFile  *.h source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead,BufNewFile  *.hpp source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead,BufNewFile  *.cpp source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead,BufNewFile *.sh source /usr/share/vim/vim72/indent/sh.vim
+autocmd BufRead,BufNewFile *.ebuild source /usr/share/vim/vim72/indent/sh.vim
 autocmd BufRead,BufNewFile *.vim source /usr/share/vim/vim72/indent/vim.vim
 autocmd BufRead,BufNewFile *.fdi source /usr/share/vim/vim72/indent/xml.vim
 autocmd BufRead,BufNewFile *.lua source /usr/share/vim/vim72/indent/lua.vim
