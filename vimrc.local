@@ -6,7 +6,7 @@ set number
 set background=dark
 set sw=2
 set smartindent
-set fileencodings=utf8,cp1251
+set fileencodings=utf8,cp1251,koi8-r
 set tags=./tags,tags,/home/razor/.vim/tags/tags
 colorscheme pablo
 imap <F2> <ESC>:A!<return>i
@@ -32,6 +32,7 @@ autocmd BufRead,BufNewFile  *.h source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead,BufNewFile  *.hpp source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead,BufNewFile  *.cpp source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead,BufNewFile *.sh source /usr/share/vim/vim72/indent/sh.vim
+autocmd BufRead,BufNewFile *.ebuild source /usr/share/vim/vimfiles/indent/ebuild.vim
 autocmd BufRead,BufNewFile *.vim source /usr/share/vim/vim72/indent/vim.vim
 autocmd BufRead,BufNewFile *.fdi source /usr/share/vim/vim72/indent/xml.vim
 autocmd BufRead,BufNewFile *.lua source /usr/share/vim/vim72/indent/lua.vim

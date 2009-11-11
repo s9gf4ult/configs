@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<deviceinfo version="0.2">
+	<device>
+
+		<!-- KVM emulates a USB graphics tablet which works in absolute coordinate mode -->
+		<match key="input.product" contains="QEMU USB Tablet">
+			<merge key="input.x11_driver" type="string">evdev</merge>
+		</match>
+
+		<!-- FIXME: Support tablets too. -->
+		<match key="info.capabilities" contains="input.mouse">
+			<merge key="input.x11_driver" type="string">mouse</merge>
+			<match key="/org/freedesktop/Hal/devices/computer:system.kernel.name"
+				string="Linux">
+				<merge key="input.x11_driver" type="string">evdev</merge>
+				<merge key="input.x11_options.ZAxisMapping" type="string">4 5 6 7</merge>
+				<merge key="input.x11_options.Sensitivity" type="string">1.5</merge>
+			</match>
+		</match>
+
+		<match key="info.capabilities" contains="input.tablet">
+			<match key="/org/freedesktop/Hal/devices/computer:system.kernel.name"
+				string="Linux">
+				<merge key="input.x11_driver" type="string">evdev</merge>
+			</match>
+		</match>
+
+		<match key="info.capabilities" contains="input.touchpad">
+			<merge key="input.x11_driver" type="string">mouse</merge>
+			<match key="/org/freedesktop/Hal/devices/computer:system.kernel.name"
+				string="Linux">
+				<merge key="input.x11_driver" type="string">evdev</merge>
+			</match>
+		</match>
+
+		<match key="info.capabilities" contains="input.keys">
+			<match key="info.capabilities" contains="input.keyboard">
+				<!-- If we're using Linux, we use evdev by default (falling back to
+				keyboard otherwise). -->
+				<merge key="input.x11_driver" type="string">keyboard</merge>
+				<match key="/org/freedesktop/Hal/devices/computer:system.kernel.name"
+					string="Linux">
+					<merge key="input.x11_driver" type="string">evdev</merge>
+					<merge key="input.xkb.rules" type="string">xorg</merge>
+					<merge key="input.xkb.autorepeat" type="string">250 60</merge>
+					<merge key="input.xkb.layout" type="string">us,ru</merge>
+					<merge key="input.xkb.options" type="string">grp:shift_toggle,grp_led:scroll,terminate:ctrl_alt_bksp</merge>
+					<merge key="input.xkb.variant" type="string">winkeys</merge>
+				</match>
+			</match>
+		</match>
+	</device>
+</deviceinfo>
