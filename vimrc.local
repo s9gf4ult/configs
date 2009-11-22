@@ -14,7 +14,7 @@ map <F2> :A!<return>
 imap <F5> <ESC>:w<return>:make<return>
 map <F5> :w<return>:make<return>
 imap <F4> <ESC>:bn!<return>i
-map <F4> :bn<return>
+map <F4> :bn!<return>
 imap <F3> <ESC>:bp!<return>i
 map <F3> :bp!<return>
 imap <F12> <ESC>:TlistToggle<return>i
