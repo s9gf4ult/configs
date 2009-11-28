@@ -34,3 +34,5 @@ compinit
 for file in $HOME/.zsh/rc/*.rc; do
 	source $file
 done
+stty start undef
+stty stop undef
