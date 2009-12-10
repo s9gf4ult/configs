@@ -27,6 +27,7 @@ imap <F9> <ESC><C-w>oi<end>
 map <F9> <C-w>o
 autocmd BufRead,BufNewFile *.m4 set syntax=m4 
 autocmd BufRead,BufNewFile *.m source /usr/share/vim/vim72/indent/matlab.vim
+autocmd BufRead,BufNewFile  *.pl source /usr/share/vim/vim72/indent/perl.vim
 autocmd BufRead,BufNewFile  *.c source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead,BufNewFile  *.h source /usr/share/vim/vim72/indent/c.vim
 autocmd BufRead,BufNewFile  *.hpp source /usr/share/vim/vim72/indent/c.vim
