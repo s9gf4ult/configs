@@ -5,7 +5,7 @@
 ;; Keywords: 
 (require 'ede)
 (global-ede-mode t)
-
+(require 'vip-mod)
 
 (menu-bar-mode 0)
 (tool-bar-mode 0)
