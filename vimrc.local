@@ -8,7 +8,13 @@ set sw=2
 set smartindent
 set fileencodings=utf8,cp1251,koi8-r
 set tags=./tags,tags,/home/razor/.vim/tags/tags
-colorscheme xoria256
+if &term == "xterm-256color"
+	colorscheme xoria256
+else
+	colorscheme pablo
+endif
+	
+
 imap <F2> <ESC>:A!<return>i
 map <F2> :A!<return>
 imap <F5> <ESC>:w<return>:make<return>
