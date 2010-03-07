@@ -3,12 +3,19 @@ autoload -U colors
 colors
 
 # define your colors here (i hate white background)
-host_color="green" 
-path_color="blue"
-date_color="white"
-
-host="%{$fg[$host_color]%}%n@%m"
-cpath="%B%{$fg[$path_color]%}%/%b"
-end="%{$reset_color%}%% "
-
+if [[ $(whoami) = "root" ]]; then
+    host_color="red" 
+    path_color="blue"
+    date_color="white"
+    host="%{$fg[$host_color]%}%n@%m"
+    cpath="%B%{$fg[$path_color]%}%/%b"
+    end="%{$reset_color%}# "
+else
+    host_color="green" 
+    path_color="blue"
+    date_color="white"
+    host="%{$fg[$host_color]%}%n@%m"
+    cpath="%B%{$fg[$path_color]%}%/%b"
+    end="%{$reset_color%}%% "
+fi
 PS1="%T $host $cpath $end"
