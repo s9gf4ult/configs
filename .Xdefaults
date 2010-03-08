@@ -26,7 +26,7 @@ urxvt*cutchars:`'",;@&*=|?()<>[]{}
 URxvt.urlLauncher:opera
 urxvt*visualBell:false
 xterm*font:-xos4-terminus-medium-r-normal--20-*-*-*-*-*-iso10646-1
-xterm*background:#303030
+xterm*background:#202020
 xterm*foreground:White
 xterm.color0: #1A1A1A
 xterm.color1: #AA0000
