@@ -662,34 +662,34 @@ KeySysSwitchLast="Super+Ctrl+k"
 # KeySysWorkspaceLastTakeWin="Alt+Ctrl+Shift+Down"
 
 #  
-KeySysWorkspace1="Super+F1"
+KeySysWorkspace1="Super+1"
 
  
-KeySysWorkspace2="Super+F2"
+KeySysWorkspace2="Super+2"
 
  
-KeySysWorkspace3="Super+F3"
+KeySysWorkspace3="Super+3"
 
  
-KeySysWorkspace4="Super+F4"
+KeySysWorkspace4="Super+4"
 
  
-KeySysWorkspace5="Super+F5"
+KeySysWorkspace5="Super+5"
 
  
-KeySysWorkspace6="Super+F6"
+KeySysWorkspace6="Super+6"
 
  
-KeySysWorkspace7="Super+F7"
+KeySysWorkspace7="Super+7"
 
  
-KeySysWorkspace8="Super+F8"
+KeySysWorkspace8="Super+8"
 
  
-KeySysWorkspace9="Super+F9"
+KeySysWorkspace9="Super+9"
 
  
-KeySysWorkspace10="Super+F10"
+KeySysWorkspace10="Super+0"
 
 #  
 # KeySysWorkspace11="Alt+Ctrl+bracketleft"
