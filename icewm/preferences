@@ -200,7 +200,7 @@
 # ShowTaskBar=1 # 0/1
 
 #  Task bar at top of the screen
-# TaskBarAtTop=0 # 0/1
+TaskBarAtTop=1 # 0/1
 
 #  Keep the task bar below regular windows
 # TaskBarKeepBelow=0 # 0/1
@@ -527,10 +527,10 @@
 # AcpiIgnoreBatteries=""
 
 #  Mouse binding for window move
-# MouseWinMove="Alt+Pointer_Button1"
+MouseWinMove="Super+Pointer_Button1"
 
 #  Mouse binding for window resize
-# MouseWinSize="Alt+Pointer_Button3"
+MouseWinSize="Super+Pointer_Button3"
 
 #  Mouse binding to raise window
 # MouseWinRaise="Ctrl+Alt+Pointer_Button1"
@@ -551,10 +551,10 @@
 # KeyWinRestore="Alt+F5"
 
 #  
-# KeyWinPrev="Alt+Shift+F6"
+KeyWinPrev="Super+j"
 
-#  
-# KeyWinNext="Alt+F6"
+ 
+KeyWinNext="Super+k"
 
 #  
 # KeyWinMove="Alt+F7"
@@ -614,10 +614,10 @@
 # KeyWinArrangeC="Ctrl+Alt+KP_5"
 
 #  
-# KeySysSwitchNext="Alt+Tab"
+KeySysSwitchNext="Super+Ctrl+j"
 
 #  
-# KeySysSwitchLast="Alt+Shift+Tab"
+KeySysSwitchLast="Super+Ctrl+k"
 
 #  
 # KeySysWinNext="Alt+Esc"
