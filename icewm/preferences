@@ -578,7 +578,7 @@ KeyWinNext="Super+k"
 # KeyWinFullscreen="Alt+F11"
 
 #  
-# KeyWinHide="Alt+Shift+F12"
+KeyWinHide="Super+h"
 
 #  
 # KeyWinRollup="Alt+F12"
@@ -761,7 +761,7 @@ KeySysWorkspace10="Super+F10"
 # KeySysShowDesktop="Alt+Ctrl+d"
 
 #  
-# KeySysCollapseTaskBar="Alt+Ctrl+h"
+KeySysCollapseTaskBar="Super+b"
 
 #  
 
