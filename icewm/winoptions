@@ -42,3 +42,9 @@ MainWindow.licq.ignoreQuickSwitch: 1
 MainWindow.licq.ignoreWinList: 1
 MainWindow.licq.layer: Below
 #MainWindow.licq.doNotCover: 1
+Firefox.fMaximize1:1
+Firefox.workspace:4
+Firefox.dTitleBar:0
+Thunderbird.fMaximize1:1
+Thunderbird.workspace:3
+Thunderbird.dTitleBar:0

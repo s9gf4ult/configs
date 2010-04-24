@@ -14,22 +14,22 @@
 # RequestFocusOnAppRaise=1 # 0/1
 
 #  Raise windows when focused
-# RaiseOnFocus=1 # 0/1
+RaiseOnFocus=1
 
 #  Focus window when client area clicked
 # FocusOnClickClient=1 # 0/1
 
 #  Raise window when client area clicked
-# RaiseOnClickClient=1 # 0/1
+RaiseOnClickClient=1
 
 #  Raise window when title bar is clicked
-# RaiseOnClickTitleBar=1 # 0/1
+RaiseOnClickTitleBar=1
 
 #  Raise window when frame button is clicked
-# RaiseOnClickButton=1 # 0/1
+RaiseOnClickButton=0
 
 #  Raise window when frame border is clicked
-# RaiseOnClickFrame=1 # 0/1
+RaiseOnClickFrame=0
 
 #  Lower the active window when clicked again
 # LowerOnClickWhenRaised=0 # 0/1
@@ -125,10 +125,10 @@
 # DelayPointerFocus=1 # 0/1
 
 #  Support win95 keyboard keys (Penguin/Meta/Win_L,R shows menu)
-# Win95Keys=1 # 0/1
+Win95Keys=0 # 0/1
 
 #  Treat Super/Win modifier as Ctrl+Alt
-# ModSuperIsCtrlAlt=1 # 0/1
+ModSuperIsCtrlAlt=0 # 0/1
 
 #  Support mouse wheel
 # UseMouseWheel=0 # 0/1
@@ -140,7 +140,7 @@
 # ReplayMenuCancelClick=0 # 0/1
 
 #  Alt+Tab window switching
-# QuickSwitch=1 # 0/1
+QuickSwitch=0 # 0/1
 
 #  Alt+Tab to minimized windows
 # QuickSwitchToMinimized=1 # 0/1
@@ -263,10 +263,10 @@ TaskBarAtTop=1 # 0/1
 # TaskBarShowWindowListMenu=1 # 0/1
 
 #  Show CPU status on task bar (Linux             & Solaris)
-# TaskBarShowCPUStatus=1 # 0/1
+TaskBarShowCPUStatus=0 
 
 #  Show network status on task bar (Linux only)
-# TaskBarShowNetStatus=1 # 0/1
+TaskBarShowNetStatus=0 # 0/1
 
 #  Show a button to collapse the taskbar
 # TaskBarShowCollapseButton=0 # 0/1
@@ -536,19 +536,19 @@ MouseWinSize="Super+Pointer_Button3"
 # MouseWinRaise="Ctrl+Alt+Pointer_Button1"
 
 #  
-# KeyWinRaise="Alt+F1"
+#KeyWinRaise=""
+
+##  
+#KeyWinOccupyAll=""
+
+##  
+#KeyWinLower=""
 
 #  
-# KeyWinOccupyAll="Alt+F2"
+KeyWinClose="Super+c"
 
 #  
-# KeyWinLower="Alt+F3"
-
-#  
-# KeyWinClose="Alt+F4"
-
-#  
-# KeyWinRestore="Alt+F5"
+KeyWinRestore="Alt+F5"
 
 #  
 KeyWinPrev="Super+j"
@@ -557,16 +557,16 @@ KeyWinPrev="Super+j"
 KeyWinNext="Super+k"
 
 #  
-# KeyWinMove="Alt+F7"
+#KeyWinMove=""
+
+##  
+#KeyWinSize=""
 
 #  
-# KeyWinSize="Alt+F8"
+KeyWinMinimize="Super+F9"
 
 #  
-# KeyWinMinimize="Alt+F9"
-
-#  
-# KeyWinMaximize="Alt+F10"
+KeyWinMaximize="Super+F10"
 
 #  
 # KeyWinMaximizeVert="Alt+Shift+F10"
