@@ -562,50 +562,20 @@ KeyWinArrangeNW="Super+KP_7"
 KeyWinArrangeC="Super+KP_5"
 KeySysSwitchNext="Super+Ctrl+j"
 KeySysSwitchLast="Super+Ctrl+k"
-
-#  
-# KeySysWinNext="Alt+Esc"
-
-#  
-# KeySysWinPrev="Alt+Shift+Esc"
-
-#  
-# KeySysWinMenu="Shift+Esc"
-
-#  
-# KeySysDialog="Alt+Ctrl+Del"
-
-#  
-# KeySysMenu="Ctrl+Esc"
-
-#  
+KeySysWinNext=""
+KeySysWinPrev=""
+KeySysWinMenu=""
+KeySysDialog="Super+Del"
+KeySysMenu="Super+Backpace"
 KeySysWindowList="Super+Esc"
-
-#  
-# KeySysWinListMenu=""
-
-#  
-# KeySysAddressBar="Alt+Ctrl+Space"
-
-#  
+KeySysWinListMenu=""
+KeySysAddressBar=""
 KeySysWorkspacePrev="Super+Left"
-
-#  
 KeySysWorkspaceNext="Super+Right"
-
-#  
-# KeySysWorkspaceLast="Alt+Ctrl+Down"
-
-#  
-# KeySysWorkspacePrevTakeWin="Alt+Ctrl+Shift+Left"
-
-#  
-# KeySysWorkspaceNextTakeWin="Alt+Ctrl+Shift+Right"
-
-#  
-# KeySysWorkspaceLastTakeWin="Alt+Ctrl+Shift+Down"
-
-#  
+KeySysWorkspaceLast="Super+Down"
+KeySysWorkspacePrevTakeWin="Super+Shift+Left"
+KeySysWorkspaceNextTakeWin="Super+Shift+Right"
+KeySysWorkspaceLastTakeWin="Super+Shift+Down"
 KeySysWorkspace1="Super+1"
 KeySysWorkspace2="Super+2"
 KeySysWorkspace3="Super+3"
