@@ -9,6 +9,9 @@ rxvt.icon: xterm
 nxterm.icon: xterm
 fte.icon: fte
 emacs.Emacs.icon: emacs
+emacs.workspace:2
+emacs.dTitleBar:0
+emacs.fMaximize1:1
 AWTapp.icon: java
 # workaround for XV window repositioning problems
 xv.nonICCCMconfigureRequest: 1
@@ -48,3 +51,5 @@ Firefox.dTitleBar:0
 Thunderbird.fMaximize1:1
 Thunderbird.workspace:3
 Thunderbird.dTitleBar:0
+XTerm.dTitleBar:0
+Gajim.py.workspace:5
