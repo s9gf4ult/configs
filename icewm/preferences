@@ -546,16 +546,9 @@ MouseWinSize="Super+Pointer_Button3"
 
 #  
 KeyWinClose="Super+c"
-
-#  
 KeyWinRestore="Alt+F5"
-
-#  
 KeyWinPrev="Super+j"
-
- 
 KeyWinNext="Super+k"
-
 #  
 #KeyWinMove=""
 
@@ -644,10 +637,10 @@ KeySysWindowList="Super+Esc"
 # KeySysAddressBar="Alt+Ctrl+Space"
 
 #  
-# KeySysWorkspacePrev="Alt+Ctrl+Left"
+KeySysWorkspacePrev="Super+Left"
 
 #  
-# KeySysWorkspaceNext="Alt+Ctrl+Right"
+KeySysWorkspaceNext="Super+Right"
 
 #  
 # KeySysWorkspaceLast="Alt+Ctrl+Down"
@@ -663,106 +656,39 @@ KeySysWindowList="Super+Esc"
 
 #  
 KeySysWorkspace1="Super+1"
-
- 
 KeySysWorkspace2="Super+2"
-
- 
 KeySysWorkspace3="Super+3"
-
- 
 KeySysWorkspace4="Super+4"
-
- 
 KeySysWorkspace5="Super+5"
-
- 
 KeySysWorkspace6="Super+6"
-
- 
 KeySysWorkspace7="Super+7"
-
- 
 KeySysWorkspace8="Super+8"
-
- 
 KeySysWorkspace9="Super+9"
-
- 
 KeySysWorkspace10="Super+0"
-
-#  
-# KeySysWorkspace11="Alt+Ctrl+bracketleft"
-
-#  
-# KeySysWorkspace12="Alt+Ctrl+bracketright"
-
-#  
-# KeySysWorkspace1TakeWin="Alt+Ctrl+Shift+1"
-
-#  
-# KeySysWorkspace2TakeWin="Alt+Ctrl+Shift+2"
-
-#  
-# KeySysWorkspace3TakeWin="Alt+Ctrl+Shift+3"
-
-#  
-# KeySysWorkspace4TakeWin="Alt+Ctrl+Shift+4"
-
-#  
-# KeySysWorkspace5TakeWin="Alt+Ctrl+Shift+5"
-
-#  
-# KeySysWorkspace6TakeWin="Alt+Ctrl+Shift+6"
-
-#  
-# KeySysWorkspace7TakeWin="Alt+Ctrl+Shift+7"
-
-#  
-# KeySysWorkspace8TakeWin="Alt+Ctrl+Shift+8"
-
-#  
-# KeySysWorkspace9TakeWin="Alt+Ctrl+Shift+9"
-
-#  
-# KeySysWorkspace10TakeWin="Alt+Ctrl+Shift+0"
-
-#  
-# KeySysWorkspace11TakeWin="Alt+Ctrl+Shift+bracketleft"
-
-#  
-# KeySysWorkspace12TakeWin="Alt+Ctrl+Shift+bracketright"
-
-#  
-# KeySysTileVertical="Alt+Shift+F2"
-
-#  
-# KeySysTileHorizontal="Alt+Shift+F3"
-
-#  
-# KeySysCascade="Alt+Shift+F4"
-
-#  
-# KeySysArrange="Alt+Shift+F5"
-
-#  
-# KeySysArrangeIcons="Alt+Shift+F8"
-
-#  
-# KeySysMinimizeAll="Alt+Shift+F9"
-
-#  
-# KeySysHideAll="Alt+Shift+F11"
-
-#  
-# KeySysUndoArrange="Alt+Shift+F7"
-
-#  
-# KeySysShowDesktop="Alt+Ctrl+d"
-
-#  
+KeySysWorkspace11=""
+KeySysWorkspace12=""
+KeySysWorkspace1TakeWin="Super+Shift+1"
+KeySysWorkspace2TakeWin="Super+Shift+2"
+KeySysWorkspace3TakeWin="Super+Shift+3"
+KeySysWorkspace4TakeWin="Super+Shift+4"
+KeySysWorkspace5TakeWin="Super+Shift+5"
+KeySysWorkspace6TakeWin="Super+Shift+6"
+KeySysWorkspace7TakeWin="Super+Shift+7"
+KeySysWorkspace8TakeWin="Super+Shift+8"
+KeySysWorkspace9TakeWin="Super+Shift+9"
+KeySysWorkspace10TakeWin="Super+Shift+0"
+KeySysWorkspace11TakeWin=""
+KeySysWorkspace12TakeWin=""
+KeySysTileVertical="Super+w"
+KeySysTileHorizontal="Super+d"
+KeySysCascade=""
+KeySysArrange="Super+Enter"
+KeySysArrangeIcons="Alt+Shift+F8"
+KeySysMinimizeAll=""
+KeySysHideAll=""
+KeySysUndoArrange="Super+Shift+Enter"
+KeySysShowDesktop=""
 KeySysCollapseTaskBar="Super+b"
-
 #  
 
 #  Items supported in menu window (rmsnxfhualytickw)
