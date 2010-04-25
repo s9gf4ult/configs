@@ -1,0 +1,7 @@
+#!/bin/bash
+bash ~/.jackdrc &
+pulseaudio --start
+xset m 0
+xset r rate 260 100
+~/springwm/src/icewm-session
+kill %1

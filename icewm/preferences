@@ -233,7 +233,7 @@ TaskBarAtTop=1 # 0/1
 # TaskBarShowWorkspaces=1 # 0/1
 
 #  Show windows on the taskbar
-# TaskBarShowWindows=1 # 0/1
+TaskBarShowWindows=1 # 0/1
 
 #  Show 'show desktop' button on taskbar
 # TaskBarShowShowDesktopButton=1 # 0/1
@@ -260,7 +260,7 @@ TaskBarAtTop=1 # 0/1
 # TaskBarShowStartMenu=1 # 0/1
 
 #  Show 'window list' menu on task bar
-# TaskBarShowWindowListMenu=1 # 0/1
+TaskBarShowWindowListMenu=0 # 0/1
 
 #  Show CPU status on task bar (Linux             & Solaris)
 TaskBarShowCPUStatus=0 
@@ -624,7 +624,7 @@ KeySysCollapseTaskBar="Super+b"
 # RolloverButtonsSupported=0 # 0/1
 
 #  Task bar clock/APM uses nice pixmapped LCD display (but then it doesn't display correctly in many languages anymore, e.g. for Japanese and Korean it works only when a real font is used and not the LEDs
-# TaskBarClockLeds=0 # 0/1
+TaskBarClockLeds=1 # 0/1
 
 #  Surround the tray with plastic border
 # TrayDrawBevel=0 # 0/1

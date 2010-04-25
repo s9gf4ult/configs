@@ -1,0 +1,8 @@
+#!/bin/bash
+bash ~/.jackdrc &
+pulseaudio --start
+xset m 0
+xset r rate 260 100
+cd ~/clfswm/
+/usr/bin/sbcl --eval "(load \"load.lisp\")"
+kill %1
