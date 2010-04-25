@@ -534,17 +534,9 @@ MouseWinSize="Super+Pointer_Button3"
 
 #  Mouse binding to raise window
 # MouseWinRaise="Ctrl+Alt+Pointer_Button1"
-
-#  
-#KeyWinRaise=""
-
-##  
-#KeyWinOccupyAll=""
-
-##  
-#KeyWinLower=""
-
-#  
+KeyWinRaise=""
+KeyWinOccupyAll=""
+KeyWinLower=""
 KeyWinClose="Super+c"
 KeyWinRestore="Alt+F5"
 KeyWinPrev="Super+j"
@@ -557,43 +549,18 @@ KeyWinMaximizeVert="Super+Shift+F10"
 KeyWinMaximizeHoriz="Super+Alt+F10"
 KeyWinFullscreen="Super+F11"
 KeyWinHide="Super+h"
-#  
-# KeyWinRollup="Alt+F12"
-
-#  
-# KeyWinMenu="Alt+Space"
-
-#  
-# KeyWinArrangeN="Ctrl+Alt+KP_8"
-
-#  
-# KeyWinArrangeNE="Ctrl+Alt+KP_9"
-
-#  
-# KeyWinArrangeE="Ctrl+Alt+KP_6"
-
-#  
-# KeyWinArrangeSE="Ctrl+Alt+KP_3"
-
-#  
-# KeyWinArrangeS="Ctrl+Alt+KP_2"
-
-#  
-# KeyWinArrangeSW="Ctrl+Alt+KP_1"
-
-#  
-# KeyWinArrangeW="Ctrl+Alt+KP_4"
-
-#  
-# KeyWinArrangeNW="Ctrl+Alt+KP_7"
-
-#  
-# KeyWinArrangeC="Ctrl+Alt+KP_5"
-
-#  
+KeyWinRollup=""
+KeyWinMenu="Super+Space"
+KeyWinArrangeN="Super+KP_8"
+KeyWinArrangeNE="Super+KP_9"
+KeyWinArrangeE="Super+KP_6"
+KeyWinArrangeSE="Super+KP_3"
+KeyWinArrangeS="Super+KP_2"
+KeyWinArrangeSW="Super+KP_1"
+KeyWinArrangeW="Super+KP_4"
+KeyWinArrangeNW="Super+KP_7"
+KeyWinArrangeC="Super+KP_5"
 KeySysSwitchNext="Super+Ctrl+j"
-
-#  
 KeySysSwitchLast="Super+Ctrl+k"
 
 #  
