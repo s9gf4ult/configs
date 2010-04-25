@@ -549,30 +549,14 @@ KeyWinClose="Super+c"
 KeyWinRestore="Alt+F5"
 KeyWinPrev="Super+j"
 KeyWinNext="Super+k"
-#  
-#KeyWinMove=""
-
-##  
-#KeyWinSize=""
-
-#  
+KeyWinMove=""
+KeyWinSize=""
 KeyWinMinimize="Super+F9"
-
-#  
 KeyWinMaximize="Super+F10"
-
-#  
 KeyWinMaximizeVert="Super+Shift+F10"
-
-#  
 KeyWinMaximizeHoriz="Super+Alt+F10"
-
-#  
-# KeyWinFullscreen="Alt+F11"
-
-#  
+KeyWinFullscreen="Super+F11"
 KeyWinHide="Super+h"
-
 #  
 # KeyWinRollup="Alt+F12"
 
