@@ -569,10 +569,10 @@ KeyWinMinimize="Super+F9"
 KeyWinMaximize="Super+F10"
 
 #  
-# KeyWinMaximizeVert="Alt+Shift+F10"
+KeyWinMaximizeVert="Super+Shift+F10"
 
 #  
-# KeyWinMaximizeHoriz=""
+KeyWinMaximizeHoriz="Super+Alt+F10"
 
 #  
 # KeyWinFullscreen="Alt+F11"
@@ -635,7 +635,7 @@ KeySysSwitchLast="Super+Ctrl+k"
 # KeySysMenu="Ctrl+Esc"
 
 #  
-# KeySysWindowList="Alt+Ctrl+Esc"
+KeySysWindowList="Super+Esc"
 
 #  
 # KeySysWinListMenu=""
