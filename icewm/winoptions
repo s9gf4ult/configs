@@ -11,7 +11,7 @@ fte.icon: fte
 emacs.Emacs.icon: emacs
 emacs.workspace:2
 emacs.dTitleBar:0
-emacs.fMaximize1:1
+emacs.fMaximize:1
 AWTapp.icon: java
 # workaround for XV window repositioning problems
 xv.nonICCCMconfigureRequest: 1
@@ -45,10 +45,10 @@ MainWindow.licq.ignoreQuickSwitch: 1
 MainWindow.licq.ignoreWinList: 1
 MainWindow.licq.layer: Below
 #MainWindow.licq.doNotCover: 1
-Firefox.fMaximize1:1
+Firefox.fMaximize:1
 Firefox.workspace:4
 Firefox.dTitleBar:0
-Thunderbird.fMaximize1:1
+Thunderbird.fMaximize:1
 Thunderbird.workspace:3
 Thunderbird.dTitleBar:0
 XTerm.dTitleBar:0
