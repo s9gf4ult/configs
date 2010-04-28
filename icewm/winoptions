@@ -53,3 +53,5 @@ Thunderbird.workspace:3
 Thunderbird.dTitleBar:0
 XTerm.dTitleBar:0
 Gajim.py.workspace:5
+Qt-subapplication.VirtualBox.dTitleBar:0
+Qt-subapplication.VirtualBox.fMaximize:1
