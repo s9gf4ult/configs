@@ -5,3 +5,4 @@ xset m 0
 xset r rate 260 100
 ~/springwm/src/icewm-session
 kill %1
+pulseaudio --kill
