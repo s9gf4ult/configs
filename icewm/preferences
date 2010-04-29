@@ -236,7 +236,7 @@ TaskBarAtTop=1 # 0/1
 TaskBarShowWindows=1 # 0/1
 
 #  Show 'show desktop' button on taskbar
-# TaskBarShowShowDesktopButton=1 # 0/1
+TaskBarShowShowDesktopButton=0 # 0/1
 
 #  Show Ellipsis in taskbar items
 # ShowEllipsis=1 # 0/1
@@ -257,7 +257,7 @@ TaskBarShowWindows=1 # 0/1
 # TaskBarShowWindowIcons=1 # 0/1
 
 #  Show 'Start' menu on task bar
-# TaskBarShowStartMenu=1 # 0/1
+TaskBarShowStartMenu=0 # 0/1
 
 #  Show 'window list' menu on task bar
 TaskBarShowWindowListMenu=0 # 0/1
@@ -278,7 +278,7 @@ TaskBarShowNetStatus=0 # 0/1
 # TaskBarWorkspacesLeft=1 # 0/1
 
 #  Execute taskbar applet commands (like MailCommand,     ClockCommand,   ...) on single click
-# TaskBarLaunchOnSingleClick=1 # 0/1
+TaskBarLaunchOnSingleClick=0 # 0/1
 
 #  Allow mouse actions on client windows (buggy with some programs)
 # ClientWindowMouseActions=1 # 0/1
