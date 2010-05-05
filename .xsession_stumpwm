@@ -1,0 +1,4 @@
+#!/bin/bash
+xset m 0
+xset r rate 260 100
+~/stumpwm/stumpwm
