@@ -48,6 +48,9 @@ MainWindow.licq.layer: Below
 Firefox.fMaximize:1
 Firefox.workspace:4
 Firefox.dTitleBar:0
+chrome.fMaximize:1
+chrome.workspace:4
+chrome.dTitleBar:0
 Thunderbird.fMaximize:1
 Thunderbird.workspace:3
 Thunderbird.dTitleBar:0
