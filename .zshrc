@@ -36,4 +36,4 @@ for file in $HOME/.zsh/rc/*.rc; do
 done
 stty start undef
 stty stop undef
-
+export OOO_FORCE_DESKTOP="gnome"
