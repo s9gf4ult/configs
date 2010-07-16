@@ -60,3 +60,5 @@ Qt-subapplication.VirtualBox.dTitleBar:0
 Qt-subapplication.VirtualBox.fMaximize:1
 sun-awt-X11-XFramePeer.fMaximize:1.fMaximize:1
 sun-awt-X11-XFramePeer.fMaximize:1.dTitleBar:0
+Evince.fMaximize:1
+Evince.dTitleBar:0

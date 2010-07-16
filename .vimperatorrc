@@ -1,16 +1,7 @@
-"2.2 (created: 2009/10/28 19:04:27)
+"2.3.1 (created: 2010/04/07 18:56:53)
 
 map <lt> :bp<Return>
 map > :bn<Return>
-nmap <lt> :bp<Return>
-nmap > :bn<Return>
-set runtimepath=/home/razor/.vimperator
-vmap <lt> :bp<Return>
-vmap > :bn<Return>
-source! /home/razor/.vimperatorrc.local
-
-" vim: set ft=vimperator:
-
 map ё `
 map й q
 map ц w
@@ -75,5 +66,14 @@ map М V
 map И B
 map Т N
 map Ь M
-map Б <
+map Б <lt>
 map Ю >
+nmap <lt> :bp<Return>
+nmap > :bn<Return>
+set guioptions=mr
+set runtimepath=/home/razor/.vimperator
+vmap <lt> :bp<Return>
+vmap > :bn<Return>
+source! /home/razor/.vimperatorrc.local
+
+" vim: set ft=vimperator:
