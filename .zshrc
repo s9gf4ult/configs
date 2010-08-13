@@ -37,3 +37,4 @@ done
 stty start undef
 stty stop undef
 export OOO_FORCE_DESKTOP="gnome"
+export PATH=${PATH}:${HOME}/bin
