@@ -37,6 +37,5 @@ done
 stty start undef
 stty stop undef
 export OOO_FORCE_DESKTOP="gnome"
-auto_proxy="http://127.0.0.1:81/pac.js"
 export PATH=${PATH}:${HOME}/bin
 export http_proxy="http://192.168.0.9:3128"
