@@ -1,0 +1,8 @@
+#!/bin/bash
+
+tmn=tmp$(date +%s)
+if [[ $# -eq 1 ]];then
+    iconv -f CP1251 -t UTF8 $1 > $tmn && dos2unix $tmn && mv $tmn $1 || ([[ -f $tmn ]] && rm $tmn)
+else
+    iconv -f CP1251 -t UTF8 $1 > $2 && dos2unix $2
+fi
