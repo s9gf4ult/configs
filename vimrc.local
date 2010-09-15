@@ -32,17 +32,17 @@ map  <F10> <C-w>w
 imap <F9> <ESC><C-w>oi<end>
 map <F9> <C-w>o
 autocmd BufRead,BufNewFile *.m4 set syntax=m4 
-autocmd BufRead,BufNewFile *.m source /usr/share/vim/vim72/indent/matlab.vim
-autocmd BufRead,BufNewFile  *.pl source /usr/share/vim/vim72/indent/perl.vim
-autocmd BufRead,BufNewFile  *.c source /usr/share/vim/vim72/indent/c.vim
-autocmd BufRead,BufNewFile  *.h source /usr/share/vim/vim72/indent/c.vim
-autocmd BufRead,BufNewFile  *.hpp source /usr/share/vim/vim72/indent/c.vim
-autocmd BufRead,BufNewFile  *.cpp source /usr/share/vim/vim72/indent/c.vim
-autocmd BufRead,BufNewFile *.sh source /usr/share/vim/vim72/indent/sh.vim
+autocmd BufRead,BufNewFile *.m source /usr/share/vim/vim73/indent/matlab.vim
+autocmd BufRead,BufNewFile  *.pl source /usr/share/vim/vim73/indent/perl.vim
+autocmd BufRead,BufNewFile  *.c source /usr/share/vim/vim73/indent/c.vim
+autocmd BufRead,BufNewFile  *.h source /usr/share/vim/vim73/indent/c.vim
+autocmd BufRead,BufNewFile  *.hpp source /usr/share/vim/vim73/indent/c.vim
+autocmd BufRead,BufNewFile  *.cpp source /usr/share/vim/vim73/indent/c.vim
+autocmd BufRead,BufNewFile *.sh source /usr/share/vim/vim73/indent/sh.vim
 autocmd BufRead,BufNewFile *.ebuild source /usr/share/vim/vimfiles/indent/ebuild.vim
-autocmd BufRead,BufNewFile *.vim source /usr/share/vim/vim72/indent/vim.vim
-autocmd BufRead,BufNewFile *.fdi source /usr/share/vim/vim72/indent/xml.vim
-autocmd BufRead,BufNewFile *.lua source /usr/share/vim/vim72/indent/lua.vim
+autocmd BufRead,BufNewFile *.vim source /usr/share/vim/vim73/indent/vim.vim
+autocmd BufRead,BufNewFile *.fdi source /usr/share/vim/vim73/indent/xml.vim
+autocmd BufRead,BufNewFile *.lua source /usr/share/vim/vim73/indent/lua.vim
 autocmd BufRead,BufNewFile *.c.m4 set syntax=c
 autocmd BufRead,BufNewFile *.h.m4 set syntax=c
 autocmd BufRead,BufNewFile *.cpp.m4 set syntax=c
