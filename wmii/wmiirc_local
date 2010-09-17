@@ -1,0 +1,4 @@
+MODKEY=Mod4
+#WMII_FONT='-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1'
+WMII_FONT='-*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1'
+
