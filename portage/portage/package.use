@@ -1,0 +1,86 @@
+dev-db/sqlite tcl unlock-notify soundex secure-delete icu extensions
+www-client/firefox restrict-javascript ipc
+x11-libs/gtk+ doc
+x11-wm/xmonad doc
+sys-apps/dbus doc
+sys-apps/hal doc acpi
+app-misc/screen multiuser
+x11-terms/xterm -toolbar Xaw3d
+media-video/mplayer cdparanoia dvdnav jack mmxext osdmenu quicktime theora vdpau xanim xv xvid xvmc vpx
+games-fps/warsow irc dedicated
+media-sound/mpd libsamplerate jack id3 cdio mikmod modplug musepack oggflac zip sysvipc 
+net-libs/libsoup gnome
+app-cdr/brasero -totem -nautilus
+sys-block/gparted fat jfs ntfs reiserfs xfs
+app-office/openoffice templates java mono nsplugin odk templates
+app-emulation/qemu kvm -kqemu
+games-fps/nexuiz maps
+app-emulation/wine jpeg mp3 gecko fontconfig gnutls
+games-fps/alienarena dedicated
+games-fps/quake3 teamarena
+media-gfx/gimp mng wmf exif
+net-im/gajim libnotify dbus jingle xhtml idle avahi
+sci-mathematics/octave  hdf5 fftw doc sparse curl
+sci-astronomy/celestia theora cairo
+media-video/avidemux xviddts aften
+dev-util/subversion bash-completion extras webdav-neon sasl ruby
+net-misc/vnc -server -xorgmodule -opengl
+media-sound/moc jack libsamplerate musepack
+net-analyzer/iptraf suid
+app-portage/layman subversion git
+net-p2p/mldonkey fasttrack gd gnutella gtk guionly magic
+media-gfx/sane-backends -avahi -doc -gphoto2 -ipv6 -sane_backends_abaton -sane_backends_agfafocus -sane_backends_apple -sane_backends_artec -sane_backends_artec_eplus48u -sane_backends_as6e -sane_backends_avision -sane_backends_bh -sane_backends_canon -sane_backends_canon630u -sane_backends_canon_dr -sane_backends_canon_pp -sane_backends_cardscan -sane_backends_coolscan -sane_backends_coolscan2 -sane_backends_coolscan3 -sane_backends_dc210 -sane_backends_dc240 -sane_backends_dc25 -sane_backends_dell1600n_net -sane_backends_dmc -sane_backends_epjitsu -sane_backends_epson -sane_backends_epson2 -sane_backends_fujitsu -sane_backends_genesys -sane_backends_gt68xx -sane_backends_hp -sane_backends_hp3500 -sane_backends_hp3900 -sane_backends_hp4200 -sane_backends_hp5400 -sane_backends_hp5590 -sane_backends_hpljm1005 -sane_backends_hpsj5s -sane_backends_hs2p -sane_backends_ibm -sane_backends_leo -sane_backends_lexmark -sane_backends_ma1509 -sane_backends_matsushita -sane_backends_microtek -sane_backends_microtek2 sane_backends_mustek -sane_backends_mustek_pp sane_backends_mustek_usb sane_backends_mustek_usb2 -sane_backends_nec -sane_backends_net -sane_backends_niash -sane_backends_pie -sane_backends_pixma -sane_backends_plustek -sane_backends_plustek_pp -sane_backends_qcam -sane_backends_ricoh -sane_backends_rts8891 -sane_backends_s9036 -sane_backends_sceptre -sane_backends_sharp -sane_backends_sm3600 -sane_backends_sm3840 -sane_backends_snapscan -sane_backends_sp15c -sane_backends_st400 -sane_backends_stv680 -sane_backends_tamarack -sane_backends_teco1 -sane_backends_teco2 -sane_backends_teco3 -sane_backends_test -sane_backends_u12 -sane_backends_umax -sane_backends_umax1220u -sane_backends_umax_pp -sane_backends_xerox_mfp usb -v4l
+media-gfx/sane-frontends gimp
+media-gfx/xsane gimp
+app-arch/p7zip rar wxwidgets
+games-fps/sauerbraten doc
+app-editors/emacs xft xpm
+dev-lang/ghc doc
+dev-haskell/parsec doc
+dev-util/darcs doc
+dev-haskell/regex-base doc
+net-misc/curl gnutls libssh2 openssl
+x11-wm/xmonad-contrib doc
+media-sound/audacity vamp twolame soundtouch libsamplerate ladspa
+media-sound/ardour lv2 curl
+dev-libs/rasqal gmp
+dev-util/geany vte
+x11-wm/stumpwm emacs sbcl clisp source
+media-video/ffmpeg faac faad jpeg2k mmxext network schroedinger theora
+dev-haskell/hgl doc
+media-sound/hydrogen jack ladspa lash
+dev-util/codeblocks contrib
+media-sound/pulseaudio avahi
+media-gfx/blender blender-game
+x11-wm/icewm imlib esd
+dev-lisp/clx doc
+games-strategy/spring gml gmlsim java
+dev-lisp/sbcl ldb doc source
+media-sound/qmmp bs2b libsamplerate musepack
+media-sound/aqualung ladspa libsamplerate lua mac modplug musepack systray
+net-libs/libproxy -xulrunner
+dev-games/cel-ps cegui
+dev-games/crystalspace-ps cegui
+dev-games/physfs hog
+games-action/d1x-rebirth timidity
+media-libs/sdl-mixer timidity
+www-plugins/gnash gstreamer nsplugin 
+www-plugins/adobe-flash -multilib
+dev-lisp/cl-gtk2 doc
+app-office/dia -gnome -python
+sci-mathematics/maxima sbcl latex
+dev-lisp/clisp new-clx postgres
+net-libs/xulrunner ipc
+mail-client/thunderbird lightning mozdom
+net-print/cups gnutls
+net-voip/telepathy-connection-managers irc jabber sip
+net-fs/coda client
+net-fs/nfs-utils caps -nfsv4
+sys-fs/udev extras
+dev-db/xbase doc
+sci-libs/vtk postgres tk tcl theora mpi boost cg
+virtual/mpi romio
+sys-cluster/openmpi romio cxx
+app-text/fbreader -qt4 gtk
+media-libs/libpng apng
+dev-python/PyQt4 sql declarative assistant

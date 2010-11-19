@@ -1,0 +1,10 @@
+dev-lang/ocaml -~amd64
+#net-fs/nfs-utils -~amd64
+#dev-lang/ghc -~amd64
+#media-video/mplayer -~amd64
+x11-wm/sawfish -~amd64
+sys-fs/udev -~amd64
+net-zope/zope-interface -~amd64
+media-libs/libpng -~amd64
+dev-java/ant-core -~amd64
+app-emulation/wine -~amd64

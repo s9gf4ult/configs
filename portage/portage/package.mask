@@ -1,0 +1,15 @@
+=media-sound/mpd-9999
+=media-sound/gimmix-9999
+=x11-base/xorg-server-9999
+#>=gnome-base/gvfs-1.4
+#=sys-apps/coreutils-8.3
+>=sys-kernel/gentoo-sources-2.6.35
+=dev-scheme/guile-1.9.4
+#>=net-print/cups-1.4
+>=media-sound/jack-audio-connection-kit-1.9
+>=dev-scheme/guile-1.9
+#>=sys-fs/cryptsetup-1.1
+>=media-video/mplayer-9999
+=x11-wm/stumpwm-9999
+#>=www-plugins/adobe-flash-10.1.53.64
+#=sys-fs/udev-160
