@@ -2,7 +2,7 @@
 -- @author Uli Schlachter &lt;psychon@znc.in&gt;
 -- @copyright 2009 Uli Schlachter
 -- @copyright 2008 Julien Danjou
--- @release 3.4-rc1
+-- @release v3.4.8
 ---------------------------------------------------------------------------
 
 -- Grab environment we need

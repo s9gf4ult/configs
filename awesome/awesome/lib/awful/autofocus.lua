@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------
 -- @author Julien Danjou &lt;julien@danjou.info&gt;
 -- @copyright 2009 Julien Danjou
--- @release 3.4-rc1
+-- @release v3.4.8
 ---------------------------------------------------------------------------
 
 local client = client
@@ -17,6 +17,9 @@ module("awful.autofocus")
 -- @param obj An object that should have a .screen property.
 local function check_focus(obj)
     if not client.focus or not client.focus:isvisible() then
+        local c = aclient.focus.history.get(obj.screen, 0)
+        if c then client.focus = c end
+    elseif client.focus and client.focus.screen ~= obj.screen then
         local c = aclient.focus.history.get(obj.screen, 0)
         if c then client.focus = c end
     end

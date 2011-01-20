@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------
 -- @author Julien Danjou &lt;julien@danjou.info&gt;
 -- @copyright 2009 Julien Danjou
--- @release 3.4-rc1
+-- @release v3.4.8
 ---------------------------------------------------------------------------
 
 -- Grab environment we need
@@ -13,6 +13,7 @@ local capi =
     client = client
 }
 local setmetatable = setmetatable
+local tostring = tostring
 local ipairs = ipairs
 local table = table
 local type = type
@@ -87,13 +88,13 @@ local function wibox_update_strut(wibox)
             if not wibox.visible then
                 wibox:struts { left = 0, right = 0, bottom = 0, top = 0 }
             elseif wprop.position == "top" then
-                wibox:struts { left = 0, right = 0, bottom = 0, top = wibox.height }
+                wibox:struts { left = 0, right = 0, bottom = 0, top = wibox.height + 2 * wibox.border_width }
             elseif wprop.position == "bottom" then
-                wibox:struts { left = 0, right = 0, bottom = wibox.height, top = 0 }
+                wibox:struts { left = 0, right = 0, bottom = wibox.height + 2 * wibox.border_width, top = 0 }
             elseif wprop.position == "left" then
-                wibox:struts { left = wibox.width, right = 0, bottom = 0, top = 0 }
+                wibox:struts { left = wibox.width + 2 * wibox.border_width, right = 0, bottom = 0, top = 0 }
             elseif wprop.position == "right" then
-                wibox:struts { left = 0, right = wibox.width, bottom = 0, top = 0 }
+                wibox:struts { left = 0, right = wibox.width + 2 * wibox.border_width, bottom = 0, top = 0 }
             end
             break
         end
@@ -132,6 +133,8 @@ function attach(wibox, position)
     wibox:add_signal("property::visible", wibox_update_strut)
 
     wibox:add_signal("property::screen", call_wibox_position_hook_on_prop_update)
+    wibox:add_signal("property::width", call_wibox_position_hook_on_prop_update)
+    wibox:add_signal("property::height", call_wibox_position_hook_on_prop_update)
     wibox:add_signal("property::visible", call_wibox_position_hook_on_prop_update)
     wibox:add_signal("property::border_width", call_wibox_position_hook_on_prop_update)
 end
@@ -144,7 +147,7 @@ end
 function align(wibox, align, screen)
     local position = get_position(wibox)
     local screen = screen or wibox.screen or 1
-    local area = capi.screen[screen].geometry
+    local area = capi.screen[screen].workarea
 
     if position == "right" then
         if align == "right" then
@@ -179,6 +182,9 @@ function align(wibox, align, screen)
             wibox.x = area.x + (area.width - wibox.width) / 2
         end
     end
+
+    -- Update struts regardless of changes
+    wibox_update_strut(wibox)
 end
 
 --- Stretch a wibox so it takes all screen width or height.
@@ -191,10 +197,10 @@ function stretch(wibox, screen)
         local area = capi.screen[screen].workarea
         if position == "right" or position == "left" then
             wibox.height = area.height - (2 * wibox.border_width)
-            align(wibox, "center")
+            wibox.y = area.y
         else
             wibox.width = area.width - (2 * wibox.border_width)
-            align(wibox, "left")
+            wibox.x = area.x
         end
     end
 end
@@ -226,7 +232,7 @@ function new(arg)
         if arg.height then
             has_to_stretch = false
             if arg.screen then
-                local hp = arg.height:match("(%d+)%%")
+                local hp = tostring(arg.height):match("(%d+)%%")
                 if hp then
                     arg.height = capi.screen[arg.screen].geometry.height * hp / 100
                 end
@@ -237,7 +243,7 @@ function new(arg)
         if arg.width then
             has_to_stretch = false
             if arg.screen then
-                local wp = arg.width:match("(%d+)%%")
+                local wp = tostring(arg.width):match("(%d+)%%")
                 if wp then
                     arg.width = capi.screen[arg.screen].geometry.width * wp / 100
                 end

@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------
 -- @author Julien Danjou &lt;julien@danjou.info&gt;
 -- @copyright 2009 Julien Danjou
--- @release 3.4-rc1
+-- @release v3.4.8
 ---------------------------------------------------------------------------
 
 local setmetatable = setmetatable
@@ -49,18 +49,49 @@ local data = setmetatable({}, { __mode = "k" })
 -- @param progressbar The progressbar.
 -- @param vertical A boolean value.
 
+--- Set the progressbar to draw ticks. Default is false.
+-- @name set_ticks
+-- @class function
+-- @param progressbar The progressbar.
+-- @param ticks A boolean value.
+
+--- Set the progressbar ticks gap.
+-- @name set_ticks_gap
+-- @class function
+-- @param progressbar The progressbar.
+-- @param value The value.
+
+--- Set the progressbar ticks size.
+-- @name set_ticks_size
+-- @class function
+-- @param progressbar The progressbar.
+-- @param value The value.
+
+--- Set the maximum value the progressbar should handle.
+-- @name set_max_value
+-- @class function
+-- @param progressbar The progressbar.
+-- @param value The value.
+
 local properties = { "width", "height", "border_color",
                      "gradient_colors", "color", "background_color",
-                     "vertical", "value" }
+                     "vertical", "value", "max_value",
+                     "ticks", "ticks_gap", "ticks_size" }
 
 local function update(pbar)
     local width = data[pbar].width or 100
-    local height  = data[pbar].height or 20
-
-    if data[pbar].width < 5 or data[pbar].height < 2 then return end
+    local height = data[pbar].height or 20
+    local ticks_gap = data[pbar].ticks_gap or 1
+    local ticks_size = data[pbar].ticks_size or 4
 
     -- Create new empty image
     local img = capi.image.argb32(width, height, nil)
+
+    local value = data[pbar].value
+    local max_value = data[pbar].max_value
+    if value >= 0 then
+        value = value / max_value
+    end
 
     local over_drawn_width = width
     local over_drawn_height = height
@@ -91,31 +122,61 @@ local function update(pbar)
 
     -- Cover the part that is not set with a rectangle
     if data[pbar].vertical then
-        local rel_height = math.floor(over_drawn_height * (1 - data[pbar].value))
+        local rel_height = math.floor(over_drawn_height * (1 - value))
         img:draw_rectangle(border_width,
                            border_width,
                            over_drawn_width,
                            rel_height,
                            true, data[pbar].background_color or "#000000aa")
+
+        -- Place smaller pieces over the gradient if ticks are enabled
+        if data[pbar].ticks then
+            for i=0, height / (ticks_size+ticks_gap)-border_width do
+                local rel_offset = over_drawn_height / 1 - (ticks_size+ticks_gap) * i
+
+                if rel_offset >= rel_height then
+                    img:draw_rectangle(border_width,
+                                       rel_offset,
+                                       over_drawn_width,
+                                       ticks_gap,
+                                       true, data[pbar].background_color or "#000000aa")
+                end
+            end
+        end
     else
-        local rel_x = math.floor(over_drawn_width * data[pbar].value)
+        local rel_x = math.ceil(over_drawn_width * value)
         img:draw_rectangle(border_width + rel_x,
                            border_width,
                            over_drawn_width - rel_x,
                            over_drawn_height,
                            true, data[pbar].background_color or "#000000aa")
+
+        if data[pbar].ticks then
+            for i=0, width / (ticks_size+ticks_gap)-border_width do
+                local rel_offset = over_drawn_width / 1 - (ticks_size+ticks_gap) * i
+
+                if rel_offset <= rel_x then
+                    img:draw_rectangle(rel_offset,
+                                       border_width,
+                                       ticks_gap,
+                                       over_drawn_height,
+                                       true, data[pbar].background_color or "#000000aa")
+                end
+            end
+        end
     end
 
     -- Update the image
     pbar.widget.image = img
 end
 
--- Set the progressbar value.
+--- Set the progressbar value.
 -- @param pbar The progress bar.
 -- @param value The progress bar value between 0 and 1.
 function set_value(pbar, value)
     local value = value or 0
-    data[pbar].value = math.min(1, math.max(0, value))
+    local max_value = data[pbar].max_value
+    data[pbar].value = math.min(max_value, math.max(0, value))
     update(pbar)
     return pbar
 end
@@ -124,10 +185,8 @@ end
 -- @param progressbar The progressbar.
 -- @param height The height to set.
 function set_height(progressbar, height)
-    if height >= 5 then
-        data[progressbar].height = height
-        update(progressbar)
-    end
+    data[progressbar].height = height
+    update(progressbar)
     return progressbar
 end
 
@@ -135,10 +194,8 @@ end
 -- @param progressbar The progressbar.
 -- @param width The width to set.
 function set_width(progressbar, width)
-    if width >= 5 then
-        data[progressbar].width = width
-        update(progressbar)
-    end
+    data[progressbar].width = width
+    update(progressbar)
     return progressbar
 end
 
@@ -162,8 +219,6 @@ function new(args)
     local width = args.width or 100
     local height = args.height or 20
 
-    if width < 5 or height < 5 then return end
-
     args.type = "imagebox"
 
     local pbar = {}
@@ -171,7 +226,7 @@ function new(args)
     pbar.widget = capi.widget(args)
     pbar.widget.resize = false
 
-    data[pbar] = { width = width, height = height, value = 0 }
+    data[pbar] = { width = width, height = height, value = 0, max_value = 1 }
 
     -- Set methods
     for _, prop in ipairs(properties) do

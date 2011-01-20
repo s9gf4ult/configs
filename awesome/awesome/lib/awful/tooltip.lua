@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------
 -- @author Sébastien Gross &lt;seb•ɱɩɲʋʃ•awesome•ɑƬ•chezwam•ɖɵʈ•org&gt
 -- @copyright 2009 Sébastien Gross
--- @release 3.4-rc1
+-- @release v3.4.8
 -------------------------------------------------------------------------
 
 local mouse = mouse
@@ -82,6 +82,9 @@ local function set_geometry(self)
         self.wibox:geometry(n_s)
         place(self)
     end
+    if not self.wibox.visible then
+       place(self)
+    end
 end
 
 -- Show a tooltip.
@@ -89,15 +92,15 @@ end
 local function show(self)
     -- do nothing if the tooltip is already shown
     if self.visible then return end
+    -- make sure the tooltip is on the same screen as the mouse
+    self.wibox.screen = mouse.screen
     if data[self].timer then
         if not data[self].timer.started then
-            -- make sure the tooltip is on the same screen as the mouse
-            self.wibox.screen = mouse.screen
             data[self].timer_function()
             data[self].timer:start()
         end
     end
-    place(self)
+    set_geometry(self)
     self.wibox.visible = true
     self.visible = true
 end

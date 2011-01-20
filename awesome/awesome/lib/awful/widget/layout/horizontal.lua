@@ -1,7 +1,7 @@
 -------------------------------------------------
 -- @author Gregor Best <farhaven@googlemail.com>
 -- @copyright 2009 Gregor Best
--- @release 3.4-rc1
+-- @release v3.4.8
 -------------------------------------------------
 
 -- Grab environment

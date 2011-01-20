@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------
 -- @author Julien Danjou &lt;julien@danjou.info&gt;
 -- @copyright 2008-2009 Julien Danjou
--- @release 3.4-rc1
+-- @release v3.4.8
 ---------------------------------------------------------------------------
 
 -- Grab environment we need
@@ -53,7 +53,7 @@ function new(label, buttons)
                          bg_resize = true,
                          bg_align  = "right"
                        }
-    local data = setmetatable({}, { __mode = 'k' })
+    local data = setmetatable({}, { __mode = 'kv' })
     local u = function () tasklist_update(w, buttons, label, data, widgets) end
     for s = 1, capi.screen.count() do
         tag.attached_add_signal(s, "property::selected", u)
@@ -67,6 +67,7 @@ function new(label, buttons)
         c:add_signal("property::maximized_vertical", u)
         c:add_signal("property::name", u)
         c:add_signal("property::icon_name", u)
+        c:add_signal("property::icon", u)
         c:add_signal("property::skip_taskbar", u)
         c:add_signal("property::hidden", u)
         c:add_signal("tagged", u)

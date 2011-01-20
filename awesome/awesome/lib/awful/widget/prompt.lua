@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------
 -- @author Julien Danjou &lt;julien@danjou.info&gt;
 -- @copyright 2009 Julien Danjou
--- @release 3.4-rc1
+-- @release v3.4.8
 ---------------------------------------------------------------------------
 
 local setmetatable = setmetatable
@@ -11,6 +11,7 @@ local completion = require("awful.completion")
 local util = require("awful.util")
 local prompt = require("awful.prompt")
 local layout = require("awful.widget.layout")
+local type = type
 
 module("awful.widget.prompt")
 
@@ -19,7 +20,12 @@ module("awful.widget.prompt")
 local function run(promptbox)
     return prompt.run({ prompt = promptbox.prompt },
                       promptbox.widget,
-                      function (...) promptbox.widget.text = util.spawn(...) end,
+                      function (...)
+                          local result = util.spawn(...)
+                          if type(result) == "string" then
+                              promptbox.widget.text = result
+                          end
+                      end,
                       completion.shell,
                       util.getdir("cache") .. "/history")
 end

@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------
 -- @author Julien Danjou &lt;julien@danjou.info&gt;
 -- @copyright 2008-2009 Julien Danjou
--- @release 3.4-rc1
+-- @release v3.4.8
 ---------------------------------------------------------------------------
 
 -- Grab environment we need
@@ -57,7 +57,7 @@ function new(screen, label, buttons)
                                         ["right"] = 0},
                          ["bg_resize"] = true
                        }
-    local data = setmetatable({}, { __mode = 'k' })
+    local data = setmetatable({}, { __mode = 'kv' })
     local u = function (s)
         if s == screen then
             taglist_update(s, w, label, buttons, data, widgets)

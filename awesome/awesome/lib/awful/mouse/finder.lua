@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------
 -- @author Sébastien Gross &lt;seb•ɱɩɲʋʃ•awesome•ɑƬ•chezwam•ɖɵʈ•org&gt
 -- @copyright 2009 Sébastien Gross
--- @release 3.4-rc1
+-- @release v3.4.8
 -------------------------------------------------------------------------
 
 local mouse = mouse
