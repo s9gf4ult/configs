@@ -537,6 +537,11 @@
         </keybind>
       </keybind>
     </keybind>
+    <keybind key="W-s">
+      <action name="Execute">
+        <command>scrot -s</command>
+      </action>
+    </keybind>
     
       
   
@@ -869,8 +874,10 @@
   <!-- show the manage desktops section in the client-list-(combined-)menu -->
 </menu>
   <applications>
-    <application name="firefox" class="Firefox">
+    <application name="firefox" class="Firefox" type="normal">
       <desktop>5</desktop>
+      <decor>no</decor>
+      <maximized>yes</maximized>
     </application>
     <application name="chrome" class="Chrome">
       <desktop>5</desktop>
@@ -880,6 +887,8 @@
     </application>
     <application name="info.exe" class="Wine">
       <desktop>4</desktop>
+      <decor>no</decor>
+      <maximized>yes</maximized>
     </application>
     <application name="qjackctl" class="Qjackctl">
       <desktop>10</desktop>
