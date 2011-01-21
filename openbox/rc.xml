@@ -535,7 +535,6 @@
             <command>gajim-remote open_chat master_bo@jabber.ru</command>
           </action>
         </keybind>
-
       </keybind>
     </keybind>
     
