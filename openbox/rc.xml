@@ -363,6 +363,10 @@
       </action>
     </keybind>
     <!-- Keybindings for windows -->
+
+    <keybind key="W-z">
+      <action name="Iconify"/>
+    </keybind>
     <keybind key="W-d">
       <action name="ToggleDecorations"/>
     </keybind>
@@ -514,6 +518,24 @@
         <action name="Execute">
           <command>gajim-remote toggle_roster_appearance</command>
         </action>
+      </keybind>
+      <keybind key="w">
+        <keybind key="a">
+          <action name="Execute">
+            <command>gajim-remote open_chat axce1@jabber.ru</command>
+          </action>
+        </keybind>
+        <keybind key="q">
+          <action name="Execute">
+            <command>gajim-remote open_chat q@clisearch.net</command>
+          </action>
+        </keybind>
+        <keybind key="m">
+          <action name="Execute">
+            <command>gajim-remote open_chat master_bo@jabber.ru</command>
+          </action>
+        </keybind>
+
       </keybind>
     </keybind>
     
