@@ -509,6 +509,16 @@
         </action>
       </keybind>
     </keybind>
+    <keybind key="W-g">
+      <keybind key="r">
+        <action name="Execute">
+          <command>gajim-remote toggle_roster_appearance</command>
+        </action>
+      </keybind>
+    </keybind>
+    
+      
+  
       
   </keyboard>
 
@@ -865,7 +875,16 @@
     <application  class="VirtualBox">
       <desktop>8</desktop>
     </application>
-
+    <application  name="emacs" class="Emacs">
+      <desktop>3</desktop>
+      <decor>no</decor>
+      <maximized>yes</maximized>
+    </application>
+    <application name="gajim.py" class="Gajim.py" role="roster">
+      <layer>above</layer>
+      <desktop>all</desktop>
+    </application>
+    
 
     <!--
   # this is an example with comments through out. use these to make your
