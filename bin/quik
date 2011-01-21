@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ~/.wine/drive_c/Program\ Files/Info
+wine ./info.exe
