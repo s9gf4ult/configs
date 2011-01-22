@@ -1,12 +1,13 @@
 ---------------------------------------------------------------------------
 -- @author Julien Danjou &lt;julien@danjou.info&gt;
 -- @copyright 2008-2009 Julien Danjou
--- @release v3.4.8
+-- @release v3.4.9
 ---------------------------------------------------------------------------
 
 -- Grab environment we need
 local math = math
 local type = type
+local pcall = pcall
 local ipairs = ipairs
 local setmetatable = setmetatable
 local capi = { widget = widget, button = button }
@@ -73,7 +74,13 @@ function list_update(w, buttons, label, data, widgets, objects)
         end
 
         local text, bg, bg_image, icon = label(o)
-        w[k + 1].text, w[k + 1].bg, w[k + 1].bg_image = text, bg, bg_image
+
+        -- Check if we got a valid text here, it might contain e.g. broken utf8.
+        if not pcall(function() w[k + 1].text = text end) then
+            w[k + 1].text = "<i>Invalid</i>"
+        end
+
+        w[k + 1].bg, w[k + 1].bg_image = bg, bg_image
         w[k].bg, w[k].image = bg, icon
         if not w[k + 1].text then
             w[k+1].visible = false
