@@ -522,6 +522,12 @@
           <command>xterm -e htop</command>
         </action>
       </keybind>
+      <keybind key="o">
+        <action name="Execute">
+          <command>xterm -e octave</command>
+        </action>
+      </keybind>
+      
     </keybind>
     <keybind key="W-g">
       <keybind key="r">
@@ -537,7 +543,7 @@
         </keybind>
         <keybind key="q">
           <action name="Execute">
-            <command>gajim-remote open_chat q@clisearch.net</command>
+            <command>gajim-remote open_chat notify@planary.ru</command>
           </action>
         </keybind>
         <keybind key="m">
@@ -545,6 +551,12 @@
             <command>gajim-remote open_chat master_bo@jabber.ru</command>
           </action>
         </keybind>
+        <keybind key="o">
+          <action name="Execute">
+            <command>gajim-remote open_chat oliff-ka@jabber.ru</command>
+          </action>
+        </keybind>
+        
       </keybind>
     </keybind>
     <keybind key="W-s">
