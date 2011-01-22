@@ -512,6 +512,16 @@
           <command>sqldeveloper</command>
         </action>
       </keybind>
+      <keybind key="m">
+        <action name="Execute">
+          <command>xterm -e mc</command>
+        </action>
+      </keybind>
+      <keybind key="h">
+        <action name="Execute">
+          <command>xterm -e htop</command>
+        </action>
+      </keybind>
     </keybind>
     <keybind key="W-g">
       <keybind key="r">
@@ -887,8 +897,6 @@
     </application>
     <application name="info.exe" class="Wine">
       <desktop>4</desktop>
-      <decor>no</decor>
-      <maximized>yes</maximized>
     </application>
     <application name="qjackctl" class="Qjackctl">
       <desktop>10</desktop>
