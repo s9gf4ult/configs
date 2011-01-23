@@ -527,6 +527,12 @@
           <command>xterm -e octave</command>
         </action>
       </keybind>
+      <keybind key="c">
+        <action name="Execute">
+          <command>xterm -e clisp</command>
+        </action>
+      </keybind>
+        
       
     </keybind>
     <keybind key="W-g">
