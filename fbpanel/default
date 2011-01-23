@@ -146,11 +146,12 @@ Plugin {
     expand = false
     padding = 2
     config {
-        ShowSwap = false
+        ShowSwap = true
     }
 }
 Plugin {
     type = cpu
+		padding = 2
     config {
         Color = green
     }
