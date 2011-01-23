@@ -176,6 +176,12 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
+    <keybind key="W-e">
+      <action name="ShowMenu">
+        <menu>client-list-combined-menu</menu>
+      </action>
+    </keybind>
+      
     <keybind key="W-1">
       <action name="Desktop">
         <desktop>1</desktop>
@@ -426,17 +432,21 @@
       <action name="Exit"/>
     </keybind>
         
+    <keybind key="W-Tab">
+      <action name="DesktopLast"/>
+    </keybind>
 
 
     <!-- Keybindings for window switching -->
-    <keybind key="W-Tab">
+    <keybind key="W-n">
       <action name="NextWindow"/>
     </keybind>
-    <keybind key="W-n">
+    <keybind key="W-p">
       <action name="PreviousWindow"/>
     </keybind>
+    
     <!-- Keybindings for running applications -->
-    <keybind key="W-p">
+    <keybind key="W-o">
       <action name="Execute">
         <command>gmrun</command>
       </action>
