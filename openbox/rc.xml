@@ -504,7 +504,7 @@
       </keybind>
       <keybind key="p">
         <action name="Execute">
-          <command>pcmanfm</command>
+          <command>krusader</command>
         </action>
       </keybind>
       <keybind key="s">
