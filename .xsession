@@ -5,6 +5,6 @@ setxkbmap -layout us,ru -option 'grp:shift_toggle,grp_led:scroll,terminate:ctrl_
 xscreensaver &
 #wmii
 #fbpanel &
-tint2
+tint2 &
 openbox
 kill %1
