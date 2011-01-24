@@ -439,10 +439,14 @@
 
     <!-- Keybindings for window switching -->
     <keybind key="W-n">
-      <action name="NextWindow"/>
+      <action name="NextWindow">
+        <linear>no</linear>
+      </action>
     </keybind>
     <keybind key="W-p">
-      <action name="PreviousWindow"/>
+      <action name="PreviousWindow">
+        <linear>no</linear>
+      </action>
     </keybind>
     
     <!-- Keybindings for running applications -->
