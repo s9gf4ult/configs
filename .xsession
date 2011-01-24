@@ -4,8 +4,9 @@ xset m 0
 xset r rate 250 100
 setxkbmap -layout us,ru -option 'grp:shift_toggle,grp_led:scroll,terminate:ctrl_alt_bksp'
 xscreensaver &
-#wmii
-#fbpanel &
 tint2 &
+~/bin/wallp.sh ~/salvad/ 60 1800 &
 openbox
 kill %1
+kill %2
+kill %3
