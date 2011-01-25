@@ -585,6 +585,11 @@
             <command>gajim-remote open_chat q@clisearch.net</command>
           </action>
         </keybind>
+        <keybind key="p">
+          <action name="Execute">
+            <command>gajim-remote open_chat ptetenko@xmpp.ru</command>
+          </action>
+        </keybind>
         
       </keybind>
     </keybind>
