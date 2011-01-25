@@ -565,7 +565,7 @@
             <command>gajim-remote open_chat axce1@jabber.ru</command>
           </action>
         </keybind>
-        <keybind key="q">
+        <keybind key="n">
           <action name="Execute">
             <command>gajim-remote open_chat notify@planary.ru</command>
           </action>
@@ -578,6 +578,16 @@
         <keybind key="o">
           <action name="Execute">
             <command>gajim-remote open_chat oliff-ka@jabber.ru</command>
+          </action>
+        </keybind>
+        <keybind key="q">
+          <action name="Execute">
+            <command>gajim-remote open_chat q@clisearch.net</command>
+          </action>
+        </keybind>
+        <keybind key="p">
+          <action name="Execute">
+            <command>gajim-remote open_chat ptetenko@xmpp.ru</command>
           </action>
         </keybind>
         
@@ -920,7 +930,7 @@
   <!-- show the manage desktops section in the client-list-(combined-)menu -->
 </menu>
   <applications>
-    <application name="firefox" class="Firefox" type="normal">
+    <application name="firefox" class="Firefox" type="normal" role="browser">
       <desktop>5</desktop>
       <decor>no</decor>
       <maximized>yes</maximized>
