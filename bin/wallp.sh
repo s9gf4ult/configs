@@ -6,7 +6,7 @@
 [[ -f $1 ]] || exit 255
     
 while true;do
-    feh --bg-max $(cat "$1" | shuf | head -n 1)
+    feh --bg-max "$(cat "$1" | shuf | head -n 1)"
     ss=$(seq $2 $3 | shuf | head -n1)
     sleep ${ss}s
 done
