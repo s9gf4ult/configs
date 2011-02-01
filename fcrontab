@@ -1,0 +1,13 @@
+& 15 20 * * 1-5 DISPLAY=:0 notify-send -u critical -t 900000 "Закрытие россии через 30 минут"
+& 45 19 * * 1-5 DISPLAY=:0 notify-send -u critical -t 900000 "Закрытие россии через 60 минут"
+& 43 20 * * 1-5 DISPLAY=:0 notify-send -u critical -t 900000 "Закрытие россии через 2 мины"
+& 45 20 * * 1-5 DISPLAY=:0 notify-send -u critical -t 900000 "Россия закрыта"
+& 15 19 * * 1-5 DISPLAY=:0 notify-send -u critical -t 900000 "Открытие америки через 15 минут"
+& 28 19 * * 1-5 DISPLAY=:0 notify-send -u critical -t 900000 "Открытие америки через 2 минуты"
+& 30 19 * * 1-5 DISPLAY=:0 notify-send -u critical -t 900000 "Америка открылась"
+& 15 0 * * 2-6 DISPLAY=:0 notify-send -u critical -t 900000 "Часть америки закроется через 15 минут"
+& 28 0 * * 2-6 DISPLAY=:0 notify-send -u critical -t 900000 "Часть америки закроется через 2 минуты"
+& 30 0 * * 2-6 DISPLAY=:0 notify-send -u critical -t 900000 "Часть америки закрылась"
+& 15 1 * * 2-6 DISPLAY=:0 notify-send -u critical -t 900000 "Часть америки закроется через 15 минут"
+& 28 1 * * 2-6 DISPLAY=:0 notify-send -u critical -t 900000 "Часть америки закроется через 2 минуты"
+& 30 1 * * 2-6 DISPLAY=:0 notify-send -u critical -t 900000 "Америка закрылась
