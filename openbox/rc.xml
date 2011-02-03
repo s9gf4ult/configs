@@ -942,7 +942,7 @@
       <desktop>4</desktop>
     </application>
     <application name="info.exe" class="Wine">
-      <desktop>4</desktop>
+      <desktop>6</desktop>
     </application>
     <application name="qjackctl" class="Qjackctl">
       <desktop>10</desktop>
@@ -965,6 +965,10 @@
       <maximized>yes</maximized>
     </application>
     <application name="gajim.py" class="Gajim.py" role="roster">
+      <layer>above</layer>
+      <desktop>all</desktop>
+    </application>
+    <application name="gajim.py" class="Gajim.py" role="messages">
       <layer>above</layer>
       <desktop>all</desktop>
     </application>
