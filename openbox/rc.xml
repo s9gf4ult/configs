@@ -969,7 +969,6 @@
       <desktop>all</desktop>
     </application>
     <application name="gajim.py" class="Gajim.py" role="messages">
-      <layer>above</layer>
       <desktop>all</desktop>
     </application>
     
