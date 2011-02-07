@@ -975,6 +975,10 @@
       <layer>above</layer>
       <desktop>all</desktop>
     </application>
+    <application  class="Firefox" role="reminderFoxAlarmDialog">
+      <layer>above</layer>
+      <desktop>all</desktop>
+    </application>
     
 
     <!--
