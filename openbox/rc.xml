@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Clearlooks</name>
+    <name>Orang</name>
     <titleLayout>NDLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -181,7 +181,6 @@
         <menu>client-list-combined-menu</menu>
       </action>
     </keybind>
-      
     <keybind key="W-1">
       <action name="Desktop">
         <desktop>1</desktop>
@@ -369,7 +368,6 @@
       </action>
     </keybind>
     <!-- Keybindings for windows -->
-
     <keybind key="W-z">
       <action name="Iconify"/>
     </keybind>
@@ -431,12 +429,9 @@
     <keybind key="W-S-q">
       <action name="Exit"/>
     </keybind>
-        
     <keybind key="W-Tab">
       <action name="DesktopLast"/>
     </keybind>
-
-
     <!-- Keybindings for window switching -->
     <keybind key="W-n">
       <action name="NextWindow">
@@ -448,7 +443,6 @@
         <linear>no</linear>
       </action>
     </keybind>
-    
     <!-- Keybindings for running applications -->
     <keybind key="W-o">
       <action name="Execute">
@@ -551,7 +545,6 @@
           <command>krusader</command>
         </action>
       </keybind>
-      
     </keybind>
     <keybind key="W-g">
       <keybind key="r">
@@ -590,7 +583,6 @@
             <command>gajim-remote open_chat ptetenko@xmpp.ru</command>
           </action>
         </keybind>
-        
       </keybind>
     </keybind>
     <keybind key="W-s">
@@ -598,12 +590,7 @@
         <command>scrot -s</command>
       </action>
     </keybind>
-    
-      
-  
-      
   </keyboard>
-
   <mouse>
     <dragThreshold>8</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
@@ -950,16 +937,16 @@
     <application name="aqualung" class="Aqualung">
       <desktop>10</desktop>
     </application>
-    <application  class="Gimp">
+    <application class="Gimp">
       <desktop>7</desktop>
     </application>
-    <application  class="oracle-ide-boot-Launcher">
+    <application class="oracle-ide-boot-Launcher">
       <desktop>8</desktop>
     </application>
-    <application  class="VirtualBox">
+    <application class="VirtualBox">
       <desktop>8</desktop>
     </application>
-    <application  name="emacs" class="Emacs">
+    <application name="emacs" class="Emacs">
       <desktop>3</desktop>
       <decor>no</decor>
       <maximized>yes</maximized>
@@ -971,16 +958,14 @@
     <application name="gajim.py" class="Gajim.py" role="messages">
       <desktop>all</desktop>
     </application>
-    <application  class="Thunderbird-bin" role="reminderFoxAlarmDialog">
+    <application class="Thunderbird-bin" role="reminderFoxAlarmDialog">
       <layer>above</layer>
       <desktop>all</desktop>
     </application>
-    <application  class="Firefox" role="reminderFoxAlarmDialog">
+    <application class="Firefox" role="reminderFoxAlarmDialog">
       <layer>above</layer>
       <desktop>all</desktop>
     </application>
-    
-
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
