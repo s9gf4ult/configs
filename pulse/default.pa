@@ -1,0 +1,21 @@
+load-module module-alsa-sink sink_name=x-fi-headphones device=hw:1,1
+load-module module-alsa-sink sink_name=x-fi-vega device=hw:1,0
+load-module module-alsa-sink sink_name=embeded device=hw:0
+
+load-module module-alsa-source device=hw:1
+load-module module-alsa-source device=hw:0
+
+load-module module-native-protocol-unix
+load-module module-esound-protocol-unix
+load-module module-udev-detect
+
+set-default-sink x-fi-headphones
+
+load-module module-stream-restore
+load-module module-default-device-restore
+load-module module-rescue-streams
+.nofail
+.ifexists /usr/lib/pulse-0.9/modules/module-x11-publish.so
+load-module module-x11-publish
+.endif
+
