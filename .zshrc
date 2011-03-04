@@ -38,4 +38,4 @@ stty start undef
 stty stop undef
 export OOO_FORCE_DESKTOP="gnome"
 export PATH=${PATH}:${HOME}/bin
-export http_proxy="http://172.16.10.151:3128"
+export http_proxy="http://192.168.160.151:3128"
