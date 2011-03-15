@@ -608,12 +608,12 @@
       </keybind>
       <keybind key="q">
         <action name="Execute">
-          <command>mpc volume +17</command>
+          <command>mpc volume +15</command>
         </action>
       </keybind>
       <keybind key="z">
         <action name="Execute">
-          <command>mpc volume -17</command>
+          <command>mpc volume -15</command>
         </action>
       </keybind>
       <keybind key="w">
