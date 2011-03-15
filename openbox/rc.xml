@@ -1006,6 +1006,7 @@
     </application>
     <application class="Gimp">
       <desktop>7</desktop>
+      <maximized>Vertical</maximized>
     </application>
     <application class="oracle-ide-boot-Launcher">
       <desktop>8</desktop>
