@@ -6,7 +6,9 @@ setxkbmap -layout us,ru -option 'grp:shift_toggle,grp_led:scroll,terminate:ctrl_
 xscreensaver &
 tint2 &
 ~/bin/wallp.sh ~/wallpaper.rc 3600 10800 &
+mpd
 openbox
+mpd --kill
 kill %1
 kill %2
 kill %3
