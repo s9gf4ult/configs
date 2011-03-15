@@ -606,6 +606,26 @@
           <command>mpc toggle</command>
         </action>
       </keybind>
+      <keybind key="q">
+        <action name="Execute">
+          <command>mpc volume +17</command>
+        </action>
+      </keybind>
+      <keybind key="z">
+        <action name="Execute">
+          <command>mpc volume -17</command>
+        </action>
+      </keybind>
+      <keybind key="w">
+        <action name="Execute">
+          <command>mpc volume +9</command>
+        </action>
+      </keybind>
+      <keybind key="x">
+        <action name="Execute">
+          <command>mpc volume -9</command>
+        </action>
+      </keybind>
     </keybind>
     <keybind key="W-s">
       <action name="Execute">
