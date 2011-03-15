@@ -646,6 +646,11 @@
           <command>mpc seek -0:1:45</command>
         </action>
       </keybind>
+      <keybind key="s">
+        <action name="Execute">
+          <command>mpc shuffle</command>
+        </action>
+      </keybind>
     </keybind>
     <keybind key="W-s">
       <action name="Execute">
