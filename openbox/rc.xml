@@ -984,7 +984,7 @@
   <!-- show the manage desktops section in the client-list-(combined-)menu -->
 </menu>
   <applications>
-    <application name="firefox" class="Firefox" type="normal" role="browser">
+    <application name="Navigator" class="Firefox" type="normal" role="browser">
       <desktop>5</desktop>
       <decor>no</decor>
       <maximized>yes</maximized>
