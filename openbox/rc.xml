@@ -1026,11 +1026,11 @@
       <decor>no</decor>
       <maximized>yes</maximized>
     </application>
-    <application name="gajim.py" class="Gajim.py" role="roster">
+    <application name="gajim" class="Gajim.py" role="roster">
       <layer>above</layer>
       <desktop>all</desktop>
     </application>
-    <application name="gajim.py" class="Gajim.py" role="messages">
+    <application name="Private Chats - Gajim" class="gajim[None]" role="messages">
       <desktop>all</desktop>
     </application>
     <application class="Thunderbird-bin" role="reminderFoxAlarmDialog">
