@@ -1004,6 +1004,12 @@
     <application name="aqualung" class="Aqualung">
       <desktop>10</desktop>
     </application>
+    <application class="Dia" role="diagram_window">
+      <maximized>Vertical</maximized>
+    </application>
+    <application class="Dia" role="toolbox_window">
+      <maximized>Vertical</maximized>
+    </application>
     <application class="Gimp" role="gimp-image-window">
       <desktop>7</desktop>
       <maximized>Vertical</maximized>
