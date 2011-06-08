@@ -545,6 +545,11 @@
           <command>krusader</command>
         </action>
       </keybind>
+      <keybind key="n">
+        <action name="Execute">
+          <command>nautilus</command>
+        </action>
+      </keybind>
     </keybind>
     <keybind key="W-g">
       <keybind key="r">
@@ -653,9 +658,16 @@
       </keybind>
     </keybind>
     <keybind key="W-s">
-      <action name="Execute">
-        <command>scrot -s</command>
-      </action>
+      <keybind key="l">
+        <action name="Execute">
+          <command>gnome-session-save --gui --logout-dialog</command>
+        </action>
+      </keybind>
+      <keybind key="s">
+        <action name="Execute">
+          <command>gnome-session-save --gui --shutdown-dialog</command>
+        </action>
+      </keybind>
     </keybind>
   </keyboard>
   <mouse>
