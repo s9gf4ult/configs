@@ -23,7 +23,7 @@ URxvt.keysym.Shift-Down: command:\033]721;1\007
 urxvt*keysym.End: \033[4~
 urxvt*mouseWheelScrollPage:        false
 urxvt*cutchars:`'",;@&*=|?()<>[]{}
-URxvt.urlLauncher:opera
+URxvt.urlLauncher:firefox
 urxvt*visualBell:false
 xterm*font:-xos4-terminus-medium-r-normal--20-*-*-*-*-*-iso10646-1
 xterm*background:#202020
