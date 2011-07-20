@@ -1004,7 +1004,7 @@
     <application name="chrome" class="Chrome">
       <desktop>5</desktop>
     </application>
-    <application name="thunderbird-bin" class="Thunderbird-bin">
+    <application name="Mail" class="Thunderbird">
       <desktop>4</desktop>
     </application>
     <application name="info.exe" class="Wine">
