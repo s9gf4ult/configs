@@ -1,3 +1,5 @@
 #!/bin/sh
 
-xinput set-prop 'Razer Razer Diamondback 3G' 'Device Accel Profile' -1
+xset m 31/20 0
+xset r rate 300 100
+setxkbmap -layout us,ru -option 'grp:shift_toggle,grp_led:scroll,terminate:ctrl_alt_bksp'
