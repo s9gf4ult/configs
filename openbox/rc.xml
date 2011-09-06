@@ -456,7 +456,7 @@
     </keybind>
     <keybind key="W-q">
       <action name="Execute">
-        <command>xscreensaver-command -lock</command>
+        <command>gnome-screensaver-command -l</command>
       </action>
     </keybind>
     <keybind key="W-x">
