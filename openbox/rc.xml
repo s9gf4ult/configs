@@ -1004,8 +1004,10 @@
     <application name="chrome" class="Chrome">
       <desktop>5</desktop>
     </application>
-    <application name="Mail" class="Thunderbird">
+    <application type="normal" class="Thunderbird">
       <desktop>4</desktop>
+      <decor>no</decor>
+      <maximized>yes</maximized>
     </application>
     <application name="info.exe" class="Wine">
       <desktop>6</desktop>
@@ -1029,9 +1031,15 @@
     <application class="Gimp" role="gimp-toolbox">
       <desktop>7</desktop>
       <maximized>Vertical</maximized>
+      <decor>no</decor>
     </application>
-    <application class="Gimp">
+    <application class="Gimp" role="gimp-image-window">
       <desktop>7</desktop>
+      <maximized>Vertical</maximized>
+      <decor>no</decor>
+    </application>
+    <application class="libreoffice-writer" type="normal">
+      <maximized>Vertical</maximized>
     </application>
     <application class="oracle-ide-boot-Launcher">
       <desktop>8</desktop>
@@ -1039,7 +1047,7 @@
     <application class="VirtualBox">
       <desktop>8</desktop>
     </application>
-    <application name="emacs" class="Emacs">
+    <application name="emacs" class="Emacs" type="normal">
       <desktop>3</desktop>
       <decor>no</decor>
       <maximized>yes</maximized>
