@@ -17,10 +17,12 @@ def instock(filename):
     """
     with open(filename, 'r') as infile:
         r = csv.reader(infile)
+        first = True
         for line in r:
-            yield line[0][:-1]
-
-
+            if not first:
+                yield line[1]
+            else:
+                first = False
     
 if len(sys.argv) == 2:
     infile = sys.argv[1]
