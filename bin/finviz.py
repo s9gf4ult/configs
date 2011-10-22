@@ -87,7 +87,17 @@ def print_join(outf, db, res):
     \param db
     \param res
     """
-    pass
+    if res.no_clean:
+        writer = csv.writer(outf, delimiter = ',', doublequote=True, quoting=csv.QUOTE_NONNUMERIC)
+        writer.writerow(fields)         # write header
+        number = 1
+        for flds in db.execute('select distinct {0} from stocks'.format(comma_reduce(formated_fields[1:]))):
+            writer.writerow([number] + list(flds))
+            number += 1
+    else:
+        for (ticker, ) in db.execute('select distinct Ticker from stocks order by Ticker'):
+            outf.write('{0}\n'.format(ticker))
+    
 
 def print_intersect(outf, db, res):
     """\brief print intersect result to outf
@@ -95,7 +105,17 @@ def print_intersect(outf, db, res):
     \param db
     \param res
     """
-    pass
+    if res.no_clean:
+        writer = csv.writer(outf, delimiter = ',', doublequote=True, quoting=csv.QUOTE_NONNUMERIC)
+        writer.writerow(fields)         # write header
+        number = 1
+        for flds in db.execute('select distinct {0} from stocks'.format(comma_reduce(formated_fields[1:]))):
+            writer.writerow([number] + list(flds))
+            number += 1
+    else:
+        for (ticker, ) in db.execute('select distinct Ticker from stocks order by Ticker'):
+            outf.write('{0}\n'.format(ticker))
+    
 
 def print_unique(outf, db, res):
     """\brief print result of 'unique' to outf
@@ -127,7 +147,7 @@ def print_usually(outf, db, res):
             writer.writerow([number] + list(flds))
             number += 1
     else:
-        for (ticker, ) in db.execute('select Ticker from stocks'):
+        for (ticker, ) in db.execute('select Ticker from stocks order by Ticker'):
             outf.write('{0}\n'.format(ticker))
 
 def proceed(res):
