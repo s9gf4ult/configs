@@ -49,7 +49,7 @@ def create_tables(db):
     """
     db.execute('pragma foreign_keys=on') # turn on foreign keys
     db.execute('create table files(id int, unique(id))')
-    db.execute('create table stocks(file_id, {0}, foreign key (file_id) references files(id), unique(file_id, Ticker))'.format(comma_reduce(formated_fields[1:])))
+    db.execute('create table stocks(file_id int not null, {0}, foreign key (file_id) references files(id), unique(file_id, Ticker))'.format(comma_reduce(formated_fields[1:])))
 
 def fill_db(db, res):
     """\brief fill database with data
@@ -59,7 +59,11 @@ def fill_db(db, res):
     for infile in res.files:
         db.execute('insert into files(id) values (?)', [infile.fileno()])
         csvreader = csv.reader(infile)
-        header = csvreader.next()       # read first string
+        try:
+            header = csvreader.next()       # read first string
+        except StopIteration:
+            sys.stderr.write('File {0} is empty\n'.format(infile.name))
+            exit(1)
         if set(header) != set(fields):
             sys.stderr.write('File {0} has wrong format\n'.format(infile.name))
             exit(1)
@@ -68,7 +72,6 @@ def fill_db(db, res):
             indexes[f] = header.index(f)
         query = 'insert into stocks(file_id, {0}) values ({1})'.format(comma_reduce(formated_fields[1:]),
                                                                        comma_reduce(['?' for x in formated_fields[1:]] + ['?']))
-        print(query)
         for stock in csvreader:
             flds = []
             for f in [stock[indexes[field_name]] for field_name in fields[1:]]:
@@ -79,7 +82,11 @@ def fill_db(db, res):
                         flds.append(float(f))
                     except:
                         flds.append(f)
-            db.execute(query, [infile.fileno()] + flds)
+            try:
+                db.execute(query, [infile.fileno()] + flds)
+            except sqlite3.IntegrityError:
+                sys.stderr.write('It is posible that file {0} has wrong data'.format(infile.name))
+                exit(1)
             
 def print_join(outf, db, res):
     """\brief print join result to outf, get data from db considering res
@@ -105,15 +112,16 @@ def print_intersect(outf, db, res):
     \param db
     \param res
     """
+    (files_count, ) = db.execute('select count(*) from files').fetchone()
     if res.no_clean:
         writer = csv.writer(outf, delimiter = ',', doublequote=True, quoting=csv.QUOTE_NONNUMERIC)
         writer.writerow(fields)         # write header
         number = 1
-        for flds in db.execute('select distinct {0} from stocks'.format(comma_reduce(formated_fields[1:]))):
+        for flds in db.execute('select distinct {0} from stocks s where (select count(*) from stocks ss where ss.Ticker = s.Ticker) = ? order by s.Ticker'.format(comma_reduce(['s.{0}'.format(x) for x in formated_fields[1:]])), [files_count]):
             writer.writerow([number] + list(flds))
             number += 1
     else:
-        for (ticker, ) in db.execute('select distinct Ticker from stocks order by Ticker'):
+        for (ticker, ) in db.execute('select distinct s.Ticker from stocks s where (select count(*) from stocks ss where ss.Ticker = s.Ticker) = ? order by s.Ticker', [files_count]):
             outf.write('{0}\n'.format(ticker))
     
 
@@ -123,7 +131,17 @@ def print_unique(outf, db, res):
     \param db
     \param res
     """
-    pass
+    if res.no_clean:
+        writer = csv.writer(outf, delimiter = ',', doublequote=True, quoting=csv.QUOTE_NONNUMERIC)
+        writer.writerow(fields)         # write header
+        number = 1
+        for flds in db.execute('select distinct {0} from stocks s where not exists(select ss.* from stocks ss where ss.Ticker = s.Ticker and ss.file_id <> s.file_id) order by Ticker'.format(comma_reduce(['s.{0}'.format(x) for x in formated_fields[1:]]))):
+            writer.writerow([number] + list(flds))
+            number += 1
+    else:
+        for (ticker, ) in db.execute('select s.Ticker from stocks s where not exists(select ss.* from stocks ss where ss.Ticker = s.Ticker and ss.file_id <> s.file_id) order by Ticker'):
+            outf.write('{0}\n'.format(ticker))
+
 
 def print_substract(outf, db, res):
     """\brief print result of substraction to outf
@@ -131,7 +149,18 @@ def print_substract(outf, db, res):
     \param db
     \param res
     """
-    pass
+    first_file = res.files[0].fileno()
+    if res.no_clean:
+        writer = csv.writer(outf, delimiter = ',', doublequote=True, quoting=csv.QUOTE_NONNUMERIC)
+        writer.writerow(fields)         # write header
+        number = 1
+        for flds in db.execute('select distinct {0} from stocks s where not exists(select ss.* from stocks ss where ss.Ticker = s.Ticker and ss.file_id <> s.file_id) and s.file_id = ? order by Ticker'.format(comma_reduce(['s.{0}'.format(x) for x in formated_fields[1:]])), [first_file]):
+            writer.writerow([number] + list(flds))
+            number += 1
+    else:
+        for (ticker, ) in db.execute('select s.Ticker from stocks s where not exists(select ss.* from stocks ss where ss.Ticker = s.Ticker and ss.file_id <> s.file_id) and s.file_id = ? order by Ticker', [first_file]):
+            outf.write('{0}\n'.format(ticker))
+
 
 def print_usually(outf, db, res):
     """\brief print all data from db to outf considering res
