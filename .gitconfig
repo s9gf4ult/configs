@@ -1,4 +1,7 @@
 [user]
 	name = segfault
+	email = s9gf4ult@gmail.com
 [colour]
 	ui = 1
+[color]
+	ui = yes
