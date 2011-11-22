@@ -5,3 +5,5 @@
 	ui = 1
 [color]
 	ui = yes
+[http]
+	proxy = http://192.168.160.151:3128
