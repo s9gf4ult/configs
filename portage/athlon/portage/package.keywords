@@ -5,6 +5,9 @@ dev-lang/ocaml -~amd64
 x11-wm/sawfish -~amd64
 sys-fs/udev -~amd64
 net-zope/zope-interface -~amd64
-media-libs/libpng -~amd64
+#media-libs/libpng -~amd64
 dev-java/ant-core -~amd64
-app-emulation/wine -~amd64
+#app-emulation/wine -~amd64
+sys-power/suspend -~amd64
+sys-boot/grub -~amd64
+dev-java/sun-jre-bin -~amd64

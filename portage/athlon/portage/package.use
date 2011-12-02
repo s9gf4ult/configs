@@ -7,23 +7,23 @@ sys-apps/hal doc acpi
 app-misc/screen multiuser
 x11-terms/xterm -toolbar Xaw3d
 media-video/mplayer cdparanoia dvdnav jack mmxext osdmenu quicktime theora vdpau xanim xv xvid xvmc vpx
-games-fps/warsow irc dedicated
-media-sound/mpd libsamplerate jack id3 cdio mikmod modplug musepack oggflac zip sysvipc 
+games-fps/warsow irc dedicated openal
+#media-sound/mpd libsamplerate jack id3 cdio mikmod modplug musepack oggflac zip sysvipc 
 net-libs/libsoup gnome
-app-cdr/brasero -totem -nautilus
+app-cdr/brasero totem nautilus
 sys-block/gparted fat jfs ntfs reiserfs xfs
 app-office/openoffice templates java mono nsplugin odk templates
 app-emulation/qemu kvm -kqemu
 games-fps/nexuiz maps
 app-emulation/wine jpeg mp3 gecko fontconfig gnutls
-games-fps/alienarena dedicated
 games-fps/quake3 teamarena
-media-gfx/gimp mng wmf exif
+media-gfx/gimp mng wmf exif webkit
 net-im/gajim libnotify dbus jingle xhtml idle avahi
 sci-mathematics/octave  hdf5 fftw doc sparse curl
 sci-astronomy/celestia theora cairo
 media-video/avidemux xviddts aften
-dev-util/subversion bash-completion extras webdav-neon sasl ruby
+# move dev-util/subversion dev-vcs/subversion
+dev-vcs/subversion bash-completion extras webdav-neon sasl ruby
 net-misc/vnc -server -xorgmodule -opengl
 media-sound/moc jack libsamplerate musepack
 net-analyzer/iptraf suid
@@ -35,7 +35,7 @@ media-gfx/xsane gimp
 app-arch/p7zip rar wxwidgets
 games-fps/sauerbraten doc
 app-editors/emacs xft xpm
-dev-lang/ghc doc
+dev-lang/ghc -doc llvm 
 dev-haskell/parsec doc
 dev-util/darcs doc
 dev-haskell/regex-base doc
@@ -47,11 +47,11 @@ dev-libs/rasqal gmp
 dev-util/geany vte
 x11-wm/stumpwm emacs sbcl clisp source
 media-video/ffmpeg faac faad jpeg2k mmxext network schroedinger theora
+virtual/ffmpeg jpeg2k
 dev-haskell/hgl doc
 media-sound/hydrogen jack ladspa lash
 dev-util/codeblocks contrib
-media-sound/pulseaudio avahi
-media-gfx/blender blender-game
+media-gfx/blender blender-game fftw
 x11-wm/icewm imlib esd
 dev-lisp/clx doc
 games-strategy/spring gml gmlsim java
@@ -83,4 +83,68 @@ virtual/mpi romio
 sys-cluster/openmpi romio cxx
 app-text/fbreader -qt4 gtk
 media-libs/libpng apng
-dev-python/PyQt4 sql declarative assistant
+dev-python/PyQt4 sql declarative assistant dbus webkit
+media-libs/libpng apng
+x11-libs/qt-qt3support kde accessibility
+x11-libs/qt-webkit kde
+kde-base/okular chm ebook
+kde-base/kdelibs openexr lzma jpeg2k
+x11-misc/zim latex graphviz screenshot
+dev-util/anjuta devhelp glade graphviz introspection vala
+app-office/krita openexr gmm
+media-sound/aqualung debug
+media-gfx/inkscape inkjar dia
+x11-misc/xscreensaver new-login
+net-libs/ortp srtp
+media-libs/mediastreamer theora video
+net-voip/linphone video
+x11-misc/pcmanfm debug
+x11-libs/libfm debug
+dev-libs/soprano clucene
+app-office/orage -xfce_plugins_clock
+dev-lang/python threads
+app-office/gnucash quotes ofx
+x11-libs/goffice gnome
+media-plugins/alsa-plugins libsamplerate pulseaudio
+media-sound/pulseaudio libsamplerate gnome avahi realtime
+sys-devel/gcc graphite
+media-sound/mpd cue inotify lastfmradio libsamplerate musepack fluidsynth
+media-sound/ario taglib
+media-sound/sonata dbus lyrics taglib trayicon
+media-libs/xine-lib xvmc
+dev-games/ode double-precision
+x11-base/xorg-server kdrive
+app-office/libreoffice-bin java
+app-misc/tracker gsf nautilus
+dev-lisp/clsql sqlite3 -sqlite mysql
+dev-lisp/arnesi -slime
+gnome-base/gnome -extras -fallback
+gnome-base/gnome-core-apps bluetooth
+sys-auth/polkit introspection
+sys-fs/cryptsetup static
+app-crypt/gnupg -static
+dev-libs/libgpg-error static-libs
+dev-libs/popt static-libs
+dev-libs/libgcrypt static-libs
+dev-python/matplotlib cairo doc examples excel -fltk gtk latex -qt4 -tk
+app-arch/file-roller nautilus
+media-gfx/sane-backends sane_backends_gt68xx sane_backends_mustek_pp
+media-gfx/sane-frontends gimp
+net-misc/remmina unique avahi
+net-misc/remmina-plugins rdesktop
+net-nds/openldap -minimal overlays samba
+kde-base/kde-meta semantic-desktop
+app-misc/strigi clucene
+x11-misc/obconf lxde
+gnome-base/gvfs archive
+app-editors/gedit-plugins synctex terminal
+media-video/totem nsplugin
+app-office/abiword grammar math openxml ots plugins thesaurus wmf
+app-text/wv wmf
+media-gfx/hugin sift
+dev-java/sun-jre-bin nsplugin
+net-im/pidgin dbus eds farsight groupwise idn
+net-im/psi jingle extras webkit
+dev-util/qt-creator git
+net-misc/networkmanager nss -gnutls -dhclient dhcpcd
+app-office/libreoffice java odk pdfimport
