@@ -15,7 +15,7 @@ sys-block/gparted fat jfs ntfs reiserfs xfs
 app-office/openoffice templates java mono nsplugin odk templates
 app-emulation/qemu kvm -kqemu
 games-fps/nexuiz maps
-app-emulation/wine jpeg mp3 gecko fontconfig gnutls
+app-emulation/wine jpeg mp3 gecko fontconfig gnutls -ldap
 games-fps/quake3 teamarena
 media-gfx/gimp mng wmf exif webkit
 net-im/gajim libnotify dbus jingle xhtml idle avahi
@@ -103,7 +103,7 @@ x11-libs/libfm debug
 dev-libs/soprano clucene
 app-office/orage -xfce_plugins_clock
 dev-lang/python threads
-app-office/gnucash quotes ofx
+app-office/gnucash quotes ofx -python webkit mysql chipcard
 x11-libs/goffice gnome
 media-plugins/alsa-plugins libsamplerate pulseaudio
 media-sound/pulseaudio libsamplerate gnome avahi realtime

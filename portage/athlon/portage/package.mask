@@ -50,3 +50,5 @@
 >=gnome-extra/gucharmap-3
 >=gnome-extra/evolution-data-server-3
 >=mail-client/evolution-3
+=gnome-extra/gnome-media-2.32.0-r300
+>=dev-libs/libgweather-3
