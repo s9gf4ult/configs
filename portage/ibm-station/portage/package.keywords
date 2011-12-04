@@ -1,0 +1,4 @@
+sys-devel/gcc **
+#app-misc/screen -~x86
+app-misc/screen -~x86
+#app-emulation/virtualbox-bin -~x86
