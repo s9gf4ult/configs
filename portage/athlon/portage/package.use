@@ -103,7 +103,7 @@ x11-libs/libfm debug
 dev-libs/soprano clucene
 app-office/orage -xfce_plugins_clock
 dev-lang/python threads
-app-office/gnucash quotes ofx -python webkit mysql chipcard
+app-office/gnucash quotes ofx -python webkit 
 x11-libs/goffice gnome
 media-plugins/alsa-plugins libsamplerate pulseaudio
 media-sound/pulseaudio libsamplerate gnome avahi realtime
@@ -148,3 +148,4 @@ net-im/psi jingle extras webkit
 dev-util/qt-creator git
 net-misc/networkmanager nss -gnutls -dhclient dhcpcd
 app-office/libreoffice java odk pdfimport
+sys-libs/zlib minizip
