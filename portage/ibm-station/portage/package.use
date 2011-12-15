@@ -3,7 +3,7 @@ app-arch/file-roller nautilus
 app-emulation/libvirt macvtap nfs numa qemu sasl uml caps 
 app-emulation/libvirt python
 app-emulation/virt-manager spice -gnome-keyring
-app-emulation/wine -alsa -jack -capi samba xcomposite xinerama
+app-emulation/wine -alsa -jack -capi samba xcomposite xinerama -ldap
 app-misc/screen multiuser
 app-misc/strigi inotify
 app-misc/tracker gsf nautilus
@@ -80,7 +80,7 @@ net-libs/xulrunner java ipc
 net-misc/aria2 xmlrpc scripts sqlite ares expat
 net-misc/curl -nss -threads libssh2
 net-misc/networkmanager nss -gnutls dhcpcd -dhclient
-net-misc/remmina-plugins rdesktop ssh telepathy 
+net-misc/remmina-plugins rdesktop ssh telepathy vnc
 net-misc/remmina rdesktop vnc
 net-misc/spice-gtk python
 net-print/cups samba slp
@@ -108,3 +108,4 @@ x11-misc/xscreensaver new-login xinerama
 x11-wm/icewm xinerama
 xfce-base/xfce4-session gnome
 gnome-base/gnome-menus python
+sys-apps/pciutils -zlib

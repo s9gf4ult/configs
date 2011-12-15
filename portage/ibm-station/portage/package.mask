@@ -19,7 +19,7 @@ sys-apps/man
 =www-plugins/adobe-flash-10.3.181.14-r1
 #>=dev-util/glade-3.8
 =net-im/gajim-9999
-=app-office/libreoffice-bin-3.4.3.2-r1
+>=app-office/libreoffice-bin-3.4
 >=virtual/jre-1.7
 >=net-misc/freerdp-1
 >=gnome-base/gdm-3
@@ -46,7 +46,6 @@ sys-apps/man
 >=x11-terms/gnome-terminal-3
 >=x11-themes/gnome-backgrounds-3
 >=x11-themes/gnome-icon-theme-3
->=x11-themes/gnome-themes-standard-3
 >=media-sound/sound-juicer-2.99
 >=gnome-base/libgnome-keyring-3
 >=gnome-base/gvfs-1.10
@@ -66,3 +65,4 @@ sys-apps/man
 =gnome-extra/gnome-media-2.32.0-r300
 >=dev-libs/libgweather-3
 >=media-video/cheese-3
+>=app-misc/tracker-0.12
