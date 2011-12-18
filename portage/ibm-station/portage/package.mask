@@ -66,3 +66,4 @@ sys-apps/man
 >=dev-libs/libgweather-3
 >=media-video/cheese-3
 >=app-misc/tracker-0.12
+=app-text/evince-2.32.0-r4
