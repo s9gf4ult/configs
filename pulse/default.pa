@@ -1,15 +1,7 @@
-load-module module-alsa-sink sink_name=x-fi-headphones device=hw:0,1
-load-module module-alsa-sink sink_name=x-fi-vega device=hw:0,0
-load-module module-alsa-sink sink_name=embeded device=hw:1
-
-load-module module-alsa-source device=hw:1
-load-module module-alsa-source device=hw:0
-
 load-module module-native-protocol-unix
 load-module module-esound-protocol-unix
 load-module module-udev-detect
 
-set-default-sink x-fi-headphones
 
 load-module module-stream-restore
 load-module module-default-device-restore
