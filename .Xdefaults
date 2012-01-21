@@ -1,36 +1,33 @@
-urxvt*font:	-xos4-terminus-medium-r-normal--20-200-72-72-c-100-koi8-r
-URxvt*keysym.Home:	\033[1~
-URxvt.keysym.Shift-Up:	command:\033]720;1\007
-URxvt.keysym.Shift-Down:	command:\033]721;1\007
-urxvt*keysym.End:	\033[4~
-urxvt*mouseWheelScrollPage:	false
-urxvt*cutchars:	`'",;@&*=|?()<>[]{}
-URxvt.urlLauncher:	firefox
-urxvt*visualBell:	false
-xterm*font:	-xos4-terminus-medium-r-normal--20-*-*-*-*-*-iso10646-1
-emacs*font:	-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
-Climacs*font:	-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
-Xcursor.theme:	Grounation
-*background:	#042028
-*foreground:	#657b83
-*fading:	40
-*fadeColor:	#042028
-*cursorColor:	#93a1a1
-*pointerColorBackground:	#586e75
-*pointerColorForeground:	#93a1a1
-*color0:	#073642
-*color8:	#042028
-*color1:	#dc322f
-*color9:	#cb4b16
-*color2:	#859900
-*color10:	#586e75
-*color3:	#b58900
-*color11:	#657b83
-*color4:	#268bd2
-*color12:	#839496
-*color5:	#d33682
-*color13:	#6c71c4
-*color6:	#2aa198
-*color14:	#93a1a1
-*color7:	#eee8d5
-*color15:	#fdf6e3
+urxvt*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-koi8-r
+URxvt*keysym.Home: \033[1~
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+urxvt*keysym.End: \033[4~
+urxvt*mouseWheelScrollPage:        false
+urxvt*cutchars:`'",;@&*=|?()<>[]{}
+URxvt.urlLauncher:firefox
+urxvt*visualBell:false
+xterm*font:-xos4-terminus-medium-r-normal--20-*-*-*-*-*-iso10646-1
+*background:#202020
+*foreground:White
+*color0: #1A1A1A
+*color1: #AA0000
+*color2: #00AA00
+*color3: #AA5500
+*color4: #0000AA
+*color5: #AA00AA
+*color6: #00AAAA
+*color7: #AAAAAA
+*color8: #555555
+*color9: #FF5555
+*color10: #55FF55
+*color11: #FFFF55
+*color12: #5555FF
+*color13: #FF55FF
+*color14: #55FFFF
+*color15: #FFFFFF
+emacs*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
+!emacs*font:-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
+!emacs*font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
+Climacs*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
+Xcursor.theme: Grounation
