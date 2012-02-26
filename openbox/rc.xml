@@ -1018,6 +1018,9 @@
     <application name="aqualung" class="Aqualung">
       <desktop>10</desktop>
     </application>
+    <application class="Audacious">
+      <desktop>10</desktop>
+    </application>
     <application class="Dia" role="diagram_window">
       <maximized>Vertical</maximized>
     </application>
