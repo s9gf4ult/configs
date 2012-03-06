@@ -4,28 +4,39 @@ URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
 urxvt*keysym.End: \033[4~
 urxvt*mouseWheelScrollPage:        false
-urxvt*cutchars:`'",;@&*=|?()<>[]{}
+urxvt*cutchars:`''"",;@&*=|?()<>[]{}
 URxvt.urlLauncher:firefox
 urxvt*visualBell:false
 xterm*font:-xos4-terminus-medium-r-normal--20-*-*-*-*-*-iso10646-1
 *background:#202020
 *foreground:White
-*color0: #1A1A1A
-*color1: #AA0000
-*color2: #00AA00
-*color3: #AA5500
-*color4: #0000AA
-*color5: #AA00AA
-*color6: #00AAAA
-*color7: #AAAAAA
-*color8: #555555
-*color9: #FF5555
-*color10: #55FF55
-*color11: #FFFF55
-*color12: #5555FF
-*color13: #FF55FF
-*color14: #55FFFF
-*color15: #FFFFFF
+
+!------------ VisiTacky ------------!
+!BLACK
+*color0:               #666666
+*color8:               #999999
+!RED
+*color1:               #CC3366
+*color9:               #FF6699
+!GREEN
+*color2:               #66CC33
+*color10:              #99FF66
+!YELLOW
+*color3:               #CC9933
+*color11:              #FFCC66
+!BLUE
+*color4:               #457DED
+*color12:              #6699FF
+!MAGENTA
+*color5:               #9933CC
+*color13:              #CC66FF
+!CYAN
+*color6:               #33CC99
+*color14:              #66FFCC
+!WHITE
+*color7:               #CCCCCC
+*color15:              #FFFFFF
+        
 emacs*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
 !emacs*font:-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
 !emacs*font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
