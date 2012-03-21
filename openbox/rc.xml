@@ -1062,6 +1062,14 @@
     <application name="gajim" class="Gajim.py" role="messages">
       <desktop>all</desktop>
     </application>
+    <application class="Gajim" role="roster">
+      <layer>above</layer>
+      <desktop>all</desktop>
+    </application>
+    <application class="Gajim" role="messages">
+      <desktop>all</desktop>
+    </application>
+
     <application class="Thunderbird-bin" role="reminderFoxAlarmDialog">
       <layer>above</layer>
       <desktop>all</desktop>
