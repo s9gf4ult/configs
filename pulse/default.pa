@@ -6,7 +6,7 @@ load-module module-alsa-source device=hw:1
 load-module module-alsa-source device=hw:0
 
 load-module module-native-protocol-unix
-load-module module-esound-protocol-unix
+#load-module module-esound-protocol-unix
 load-module module-udev-detect
 
 set-default-sink x-fi-headphones
