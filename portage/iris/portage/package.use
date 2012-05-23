@@ -1,0 +1,147 @@
+app-admin/syslog-ng caps
+app-arch/file-roller nautilus
+app-emulation/libvirt macvtap nfs numa qemu sasl uml caps 
+app-emulation/libvirt python
+app-emulation/virt-manager spice -gnome-keyring
+app-emulation/wine -alsa -jack -capi samba xcomposite xinerama -ldap
+app-misc/screen multiuser
+app-misc/strigi inotify
+app-misc/tracker gsf nautilus
+app-office/gnucash sqlite
+app-office/libreoffice-bin gnome java
+app-office/libreoffice nsplugin odk pdfimport templates python java jemalloc
+app-office/orage -xfce_plugins_clock
+app-shells/zsh caps
+app-text/texlive-core xetex
+dev-db/firebird -client -xinetd
+dev-db/postgresql-server uuid
+dev-db/sqlite secure-delete icu fts3 extensions threadsafe unlock-notify tcl
+dev-db/xbase doc
+dev-games/physfs hog zip
+dev-java/sun-jdk nsplugin
+dev-lang/erlang hipe
+dev-lang/python xml sqlite
+dev-libs/boost python
+dev-libs/libgcrypt static-libs
+dev-libs/libgpg-error static-libs
+dev-libs/popt static-libs
+dev-lisp/arnesi -slime
+dev-lisp/clsql mysql
+dev-lisp/clsql sqlite3 oracle
+dev-lisp/sbcl source ldb
+dev-python/ipython smp
+dev-python/kiwi examples
+dev-python/matplotlib cairo -doc examples excel -fltk gtk latex -qt4 -tk
+dev-scheme/guile networking elisp
+dev-scheme/plt-scheme futures foreign places slatex
+dev-util/boost-build python
+dev-util/geany-plugins gtkspell lua webkit
+dev-util/glade gnome
+dev-util/valgrind mpi
+dev-vcs/bzr curl
+dev-vcs/git bash-completion subversion webdav xinetd curl
+dev-vcs/rabbitvcs nautilus git diff
+dev-vcs/subversion -dso perl webdav-serf
+games-fps/nexuiz dedicated maps
+games-fps/quake2-icculus X dedicated -ipv6 opengl qmax rogue sdl xatrix
+gnome-base/gdm accessibility xinerama gnome-keyring
+gnome-base/gnome-session doc
+kde-base/kde-meta semantic-desktop
+mail-client/thunderbird lightning mozdom
+media-gfx/feh xinerama
+media-gfx/gimp webkit aalib curl
+media-gfx/imagemagick -autotrace fftw fontconfig fpx graphviz hdri jbig openexr wmf lqr
+media-libs/gd fontconfig
+media-libs/libpng apng
+media-plugins/audacious-plugins bs2b cdda fluidsynth jack lame sndfile wavpack
+media-sound/aqualung -cdda -cddb ffmpeg jack lame ladspa libsamplerate lua mac modplug musepack -sndfile systray wavpack
+media-sound/ario taglib
+media-sound/mpd sqlite sndfile wavpack wildmidi cue inotify libsamplerate lastfmradio
+media-sound/pulseaudio libsamplerate realtime
+media-sound/qjackctl portaudio
+media-video/avidemux libsamplerate -qt4
+media-video/ffmpeg faac faad rtmp schroedinger theora vpx vaapi vdpau modplug
+media-video/mplayer cdparanoia dvdnav faac faad mmxext nut osdmenu theora vpx xvmc vdpau xanim -cdio bluray
+media-video/totem nsplugin
+net-analyzer/mtr -gtk
+net-dialup/capi4k-utils -pppd
+net-dns/avahi python gtk gtk3 autoipd mdnsresponder-compat
+net-fs/cifs-utils ads
+net-fs/samba addns ads aio caps client doc -ldb netapi quota server smbclient smbsharemodes swat syslog winbind
+net-im/empathy map
+net-im/gajim jingle idle xhtml
+net-im/pidgin groupwise idn meanwhile prediction qq silc zephyr
+net-im/psi extras jingle webkit
+net-libs/farsight2 python
+net-libs/gtk-vnc python
+net-libs/opal audio celt capi dtmf fax h224 h281 h323 iax sip sipim wav vxml video theora srtp
+net-libs/ptlib asn dtmf ffmpeg jabber qos shmvideo soap stun tts v4l2 v4l video vxml wav xmlrpc
+net-libs/xulrunner java ipc
+net-misc/aria2 xmlrpc scripts sqlite ares expat
+net-misc/curl -nss -threads libssh2
+net-misc/networkmanager nss -gnutls dhcpcd -dhclient
+net-misc/remmina-plugins rdesktop ssh telepathy vnc
+net-misc/remmina rdesktop vnc
+net-misc/spice-gtk python
+net-print/cups samba slp
+net-print/foo2zjs foomaticdb 
+net-print/hplip hpcups hpijs policykit scanner snmp -qt4
+net-voip/ekiga h323 shm v4l
+sys-apps/util-linux static-libs
+sys-auth/consolekit policykit
+sys-devel/gcc gcj objc objc-gc objc++ lto graphite
+sys-devel/llvm-gcc objc objc
+sys-devel/llvm libffi llvm-gcc
+sys-libs/talloc compat swig python
+sys-libs/tdb python
+virtual/ffmpeg theora vaapi vdpau
+virtual/python-json external
+www-client/firefox ipc java -pgo
+x11-base/xorg-server kdrive xvfb tslib
+x11-libs/cairo -qt4
+x11-libs/goffice gnome doc
+x11-libs/qt-declarative webkit
+x11-libs/qt-qt3support kde
+x11-libs/vte python
+x11-misc/shutter drawing
+x11-misc/xscreensaver new-login xinerama
+x11-wm/icewm xinerama
+xfce-base/xfce4-session gnome
+gnome-base/gnome-menus python
+sys-apps/pciutils -zlib
+app-editors/emacs X gconf xft
+net-misc/ntp -zeroconf
+app-portage/layman git subversion mercurial bazaar cvs
+dev-lisp/clsql -oracle postgres
+sci-libs/hdf5 -cxx
+virtual/mpi romio
+sys-cluster/openmpi romio
+media-plugins/gst-plugins-meta vpx wavpack mms lame
+www-client/opera gtk3 -gtk
+dev-python/ipython -qt4
+dev-python/django mysql sqlite postgres
+net-libs/rb_libtorrent python
+media-libs/gegl graphviz lensfun umfpack
+media-plugins/audacious-plugins libsamplerate cue
+x11-libs/qt-webkit kde
+dev-lang/ghc doc llvm
+dev-python/django-extensions graphviz postgres mysql
+www-plugins/gnash gconf nsplugin egl openvg
+media-libs/mesa gles1 gles2 openvg
+app-text/zathura sqlite
+app-portage/eix optimization sqlite
+dev-python/PyQt4 dbus declarative sql svg webkit X
+sys-libs/zlib minizip
+sys-libs/glibc -profile
+sys-libs/ncurses -profile
+kde-base/okular ebook
+dev-haskell/hdbc postgres sqlite3 mysql
+app-text/texlive-core -xetex
+dev-python/PyQt4 assistant
+sys-fs/cryptsetup static
+sys-fs/udev static-libs
+sys-fs/lvm2 static-libs
+app-office/calligra kdepim
+media-libs/lcms python
+dev-lang/erlang kpoll sctp
+app-doc/doxygen dot
