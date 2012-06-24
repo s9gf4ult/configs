@@ -446,7 +446,7 @@
     <!-- Keybindings for running applications -->
     <keybind key="W-o">
       <action name="Execute">
-        <command>gmrun</command>
+        <command>krunner</command>
       </action>
     </keybind>
     <keybind key="W-t">
