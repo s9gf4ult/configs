@@ -573,24 +573,9 @@
             <command>gajim-remote open_chat master_bo@jabber.ru</command>
           </action>
         </keybind>
-        <keybind key="o">
+        <keybind key="j">
           <action name="Execute">
-            <command>gajim-remote open_chat oliff-ka@jabber.ru</command>
-          </action>
-        </keybind>
-        <keybind key="q">
-          <action name="Execute">
-            <command>gajim-remote open_chat q@clisearch.net</command>
-          </action>
-        </keybind>
-        <keybind key="p">
-          <action name="Execute">
-            <command>gajim-remote open_chat ptetenko@xmpp.ru</command>
-          </action>
-        </keybind>
-        <keybind key="b">
-          <action name="Execute">
-            <command>gajim-remote open_chat 410918515@icq.skovpen.org</command>
+            <command>gajim-remote open_chat juick@juick.com</command>
           </action>
         </keybind>
       </keybind>
