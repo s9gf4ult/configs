@@ -26,6 +26,8 @@ bindkey "\e[2~" overwrite-mode          # Ins
 bindkey "\e[3~" delete-char             # Delete
 bindkey '\eOH' beginning-of-line
 bindkey '\eOF' end-of-line
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
 
 # Activation
 compinit
@@ -36,5 +38,4 @@ for file in $HOME/.zsh/rc/*.rc; do
 done
 stty start undef
 stty stop undef
-export OOO_FORCE_DESKTOP="gnome"
 export PATH=${PATH}:${HOME}/bin
