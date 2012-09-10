@@ -38,4 +38,9 @@ for file in $HOME/.zsh/rc/*.rc; do
 done
 stty start undef
 stty stop undef
+
+# START ENVIRONMENT --------------------
+export GREP_OPTIONS='-P --colour=auto'
+# END ENVIRONMENT ----------------------
+
 export PATH=${PATH}:${HOME}/bin
