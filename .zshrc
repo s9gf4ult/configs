@@ -40,7 +40,7 @@ stty start undef
 stty stop undef
 
 # START ENVIRONMENT --------------------
-export GREP_OPTIONS='-P --colour=auto'
+export GREP_OPTIONS='-P --colour=auto -n'
 # END ENVIRONMENT ----------------------
 
 export PATH=${PATH}:${HOME}/bin
