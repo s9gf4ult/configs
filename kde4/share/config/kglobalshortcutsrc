@@ -1,0 +1,248 @@
+[$Version]
+update_info=kwin_window_shortcuts.upd:kde414,ksmserver_shortcuts.upd:kde45,plasma-to-plasmadesktop-shortcuts.upd:4.3plasma-desktop-shortcuts
+
+[KDE Keyboard Layout Switcher]
+Switch keyboard layout to Английская (США)=none,none,Switch keyboard layout to Английская (США)
+Switch keyboard layout to Русская=none,none,Switch keyboard layout to Русская
+Switch to Next Keyboard Layout=none,Ctrl+Alt+K,Выбрать следующую раскладку клавиатуры
+_k_friendly_name=KDE Keyboard Layout Switcher
+
+[kactivitymanagerd]
+_k_friendly_name=Диспетчер комнат KDE
+switch-to-activity-34e75756-1057-4989-9c48-61dbf5619bbf=none,none,Switch to activity "Desktop"
+
+[kalarm]
+_k_friendly_name=KAlarm
+newAudio=none,none,New Audio Alarm
+newCommand=none,none,New Command Alarm
+newDisplay=none,none,New Display Alarm
+newEmail=none,none,New Email Alarm
+spread=none,none,Spread Windows
+stopAudio=none,none,Stop Play
+
+[kded]
+Decrease Screen Brightness=Monitor Brightness Down,Monitor Brightness Down,Уменьшить яркость экрана
+Hibernate=Hibernate,Hibernate,Спящий режим
+Increase Screen Brightness=Monitor Brightness Up,Monitor Brightness Up,Увеличить яркость экрана
+PowerOff=Power Off,Power Off,
+Sleep=Sleep,Sleep,Ждущий режим
+_k_friendly_name=Служба KDE
+display=Display,Display,Сменить экран
+
+[khotkeys]
+_k_friendly_name=khotkeys
+{5bde025b-4647-473e-8baf-3f73f632713a}=none,none,xterm
+{ddc950a9-a420-452f-a425-22eee4406198}=Print,none,Снимок экрана
+
+[klipper]
+_k_friendly_name=Klipper
+clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Включить действия с буфером обмена
+cycleNextAction=none,none,Более старое содержимое буфера обмена
+cyclePrevAction=none,none,Более новое содержимое буфера обмена
+edit_clipboard=none,none,Редактировать содержимое...
+repeat_action=Ctrl+Alt+R,Ctrl+Alt+R,Ручной выбор действия с буфером обмена
+show-on-mouse-pos=none,none,Открывать Klipper на месте указателя мыши
+
+[kopete]
+ReadMessage=Ctrl+Shift+I,Ctrl+Shift+I,Прочитать сообщение
+Set_Away_Back=Ctrl+Shift+W,Ctrl+Shift+W,Нет на месте/На месте
+ShowContactList=Ctrl+Alt+T,Ctrl+Alt+T,Показать/скрыть список контактов
+_k_friendly_name=kopete
+
+[krunner]
+Lock Session=Ctrl+Alt+L,Ctrl+Alt+L,Заблокировать сеанс
+PowerDevil=none,none,Выполнить команду (только модуль «PowerDevil»)
+Run Command=Alt+F2,Alt+F2,Выполнить команду
+Run Command on clipboard contents=Alt+Shift+F2,Alt+Shift+F2,Запустить команду из буфера обмена
+Show System Activity=Ctrl+Esc,Ctrl+Esc,Показать активность системы
+Switch User=Ctrl+Alt+Ins,Ctrl+Alt+Ins,Переключить пользователя
+_k_friendly_name=Диалог запуска команд
+bookmarks=none,none,Выполнить команду (только модуль «Закладки»)
+desktopsessions=none,none,Выполнить команду (только модуль «Сеансы»)
+locations=none,none,Выполнить команду (только модуль «Расположения»)
+nepomuksearch=none,none,Выполнить команду (только модуль «Nepomuk Desktop Search»)
+org.kde.activities=none,none,Выполнить команду (только модуль «Комнаты»)
+org.kde.windowedwidgets=none,none,Выполнить команду (только модуль «Мобильные виджеты»)
+recentdocuments=none,none,Выполнить команду (только модуль «Последние документы»)
+services=none,none,Выполнить команду (только модуль «Приложения»)
+shell=none,none,Выполнить команду (только модуль «Запуск программ»)
+solid=none,none,Выполнить команду (только модуль «Устройства»)
+webshortcuts=none,none,Выполнить команду (только модуль «Сокращения»)
+windows=none,none,Выполнить команду (только модуль «Окна»)
+
+[ksmserver]
+Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,Ctrl+Alt+Shift+PgDown,Выключить компьютер без подтверждения
+Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,Завершить сеанс
+Log Out Without Confirmation=Ctrl+Alt+Shift+Del,Ctrl+Alt+Shift+Del,Завершить сеанс без подтверждения
+Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,Ctrl+Alt+Shift+PgUp,Перезагрузить компьютер без подтверждения
+_k_friendly_name=Диспетчер сеанса KDE
+
+[kwin]
+Activate Window Demanding Attention=Ctrl+Alt+A,Ctrl+Alt+A,Активировать привлечение внимания к окну
+Block Global Shortcuts=none,none,Заблокировать глобальные комбинации клавиш
+Decrease Opacity=none,none,Уменьшить непрозрачность окна на 5%
+Enable/Disable Tiling=none,Alt+Shift+F11,Enable/Disable Tiling
+Expose=Ctrl+F9,Ctrl+F9,Показать все окна с текущего рабочего стола
+ExposeAll=Ctrl+F10,Ctrl+F10,Показать все окна со всех рабочих столов
+ExposeClass=Ctrl+F7,Ctrl+F7,Показать окна одного класса
+FlipSwitchAll=none,none,Включить или выключить перелистывание (на всех рабочих столах)
+FlipSwitchCurrent=none,none,Включить или выключить перелистывание (на этом рабочем столе)
+Increase Opacity=none,none,Увеличить непрозрачность окна на 5%
+Invert Screen Colors=none,none,Invert Screen Colors
+Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Удалить окно
+Move Window Down=,Meta+Shift+J,Move Window Down
+Move Window Left=,Meta+Shift+H,Move Window Left
+Move Window Right=,Meta+Shift+L,Move Window Right
+Move Window Up=,Meta+Shift+K,Move Window Up
+MoveMouseToCenter=Meta+F6,Meta+F6,Переместить мышь в центр
+MoveMouseToFocus=Meta+F5,Meta+F5,Переместить мышь в фокус ввода
+MoveZoomDown=Meta+Down,Meta+Down,Вниз
+MoveZoomLeft=Meta+Left,Meta+Left,Сместиться влево
+MoveZoomRight=Meta+Right,Meta+Right,Сместиться вправо
+MoveZoomUp=Meta+Up,Meta+Up,Вверх
+Next Layout=Meta+PgDown,Meta+PgDown,Next Layout
+Previous Layout=Meta+PgUp,Meta+PgUp,Previous Layout
+Remove Window From Group=none,none,Убрать окно из группы
+Setup Window Shortcut=none,none,Задать комбинацию клавиш для переключения в это окно
+Show Desktop=none,none,Показать рабочий стол
+ShowDesktopGrid=Ctrl+F8,Ctrl+F8,Show Desktop Grid
+Suspend Compositing=Alt+Shift+F12,Alt+Shift+F12,Приостановить композитное расширение
+Switch Focus Down=Meta+J,Meta+J,Switch Focus Down
+Switch Focus Left=Meta+H,Meta+H,Switch Focus Left
+Switch Focus Right=Meta+L,Meta+L,Switch Focus Right
+Switch Focus Up=Meta+K,Meta+K,Switch Focus Up
+Switch One Desktop Down=none,none,Переключиться на один рабочий стол вниз
+Switch One Desktop Up=none,none,Переключиться на один рабочий стол вверх
+Switch One Desktop to the Left=none,none,Переключиться на один рабочий стол влево
+Switch One Desktop to the Right=none,none,Переключиться на один рабочий стол вправо
+Switch Window Down=Meta+Alt+Down,Meta+Alt+Down,Переключиться на окно снизу
+Switch Window Left=Meta+Alt+Left,Meta+Alt+Left,Переключиться на окно слева
+Switch Window Right=Meta+Alt+Right,Meta+Alt+Right,Переключиться на окно справа
+Switch Window Up=Meta+Alt+Up,Meta+Alt+Up,Переключиться на окно сверху
+Switch to Desktop 1=Meta+1,Ctrl+F1,Переключиться на рабочий стол 1
+Switch to Desktop 10=Meta+0,none,Переключиться на рабочий стол 10
+Switch to Desktop 11=none,none,Переключиться на рабочий стол 11
+Switch to Desktop 12=none,none,Переключиться на рабочий стол 12
+Switch to Desktop 13=none,none,Переключиться на рабочий стол 13
+Switch to Desktop 14=none,none,Переключиться на рабочий стол 14
+Switch to Desktop 15=none,none,Переключиться на рабочий стол 15
+Switch to Desktop 16=none,none,Переключиться на рабочий стол 16
+Switch to Desktop 17=none,none,Переключиться на рабочий стол 17
+Switch to Desktop 18=none,none,Переключиться на рабочий стол 18
+Switch to Desktop 19=none,none,Переключиться на рабочий стол 19
+Switch to Desktop 2=Meta+2,Ctrl+F2,Переключиться на рабочий стол 2
+Switch to Desktop 20=none,none,Переключиться на рабочий стол 20
+Switch to Desktop 3=Meta+3,Ctrl+F3,Переключиться на рабочий стол 3
+Switch to Desktop 4=Meta+4,Ctrl+F4,Переключиться на рабочий стол 4
+Switch to Desktop 5=Meta+5,none,Переключиться на рабочий стол 5
+Switch to Desktop 6=Meta+6,none,Переключиться на рабочий стол 6
+Switch to Desktop 7=Meta+7,none,Переключиться на рабочий стол 7
+Switch to Desktop 8=Meta+8,none,Переключиться на рабочий стол 8
+Switch to Desktop 9=Meta+9,none,Переключиться на рабочий стол 9
+Switch to Next Desktop=none,none,Переключиться на следующий рабочий стол
+Switch to Next Screen=none,none,Переключиться на следующий рабочий стол
+Switch to Previous Desktop=none,none,Переключиться на предыдущий рабочий стол
+Switch to Screen 0=none,none,Переключиться на рабочий стол 0
+Switch to Screen 1=none,none,Переключиться на рабочий стол 1
+Switch to Screen 2=none,none,Переключиться на рабочий стол 2
+Switch to Screen 3=none,none,Переключиться на рабочий стол 3
+Switch to Screen 4=none,none,Переключиться на рабочий стол 4
+Switch to Screen 5=none,none,Переключиться на рабочий стол 5
+Switch to Screen 6=none,none,Переключиться на рабочий стол 6
+Switch to Screen 7=none,none,Переключиться на рабочий стол 7
+Toggle Floating=Meta+F,Meta+F,Toggle Floating
+Toggle Window Raise/Lower=none,none,Переключить передний/задний план
+Walk Through Desktop List=none,none,По списку рабочих столов вперёд
+Walk Through Desktop List (Reverse)=none,none,По списку рабочих столов назад
+Walk Through Desktops=none,none,На один рабочий стол вперёд
+Walk Through Desktops (Reverse)=none,none,На один рабочий стол назад
+Walk Through Window Tabs=none,none,На одно окно в группе вперёд
+Walk Through Window Tabs (Reverse)=none,none,На одно окно в группе назад
+Walk Through Windows=Meta+N,Alt+Tab,На одно окно вперёд
+Walk Through Windows (Reverse)=Meta+P,Alt+Shift+Backtab,На одно окно назад
+Walk Through Windows Alternative=none,none,На одно окно вперёд (альтернативный режим)
+Walk Through Windows Alternative (Reverse)=none,none,На одно окно назад (альтернативный режим)
+Walk Through Windows of Current Application=Alt+`,Alt+`,Walk Through Windows of Current Application
+Walk Through Windows of Current Application (Reverse)=Alt+~,Alt+~,Walk Through Windows of Current Application (Reverse)
+Walk Through Windows of Current Application Alternative=none,none,Walk Through Windows of Current Application Alternative
+Walk Through Windows of Current Application Alternative (Reverse)=none,none,Walk Through Windows of Current Application Alternative (Reverse)
+Window Above Other Windows=none,none,Поместить окно на передний план
+Window Below Other Windows=none,none,Поместить окно на задний план
+Window Close=Meta+C,Alt+F4,Закрыть окно
+Window Fullscreen=none,none,Распахнуть окно на весь экран
+Window Grow Horizontal=none,none,Растянуть окно по горизонтали
+Window Grow Vertical=none,none,Растянуть окно по вертикали
+Window Lower=none,none,Опустить окно
+Window Maximize=Meta+M,none,Распахнуть окно
+Window Maximize Horizontal=Meta+B,none,Распахнуть окно по горизонтали
+Window Maximize Vertical=Meta+V,none,Распахнуть окно по вертикали
+Window Minimize=Meta+Z,none,Свернуть окно
+Window Move=none,none,Переместить окно
+Window No Border=none,none,Скрыть границы окна
+Window On All Desktops=none,none,Поддерживать окно на всех рабочих столах
+Window One Desktop Down=none,none,Окно на один рабочий стол вниз
+Window One Desktop Up=none,none,Окно на один рабочий стол вверх
+Window One Desktop to the Left=none,none,Окно на один рабочий стол влево
+Window One Desktop to the Right=none,none,Окно на один рабочий стол вправо
+Window Operations Menu=Alt+F3,Alt+F3,Меню действий с окном
+Window Pack Down=Meta+Shift+J,none,Сгруппировать окна вниз
+Window Pack Left=Meta+Shift+H,none,Сгруппировать окна влево
+Window Pack Right=Meta+Shift+L,none,Сгруппировать окна вправо
+Window Pack Up=Meta+Shift+K,none,Сгруппировать окна вверх
+Window Quick Tile Bottom Left=none,none,Распахнуть окно на левую нижнюю четверть экрана
+Window Quick Tile Bottom Right=none,none,Распахнуть окно на правую нижнюю четверть экрана
+Window Quick Tile Left=none,none,Распахнуть окно на левую половину экрана
+Window Quick Tile Right=none,none,Распахнуть окно на правую половину экрана
+Window Quick Tile Top Left=none,none,Распахнуть окно на левую верхнюю четверть экрана
+Window Quick Tile Top Right=none,none,Распахнуть окно на правую верхнюю четверть экрана
+Window Raise=none,none,Поднять окно
+Window Resize=none,none,Изменить размер окна
+Window Shade=none,none,Свернуть окно в заголовок
+Window Shrink Horizontal=none,none,Сжать окно по горизонтали
+Window Shrink Vertical=none,none,Сжать окно по вертикали
+Window to Desktop 1=Meta+!,none,Переместить окно на рабочий стол 1
+Window to Desktop 10=Meta+),none,Переместить окно на рабочий стол 10
+Window to Desktop 11=none,none,Переместить окно на рабочий стол 11
+Window to Desktop 12=none,none,Переместить окно на рабочий стол 12
+Window to Desktop 13=none,none,Переместить окно на рабочий стол 13
+Window to Desktop 14=none,none,Переместить окно на рабочий стол 14
+Window to Desktop 15=none,none,Переместить окно на рабочий стол 15
+Window to Desktop 16=none,none,Переместить окно на рабочий стол 16
+Window to Desktop 17=none,none,Переместить окно на рабочий стол 17
+Window to Desktop 18=none,none,Переместить окно на рабочий стол 18
+Window to Desktop 19=none,none,Переместить окно на рабочий стол 19
+Window to Desktop 2=Meta+@,none,Переместить окно на рабочий стол 2
+Window to Desktop 20=none,none,Переместить окно на рабочий стол 20
+Window to Desktop 3=Meta+#,none,Переместить окно на рабочий стол 3
+Window to Desktop 4=Meta+$,none,Переместить окно на рабочий стол 4
+Window to Desktop 5=Meta+%,none,Переместить окно на рабочий стол 5
+Window to Desktop 6=Meta+^,none,Переместить окно на рабочий стол 6
+Window to Desktop 7=Meta+&,none,Переместить окно на рабочий стол 7
+Window to Desktop 8=Meta+*,none,Переместить окно на рабочий стол 8
+Window to Desktop 9=Meta+(,none,Переместить окно на рабочий стол 9
+Window to Next Desktop=none,none,Переместить окно на следующий рабочий стол
+Window to Next Screen=none,none,Переместить окно на следующий рабочий стол
+Window to Previous Desktop=none,none,Переместить окно на предыдущий рабочий стол
+Window to Screen 0=none,none,Переместить окно на рабочий стол 0
+Window to Screen 1=none,none,Переместить окно на рабочий стол 1
+Window to Screen 2=none,none,Переместить окно на рабочий стол 2
+Window to Screen 3=none,none,Переместить окно на рабочий стол 3
+Window to Screen 4=none,none,Переместить окно на рабочий стол 4
+Window to Screen 5=none,none,Переместить окно на рабочий стол 5
+Window to Screen 6=none,none,Переместить окно на рабочий стол 6
+Window to Screen 7=none,none,Переместить окно на рабочий стол 7
+_k_friendly_name=KWin
+view_actual_size=none,Meta+0,Фактический размер
+view_zoom_in=none,Meta+=,Увеличить
+view_zoom_out=none,Meta+-,Уменьшить
+
+[plasma-desktop]
+Next Activity=,Meta+Tab,Следующая комната
+Previous Activity=Meta+Shift+Tab,Meta+Shift+Tab,Предыдущая комната
+Show Dashboard=Ctrl+F12,Ctrl+F12,Показать приборную доску
+Systemtray-Klipper-13=,Ctrl+Alt+V,
+Systemtray-Klipper-30=,Ctrl+Alt+V,
+Systemtray-Klipper-6=Ctrl+Alt+V,Ctrl+Alt+V,
+_k_friendly_name=Оболочка Plasma
+activate widget 26=none,none,Сделать виджет «Меню запуска приложений» активным
+manage activities=Meta+Q,Meta+Q,Комнаты...
