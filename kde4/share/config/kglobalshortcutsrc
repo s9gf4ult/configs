@@ -244,5 +244,4 @@ Systemtray-Klipper-13=,Ctrl+Alt+V,
 Systemtray-Klipper-30=,Ctrl+Alt+V,
 Systemtray-Klipper-6=Ctrl+Alt+V,Ctrl+Alt+V,
 _k_friendly_name=Оболочка Plasma
-activate widget 26=none,none,Сделать виджет «Меню запуска приложений» активным
 manage activities=Meta+Q,Meta+Q,Комнаты...
