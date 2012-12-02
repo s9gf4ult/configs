@@ -9,14 +9,15 @@
 
 import XMonad
 import System.Exit
+import XMonad.Config.Kde
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
-import XMonad.Layout.Accordion
+-- import XMonad.Layout.Accordion
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "xterm /bin/myshell"
+myTerminal      = "xterm"
 
 -- Width of the window border in pixels.
 --
@@ -66,11 +67,10 @@ myFocusedBorderColor = "#ff5000"
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- launch a terminal
-    [ ((modMask ,              xK_Return), spawn "xterm" )
-    , ((modMask .|. shiftMask, xK_Return), spawn "xterm" )
+    [ ((modMask,               xK_t),     spawn "xterm" )
 
     -- launch dmenu
-    , ((modMask,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+    , ((modMask,               xK_o     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
 
     -- launch gmrun
     , ((modMask .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -115,7 +115,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_l     ), sendMessage Expand)
 
     -- Push window back into tiling
-    , ((modMask,               xK_t     ), withFocused $ windows . W.sink)
+   -- , ((modMask,               xK_t     ), withFocused $ windows . W.sink)
 
     -- Increment the number of windows in the master area
     , ((modMask              , xK_comma ), sendMessage (IncMasterN 1))
@@ -180,7 +180,7 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout =  Mirror tiled ||| Accordion ||| tiled ||| Full 
+myLayout =  Mirror tiled ||| tiled ||| Full 
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -230,7 +230,7 @@ myFocusFollowsMouse = True
 --
 -- > logHook = dynamicLogDzen
 --
-myLogHook = return ()
+-- myLogHook = return ()
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -240,7 +240,7 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+-- myStartupHook = return ()
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -255,13 +255,13 @@ main = xmonad defaults
 -- 
 -- No need to modify this.
 --
-defaults = defaultConfig {
+defaults = kde4Config {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         borderWidth        = myBorderWidth,
         modMask            = myModMask,
-        numlockMask        = myNumlockMask,
+        -- numlockMask        = myNumlockMask,
         workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
@@ -272,7 +272,7 @@ defaults = defaultConfig {
 
       -- hooks, layouts
         layoutHook         = myLayout,
-        manageHook         = myManageHook,
-        logHook            = myLogHook,
-        startupHook        = myStartupHook
+        manageHook         = manageHook kde4Config <+> myManageHook
+        -- logHook            = myLogHook,
+        -- startupHook        = myStartupHook
     }
