@@ -351,23 +351,7 @@
         <follow>yes</follow>
       </action>
     </keybind>
-    <keybind key="W-k">
-      <action name="DirectionalTargetNorth">
-      </action>
-    </keybind>
-    <keybind key="W-j">
-      <action name="DirectionalTargetSouth">
-      </action>
-    </keybind>
-    <keybind key="W-h">
-      <action name="DirectionalTargetWest">
-      </action>
-    </keybind>
-    <keybind key="W-l">
-      <action name="DirectionalTargetEast">
-      </action>
-    </keybind>
-    <!-- Keybindings for windows -->
+
     <keybind key="W-z">
       <action name="Iconify"/>
     </keybind>
@@ -399,29 +383,101 @@
     <keybind key="W-b">
       <action name="ToggleMaximizeHorz"/>
     </keybind>
-    <keybind key="W-S-h">
+    <keybind key="W-h">
       <action name="MoveToEdgeWest"/>
     </keybind>
-    <keybind key="W-S-l">
+    <keybind key="W-l">
       <action name="MoveToEdgeEast"/>
     </keybind>
-    <keybind key="W-S-k">
+    <keybind key="W-k">
       <action name="MoveToEdgeNorth"/>
     </keybind>
-    <keybind key="W-S-j">
+    <keybind key="W-j">
       <action name="MoveToEdgeSouth"/>
     </keybind>
-    <keybind key="W-C-h">
-      <action name="GrowToEdgeWest"/>
+    <!-- <keybind key="W-C-h"> -->
+    <!--   <action name="GrowToEdgeWest"/> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-C-l"> -->
+    <!--   <action name="GrowToEdgeEast"/> -->
+    <!-- </keybind> -->
+    <keybind key="W-S-k">
+      <action name="Unmaximize">
+      </action>
+      <action name="MoveResizeTo">
+        <width>1/2</width>
+        <height>1/2</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>south</direction>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
     </keybind>
-    <keybind key="W-C-l">
-      <action name="GrowToEdgeEast"/>
+    <keybind key="W-S-j">
+      <action name="Unmaximize">
+      </action>
+      <action name="MoveResizeTo">
+        <width>1/2</width>
+        <height>1/2</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>south</direction>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
     </keybind>
-    <keybind key="W-C-k">
-      <action name="GrowToEdgeNorth"/>
+    <keybind key="W-S-u">
+      <action name="Unmaximize">
+      </action>
+      <action name="MoveResizeTo">
+        <width>1/2</width>
+        <height>1/2</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>north</direction>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
     </keybind>
-    <keybind key="W-C-j">
-      <action name="GrowToEdgeSouth"/>
+    <keybind key="W-S-i">
+      <action name="Unmaximize">
+      </action>
+      <action name="MoveResizeTo">
+        <width>1/2</width>
+        <height>1/2</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>north</direction>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
+    </keybind>
+    <keybind key="W-S-h">
+      <action name="Unmaximize">
+      </action>
+      <action name="MoveResizeTo">
+        <width>1/2</width>
+        <height>1/1</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
+    </keybind>
+    <keybind key="W-S-l">
+      <action name="Unmaximize">
+      </action>
+      <action name="MoveResizeTo">
+        <width>1/2</width>
+        <height>1/1</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
     </keybind>
     <keybind key="W-w">
       <action name="Reconfigure"/>
