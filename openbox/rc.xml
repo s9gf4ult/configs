@@ -729,6 +729,7 @@
         <action name="Unshade"/>
       </mousebind>
       <mousebind button="W-Left" action="Drag">
+        <action name="Unmaximize" />
         <action name="Move"/>
       </mousebind>
       <mousebind button="W-Right" action="Press">
@@ -751,6 +752,7 @@
         <action name="Raise"/>
       </mousebind>
       <mousebind button="Left" action="Drag">
+        <action name="Unmaximize" />
         <action name="Move"/>
       </mousebind>
       <mousebind button="Left" action="DoubleClick">
@@ -910,6 +912,9 @@
       </mousebind>
       <mousebind button="Left" action="Click">
         <action name="ToggleOmnipresent"/>
+      </mousebind>
+      <mousebind button="Right" action="Click">
+        <action name="ToggleAlwaysOnTop" />
       </mousebind>
     </context>
     <context name="Shade">
