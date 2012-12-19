@@ -7,6 +7,7 @@ ssh-agent bash <<EOF
 ssh-add $SSHKEY
 pushd $GNUCASHDIR
 git add .
+git add -u .
 git commit -m "autocommit by script"
 git push origin master:master
 popd
