@@ -39,17 +39,3 @@ done
 stty start undef
 stty stop undef
 
-# START ENVIRONMENT --------------------
-export GREP_OPTIONS='-P --colour=auto -n'
-# END ENVIRONMENT ----------------------
-
-# START PATH
-if [[ -d ~/.gem ]];then
-    export PATH=${PATH}:${HOME}/.gem/ruby/1.9.1/bin
-fi
-
-if [[ -d ~/.cabal ]];then
-    export PATH=${PATH}:${HOME}/.cabal/bin:/home/razor/.haskell/bin
-fi
-export PATH=${PATH}:${HOME}/bin
-# END PATH

@@ -1,6 +1,4 @@
 alias ll="ls -lah --color=auto --classify"
-#alias rm="rm -i"
-#alias cp="cp -i"
 alias ls="ls --color=auto --classify"
 alias l="ls -ail"
 alias cl="clear"
@@ -11,3 +9,16 @@ alias reboot="shutdown -r now"
 
 # do a du -hs on each dir on current path
 alias lsdir="for dir in *;do;if [ -d \$dir ];then;du -hsL \$dir;fi;done"
+
+
+# git 
+alias gl="git log --graph"
+alias glt="git log --graph --stat"
+alias glp="git log --graph -p"
+alias gt="git status --column"
+alias gtu="git status -uno"
+alias ga="git add"
+alias gic="git commit"
+alias gica="git commit -a"
+alias gicam="git commit -a -m 'no any reasonable message'"
+alias gco="git checkout"
