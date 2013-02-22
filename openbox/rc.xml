@@ -1052,8 +1052,6 @@
     </application>
     <application type="normal" class="Thunderbird">
       <desktop>4</desktop>
-      <decor>no</decor>
-      <maximized>yes</maximized>
     </application>
     <application name="info.exe" class="Wine">
       <desktop>6</desktop>

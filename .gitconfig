@@ -5,3 +5,5 @@
 	ui = 1
 [color]
 	ui = yes
+[push]
+	default = simple
