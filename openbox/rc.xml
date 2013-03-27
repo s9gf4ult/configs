@@ -634,6 +634,11 @@
             <command>gajim-remote open_chat juick@juick.com</command>
           </action>
         </keybind>
+        <keybind key="o">
+          <action name="Execute">
+            <command>gajim-remote open_chat www.fyl@gmail.com</command>
+          </action>
+        </keybind>
       </keybind>
     </keybind>
     <keybind key="W-a">
