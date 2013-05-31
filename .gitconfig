@@ -6,4 +6,4 @@
 [color]
 	ui = yes
 [push]
-	default = simple
+	default = matching

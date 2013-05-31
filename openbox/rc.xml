@@ -1104,18 +1104,11 @@
       <decor>no</decor>
       <maximized>yes</maximized>
     </application>
-    <application name="gajim" class="Gajim.py" role="roster">
+    <application class="Gajim.py" role="roster">
       <layer>above</layer>
       <desktop>all</desktop>
     </application>
-    <application name="gajim" class="Gajim.py" role="messages">
-      <desktop>all</desktop>
-    </application>
-    <application class="Gajim" role="roster">
-      <layer>above</layer>
-      <desktop>all</desktop>
-    </application>
-    <application class="Gajim" role="messages">
+    <application  class="Gajim.py" role="messages">
       <desktop>all</desktop>
     </application>
 
