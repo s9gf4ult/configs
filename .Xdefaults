@@ -1,101 +1,24 @@
-URxvt*keysym.Home: \033[1~
-URxvt.keysym.Shift-Down: command:\033]721;1\007
-URxvt.keysym.Shift-Up: command:\033]720;1\007
-URxvt.urlLauncher:firefox
-urxvt*cutchars:`''"",;@&*=|?()<>[]{}
-urxvt*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-koi8-r
-urxvt*keysym.End: \033[4~
-urxvt*mouseWheelScrollPage:        false
-urxvt*visualBell:false
-
-!------------ VisiTacky ------------!
-!BLACK
-*color0:               #666666
-*color8:               #999999
-!RED
-*color1:               #CC3366
-*color9:               #FF6699
-!GREEN
-*color2:               #66CC33
-*color10:              #99FF66
-!YELLOW
-*color3:               #CC9933
-*color11:              #FFCC66
-!BLUE
-*color4:               #457DED
-*color12:              #6699FF
-!MAGENTA
-*color5:               #9933CC
-*color13:              #CC66FF
-!CYAN
-*color6:               #33CC99
-*color14:              #66FFCC
-!WHITE
-*color7:               #CCCCCC
-*color15:              #FFFFFF
-
-
-!-------- Xterm VisiTacky ------------!
-!BLACK
-xterm*color0:          #666666
-xterm*color8:          #999999
-!RED
-xterm*color1:          #CC3366
-xterm*color9:          #FF6699
-!GREEN
-xterm*color2:          #66CC33
-xterm*color10:         #99FF66
-!YELLOW
-xterm*color3:          #CC9933
-xterm*color11:         #FFCC66
-!BLUE
-xterm*color4:          #457DED
-xterm*color12:         #6699FF
-!MAGENTA
-xterm*color5:          #9933CC
-xterm*color13:         #CC66FF
-!CYAN
-xterm*color6:          #33CC99
-xterm*color14:         #66FFCC
-!WHITE
-xterm*color7:          #CCCCCC
-xterm*color15:         #FFFFFF
-
-xterm*font:-xos4-terminus-medium-r-normal--20-*-*-*-*-*-iso10646-1
-xterm*background:#202020
-xterm*foreground:White
-
-
-!-------- Emacs VisiTacky ------------!
-!BLACK
-emacs*color0:          #666666
-emacs*color8:          #999999
-!RED
-emacs*color1:          #CC3366
-emacs*color9:          #FF6699
-!GREEN
-emacs*color2:          #66CC33
-emacs*color10:         #99FF66
-!YELLOW
-emacs*color3:          #CC9933
-emacs*color11:         #FFCC66
-!BLUE
-emacs*color4:          #457DED
-emacs*color12:         #6699FF
-!MAGENTA
-emacs*color5:          #9933CC
-emacs*color13:         #CC66FF
-!CYAN
-emacs*color6:          #33CC99
-emacs*color14:         #66FFCC
-!WHITE
-emacs*color7:          #CCCCCC
-emacs*color15:         #FFFFFF
-                       
-emacs*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
-emacs*background:#202020
-emacs*foreground:White
-
-        
-Climacs*font:-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
-! Xcursor.theme: Grounation
+*background:	#fdf6e3
+*foreground:	#657b83
+*fading:	40
+*fadeColor:	#fdf6e3
+*cursorColor:	#586e75
+*pointerColorBackground:	#93a1a1
+*pointerColorForeground:	#586e75
+*color0:	#073642
+*color8:	#002b36
+*color1:	#dc322f
+*color9:	#cb4b16
+*color2:	#859900
+*color10:	#586e75
+*color3:	#b58900
+*color11:	#657b83
+*color4:	#268bd2
+*color12:	#839496
+*color5:	#d33682
+*color13:	#6c71c4
+*color6:	#2aa198
+*color14:	#93a1a1
+*color7:	#eee8d5
+*color15:	#fdf6e3
+xterm*font:-xos4-terminus-bold-r-normal--20-*-*-*-*-*-iso10646-1
