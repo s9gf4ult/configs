@@ -1127,6 +1127,10 @@
       <layer>above</layer>
       <desktop>all</desktop>
     </application>
+
+    <application class="skype">
+      <desktop>all</desktop>
+    </application>
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
@@ -1150,7 +1154,7 @@
   # order that they appear in this list
 
 
-    # each rule element can be left out or set to 'default' to specify to not 
+    # each rule element can be left out or set to 'default' to specify to not
     # change that attribute of the window
 
     <decor>yes</decor>

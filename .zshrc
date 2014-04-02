@@ -39,3 +39,6 @@ done
 stty start undef
 stty stop undef
 
+export TERM_DARK=false
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
