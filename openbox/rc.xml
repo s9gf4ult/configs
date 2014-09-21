@@ -521,6 +521,11 @@
           <command>firefox</command>
         </action>
       </keybind>
+      <keybind key="C-f">
+        <action name="Execute">
+          <command>firefox -no-remote -P tor</command>
+        </action>
+      </keybind>
       <keybind key="c">
         <action name="Execute">
           <command>chromium</command>
@@ -1125,7 +1130,7 @@
       <desktop>all</desktop>
     </application>
 
-    <application class="skype">
+    <application class="Skype">
       <desktop>all</desktop>
     </application>
     <!--
