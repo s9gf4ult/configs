@@ -360,26 +360,10 @@
       </action>
     </keybind>
     <keybind key="W-h">
-      <action name="Unmaximize">
-      </action>
-      <action name="MoveResizeTo">
-        <width>1/2</width>
-        <height>1/1</height>
-      </action>
-      <action name="MoveToEdge">
-        <direction>west</direction>
-      </action>
+      <action name="MoveToEdgeWest"/>
     </keybind>
     <keybind key="W-l">
-      <action name="Unmaximize">
-      </action>
-      <action name="MoveResizeTo">
-        <width>1/2</width>
-        <height>1/1</height>
-      </action>
-      <action name="MoveToEdge">
-        <direction>east</direction>
-      </action>
+      <action name="MoveToEdgeEast"/>
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="W-z">
@@ -414,10 +398,26 @@
       <action name="ToggleMaximizeHorz"/>
     </keybind>
     <keybind key="W-S-h">
-      <action name="MoveToEdgeWest"/>
+      <action name="Unmaximize">
+      </action>
+      <action name="MoveResizeTo">
+        <width>1/2</width>
+        <height>1/1</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
     </keybind>
     <keybind key="W-S-l">
-      <action name="MoveToEdgeEast"/>
+      <action name="Unmaximize">
+      </action>
+      <action name="MoveResizeTo">
+        <width>1/2</width>
+        <height>1/1</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
     </keybind>
     <keybind key="W-S-k">
       <action name="MoveToEdgeNorth"/>
