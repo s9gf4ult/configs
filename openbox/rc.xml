@@ -352,12 +352,10 @@
       </action>
     </keybind>
     <keybind key="W-k">
-      <action name="DirectionalTargetNorth">
-      </action>
+      <action name="MoveToEdgeNorth"/>
     </keybind>
     <keybind key="W-j">
-      <action name="DirectionalTargetSouth">
-      </action>
+      <action name="MoveToEdgeSouth"/>
     </keybind>
     <keybind key="W-h">
       <action name="MoveToEdgeWest"/>
@@ -418,12 +416,6 @@
       <action name="MoveToEdge">
         <direction>east</direction>
       </action>
-    </keybind>
-    <keybind key="W-S-k">
-      <action name="MoveToEdgeNorth"/>
-    </keybind>
-    <keybind key="W-S-j">
-      <action name="MoveToEdgeSouth"/>
     </keybind>
     <keybind key="W-C-h">
       <action name="GrowToEdgeWest"/>
