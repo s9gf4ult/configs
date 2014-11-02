@@ -1,6 +1,6 @@
-# 
+#
 # This file is based on the configuration written by
-# Bruno Bonfils, <asyd@debian-fr.org> 
+# Bruno Bonfils, <asyd@debian-fr.org>
 # Written since summer 2001
 
 #
@@ -17,7 +17,8 @@ autoload -U complist
 
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
-bindkey '^K' kill-whole-line
+bindkey '^U' kill-whole-line
+bindkey '^K' kill-line
 bindkey "\e[H" beginning-of-line        # Home (xorg)
 bindkey "\e[1~" beginning-of-line       # Home (console)
 bindkey "\e[4~" end-of-line             # End (console)

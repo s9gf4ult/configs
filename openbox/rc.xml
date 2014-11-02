@@ -360,11 +360,25 @@
       </action>
     </keybind>
     <keybind key="W-h">
-      <action name="DirectionalTargetWest">
+      <action name="Unmaximize">
+      </action>
+      <action name="MoveResizeTo">
+        <width>1/2</width>
+        <height>1/1</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
       </action>
     </keybind>
     <keybind key="W-l">
-      <action name="DirectionalTargetEast">
+      <action name="Unmaximize">
+      </action>
+      <action name="MoveResizeTo">
+        <width>1/2</width>
+        <height>1/1</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
       </action>
     </keybind>
     <!-- Keybindings for windows -->
