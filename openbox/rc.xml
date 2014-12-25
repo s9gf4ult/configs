@@ -478,7 +478,7 @@
       </keybind>
       <keybind key="c">
         <action name="Execute">
-          <command>chromium</command>
+          <command>chromium --disable-hang-monitor</command>
         </action>
       </keybind>
       <keybind key="t">
@@ -498,7 +498,7 @@
       </keybind>
       <keybind key="g">
         <action name="Execute">
-          <command>gajim</command>
+          <command>pidgin</command>
         </action>
       </keybind>
       <keybind key="j">
@@ -563,35 +563,30 @@
       </keybind>
     </keybind>
     <keybind key="W-g">
-      <keybind key="r">
-        <action name="Execute">
-          <command>gajim-remote toggle_roster_appearance</command>
-        </action>
-      </keybind>
+      <!-- <keybind key="r"> -->
+      <!--   <action name="Execute"> -->
+      <!--     <command>purple-remote toggle_roster_appearance</command> -->
+      <!--   </action> -->
+      <!-- </keybind> -->
       <keybind key="w">
         <keybind key="a">
           <action name="Execute">
-            <command>gajim-remote open_chat axce1@jabber.ru</command>
-          </action>
-        </keybind>
-        <keybind key="n">
-          <action name="Execute">
-            <command>gajim-remote open_chat notify@planary.ru</command>
+            <command>purple-remote 'jabber:goim?screenname=axce1@jabber.ru'</command>
           </action>
         </keybind>
         <keybind key="m">
           <action name="Execute">
-            <command>gajim-remote open_chat master_bo@jabber.ru</command>
+            <command>purple-remote 'jabber:goim?screenname=master_bo@jabber.ru'</command>
           </action>
         </keybind>
         <keybind key="j">
           <action name="Execute">
-            <command>gajim-remote open_chat juick@juick.com</command>
+            <command>purple-remote 'jabber:goim?screenname=juick@juick.com'</command>
           </action>
         </keybind>
         <keybind key="o">
           <action name="Execute">
-            <command>gajim-remote open_chat www.fyl@gmail.com</command>
+            <command>purple-remote 'jabber:goim?screenname=www.fyl@gmail.com'</command>
           </action>
         </keybind>
       </keybind>
