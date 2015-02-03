@@ -1069,7 +1069,7 @@
       <desktop>all</desktop>
     </application>
 
-    <application class="Tomacco">
+    <application name="Tomacco">
       <desktop>all</desktop>
       <layer>above</layer>
     </application>
