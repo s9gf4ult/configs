@@ -1065,6 +1065,14 @@
     <application class="Gajim" role="messages">
       <desktop>all</desktop>
     </application>
+    <application class="Pidgin">
+      <desktop>all</desktop>
+    </application>
+
+    <application class="Tomacco">
+      <desktop>all</desktop>
+      <layer>above</layer>
+    </application>
 
     <application class="Thunderbird-bin" role="reminderFoxAlarmDialog">
       <layer>above</layer>
