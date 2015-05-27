@@ -7,3 +7,5 @@
 	ui = yes
 [push]
 	default = simple
+[log]
+	date = iso
