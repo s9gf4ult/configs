@@ -1086,6 +1086,9 @@
     <application class="Skype">
       <desktop>all</desktop>
     </application>
+    <application class="Telegram">
+      <desktop>all</desktop>
+    </application>
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
