@@ -42,4 +42,7 @@ stty stop undef
 
 export TERM_DARK=false
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH="$HOME/.local/bin:$PATH" # for stack installed binaries
+
+export NVM_DIR="/home/razor/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

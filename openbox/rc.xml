@@ -101,6 +101,18 @@
       <slant>normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
+    <font place="ActiveOnScreenDisplay">
+      <name>Sans</name>
+      <size>8</size>
+      <weight></weight>
+      <slant></slant>
+    </font>
+    <font place="InactiveOnScreenDisplay">
+      <name>Sans</name>
+      <size>8</size>
+      <weight></weight>
+      <slant></slant>
+    </font>
   </theme>
   <desktops>
     <!-- this stuff is only used at startup, pagers allow you to change them
@@ -457,7 +469,7 @@
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>xterm -tn xterm-256color</command>
+        <command>xterm</command>
       </action>
     </keybind>
     <keybind key="W-q">
@@ -523,7 +535,7 @@
       </keybind>
       <keybind key="p">
         <action name="Execute">
-          <command>krusader</command>
+          <command>pavucontrol</command>
         </action>
       </keybind>
       <keybind key="s">
@@ -543,7 +555,7 @@
       </keybind>
       <keybind key="o">
         <action name="Execute">
-          <command>xterm -e octave</command>
+          <command>xterm -e octave-cli</command>
         </action>
       </keybind>
       <keybind key="W-c">
@@ -591,68 +603,6 @@
         </keybind>
       </keybind>
     </keybind>
-    <keybind key="W-a">
-      <keybind key="n">
-        <action name="Execute">
-          <command>mpc next</command>
-        </action>
-      </keybind>
-      <keybind key="p">
-        <action name="Execute">
-          <command>mpc prev</command>
-        </action>
-      </keybind>
-      <keybind key="a">
-        <action name="Execute">
-          <command>mpc toggle</command>
-        </action>
-      </keybind>
-      <keybind key="q">
-        <action name="Execute">
-          <command>mpc volume +15</command>
-        </action>
-      </keybind>
-      <keybind key="z">
-        <action name="Execute">
-          <command>mpc volume -15</command>
-        </action>
-      </keybind>
-      <keybind key="w">
-        <action name="Execute">
-          <command>mpc volume +9</command>
-        </action>
-      </keybind>
-      <keybind key="x">
-        <action name="Execute">
-          <command>mpc volume -9</command>
-        </action>
-      </keybind>
-      <keybind key="f">
-        <action name="Execute">
-          <command>mpc seek +0:0:30</command>
-        </action>
-      </keybind>
-      <keybind key="b">
-        <action name="Execute">
-          <command>mpc seek -0:0:30</command>
-        </action>
-      </keybind>
-      <keybind key="W-f">
-        <action name="Execute">
-          <command>mpc seek +0:1:45</command>
-        </action>
-      </keybind>
-      <keybind key="W-b">
-        <action name="Execute">
-          <command>mpc seek -0:1:45</command>
-        </action>
-      </keybind>
-      <keybind key="s">
-        <action name="Execute">
-          <command>mpc shuffle</command>
-        </action>
-      </keybind>
-    </keybind>
     <keybind key="W-s">
       <keybind key="l">
         <action name="Execute">
@@ -684,7 +634,7 @@
         <action name="Unshade"/>
       </mousebind>
       <mousebind button="W-Left" action="Drag">
-        <action name="Unmaximize" />
+        <action name="Unmaximize"/>
         <action name="Move"/>
       </mousebind>
       <mousebind button="W-Right" action="Press">
@@ -707,7 +657,7 @@
         <action name="Raise"/>
       </mousebind>
       <mousebind button="Left" action="Drag">
-        <action name="Unmaximize" />
+        <action name="Unmaximize"/>
         <action name="Move"/>
       </mousebind>
       <mousebind button="Left" action="DoubleClick">
@@ -869,7 +819,7 @@
         <action name="ToggleOmnipresent"/>
       </mousebind>
       <mousebind button="Right" action="Click">
-        <action name="ToggleAlwaysOnTop" />
+        <action name="ToggleAlwaysOnTop"/>
       </mousebind>
     </context>
     <context name="Shade">
@@ -1068,12 +1018,10 @@
     <application class="Pidgin">
       <desktop>all</desktop>
     </application>
-
     <application name="Tomacco">
       <desktop>all</desktop>
       <layer>above</layer>
     </application>
-
     <application class="Thunderbird-bin" role="reminderFoxAlarmDialog">
       <layer>above</layer>
       <desktop>all</desktop>
@@ -1082,7 +1030,6 @@
       <layer>above</layer>
       <desktop>all</desktop>
     </application>
-
     <application class="Skype">
       <desktop>all</desktop>
     </application>
