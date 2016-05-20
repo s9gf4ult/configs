@@ -10,9 +10,17 @@
     m:0x0 + c:123
     XF86AudioRaiseVolume
 
+"mpc volume +11"
+    m:0x40 + c:123
+    Mod4 + XF86AudioRaiseVolume
+
 "mpc volume -4"
     m:0x0 + c:122
     XF86AudioLowerVolume
+
+"mpc volume -14"
+    m:0x40 + c:122
+    Mod4 + XF86AudioLowerVolume
 
 "mpc toggle"
     m:0x0 + c:172
@@ -22,14 +30,18 @@
     m:0x0 + c:174
     XF86AudioStop
 
-"mpc seek +0:0:8"
+"mpc seek +0:0:11"
     m:0x40 + c:35
     Mod4 + bracketright
 
-"mpc seek -0:0:5"
+"mpc seek -0:0:6"
     m:0x40 + c:34
     Mod4 + bracketleft
 
-"mpc volume 20"
+"mpc volume 45"
     m:0x0 + c:121
     XF86AudioMute
+
+"mpc volume 20"
+    m:0x40 + c:121
+    Mod4 + XF86AudioMute
