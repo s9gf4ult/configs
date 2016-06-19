@@ -472,6 +472,11 @@
         <command>xterm</command>
       </action>
     </keybind>
+    <keybind key="W-Escape">
+      <action name="Execute">
+        <command>xset dpms force off</command>
+      </action>
+    </keybind>
     <keybind key="W-q">
       <action name="Execute">
         <command>gnome-screensaver-command -l</command>
