@@ -30,11 +30,11 @@
     m:0x0 + c:174
     XF86AudioStop
 
-"mpc seek +0:0:11"
+"mpc seek +0:0:39"
     m:0x40 + c:35
     Mod4 + bracketright
 
-"mpc seek -0:0:6"
+"mpc seek -0:0:34"
     m:0x40 + c:34
     Mod4 + bracketleft
 
@@ -45,3 +45,19 @@
 "mpc volume 20"
     m:0x40 + c:121
     Mod4 + XF86AudioMute
+
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py start"
+    m:0x40 + c:67
+    Mod4 + F1
+
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py stop"
+    m:0x40 + c:68
+    Mod4 + F2
+
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py spause"
+    m:0x40 + c:69
+    Mod4 + F3
+
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py lpause"
+    m:0x40 + c:70
+    Mod4 + F4

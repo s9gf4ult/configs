@@ -14,8 +14,5 @@ set-default-sink x-fi-headphones
 load-module module-stream-restore
 load-module module-default-device-restore
 load-module module-rescue-streams
-.nofail
-.ifexists /usr/lib/pulse-0.9/modules/module-x11-publish.so
-load-module module-x11-publish
-.endif
 
+load-module module-x11-publish

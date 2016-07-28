@@ -9,7 +9,8 @@ xbindkeys
 mpd
 tint2 &
 
+# ssh-agent ~/.local/bin/xmonad-s9g
 ssh-agent openbox
 
 kill %1
-mpd --kill
+# mpd --kill

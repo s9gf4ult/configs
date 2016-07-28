@@ -953,12 +953,12 @@
 </menu>
   <applications>
     <application name="Navigator" class="Firefox" type="normal" role="browser">
-      <desktop>5</desktop>
       <decor>no</decor>
       <maximized>yes</maximized>
     </application>
-    <application name="chrome" class="Chrome">
-      <desktop>5</desktop>
+    <application class="chromium-browser-chromium">
+      <decor>no</decor>
+      <maximized>yes</maximized>
     </application>
     <application type="normal" class="Thunderbird">
       <desktop>4</desktop>

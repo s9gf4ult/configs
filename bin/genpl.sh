@@ -10,6 +10,7 @@ find ./ -iname '*.mp3' \
     -or -iname '*.ogg' \
     -or -iname '*.aac' \
     -or -iname '*.wav' \
+    -or -iname '*.wv' \
     | sort -n \
     | sed -e 's|./||' \
     | sed -e 's|/|\\|g' >> tmp
