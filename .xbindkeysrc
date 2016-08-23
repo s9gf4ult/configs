@@ -61,3 +61,11 @@
 "python3 ~/tmp/tomacco/tomacco/tomacco_cli.py lpause"
     m:0x40 + c:70
     Mod4 + F4
+
+"synclient TouchpadOff=0"
+    m:0x40 + c:60
+    Mod4 + period
+
+"synclient TouchpadOff=1"
+    m:0x40 + c:59
+    Mod4 + comma

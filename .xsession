@@ -4,9 +4,10 @@ xset m 0
 xset r rate 200 100
 setxkbmap -layout us -option '' # to reset posible stupid defaults
 setxkbmap -layout us,ru -option 'grp:shift_toggle,grp_led:scroll'
+synclient TapButton1=1 TapButton2=3 TapButton3=2
 kbdd
 xbindkeys
-mpd
+# mpd
 tint2 &
 
 # ssh-agent ~/.local/bin/xmonad-s9g

@@ -22,4 +22,4 @@
 *color7:	#eee8d5
 *color15:	#fdf6e3
 ! xterm*font:-xos4-terminus-bold-r-normal--22-*-*-*-*-*-iso10646-1
-xterm*faceName:            DejaVu Sans Mono:style=Book:size=14
+xterm*faceName:            DejaVu Sans Mono:style=Book:size=12
