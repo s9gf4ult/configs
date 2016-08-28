@@ -70,10 +70,10 @@
     m:0x40 + c:59
     Mod4 + comma
 
-"sudo xbacklight -inc 10"
+"sudo xbacklight -inc 7"
     m:0x0 + c:233
     XF86MonBrightnessUp
 
-"sudo xbacklight -dec 7"
+"sudo xbacklight -dec 5"
     m:0x0 + c:232
     XF86MonBrightnessDown
