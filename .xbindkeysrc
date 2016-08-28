@@ -6,21 +6,13 @@
     m:0x0 + c:173
     XF86AudioPrev
 
-"mpc volume +3"
+"pactl set-sink-volume 1 +7%"
     m:0x0 + c:123
     XF86AudioRaiseVolume
 
-"mpc volume +11"
-    m:0x40 + c:123
-    Mod4 + XF86AudioRaiseVolume
-
-"mpc volume -4"
+"pactl set-sink-volume 1 -9%"
     m:0x0 + c:122
     XF86AudioLowerVolume
-
-"mpc volume -14"
-    m:0x40 + c:122
-    Mod4 + XF86AudioLowerVolume
 
 "mpc toggle"
     m:0x0 + c:172
@@ -38,13 +30,9 @@
     m:0x40 + c:34
     Mod4 + bracketleft
 
-"mpc volume 45"
+"pactl set-sink-mute 1 toggle"
     m:0x0 + c:121
     XF86AudioMute
-
-"mpc volume 20"
-    m:0x40 + c:121
-    Mod4 + XF86AudioMute
 
 "python3 ~/tmp/tomacco/tomacco/tomacco_cli.py start"
     m:0x40 + c:67
