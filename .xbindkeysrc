@@ -46,7 +46,7 @@
     m:0x40 + c:121
     Mod4 + XF86AudioMute
 
-"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py start"
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py start && python3 ~/tmp/tomacco/tomacco/tomacco_cli.py hide"
     m:0x40 + c:67
     Mod4 + F1
 
@@ -54,10 +54,18 @@
     m:0x40 + c:68
     Mod4 + F2
 
-"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py spause"
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py spause && python3 ~/tmp/tomacco/tomacco/tomacco_cli.py show"
     m:0x40 + c:69
     Mod4 + F3
 
-"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py lpause"
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py lpause && python3 ~/tmp/tomacco/tomacco/tomacco_cli.py show"
     m:0x40 + c:70
     Mod4 + F4
+
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py show"
+    m:0x41 + c:67
+    Shift+Mod4 + F1
+
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py hide"
+    m:0x41 + c:68
+    Shift+Mod4 + F2
