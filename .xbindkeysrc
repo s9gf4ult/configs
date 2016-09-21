@@ -6,14 +6,6 @@
     m:0x0 + c:173
     XF86AudioPrev
 
-"pactl set-sink-volume 1 +7%"
-    m:0x0 + c:123
-    XF86AudioRaiseVolume
-
-"pactl set-sink-volume 1 -9%"
-    m:0x0 + c:122
-    XF86AudioLowerVolume
-
 "mpc toggle"
     m:0x0 + c:172
     XF86AudioPlay
@@ -30,11 +22,19 @@
     m:0x40 + c:34
     Mod4 + bracketleft
 
+"pactl set-sink-volume 1 +7%"
+    m:0x0 + c:123
+    XF86AudioRaiseVolume
+
+"pactl set-sink-volume 1 -9%"
+    m:0x0 + c:122
+    XF86AudioLowerVolume
+
 "pactl set-sink-mute 1 toggle"
     m:0x0 + c:121
     XF86AudioMute
 
-"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py start"
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py start && python3 ~/tmp/tomacco/tomacco/tomacco_cli.py hide"
     m:0x40 + c:67
     Mod4 + F1
 
@@ -42,13 +42,21 @@
     m:0x40 + c:68
     Mod4 + F2
 
-"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py spause"
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py spause && python3 ~/tmp/tomacco/tomacco/tomacco_cli.py show"
     m:0x40 + c:69
     Mod4 + F3
 
-"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py lpause"
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py lpause && python3 ~/tmp/tomacco/tomacco/tomacco_cli.py show"
     m:0x40 + c:70
     Mod4 + F4
+
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py show"
+    m:0x41 + c:67
+    Shift+Mod4 + F1
+
+"python3 ~/tmp/tomacco/tomacco/tomacco_cli.py hide"
+    m:0x41 + c:68
+    Shift+Mod4 + F2
 
 "synclient TouchpadOff=0"
     m:0x40 + c:60
