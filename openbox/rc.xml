@@ -621,21 +621,6 @@
       </keybind>
     </keybind>
     <keybind key="W-a">
-      <keybind key="m">
-        <action name="Execute">
-          <command>jfprrd /var/lib/collectd/localhost/memory/memory-free.rrd /var/lib/collectd/localhost/memory/memory-used.rrd /var/lib/collectd/localhost/memory/memory-cached.rrd</command>
-        </action>
-      </keybind>
-      <keybind key="p">
-        <action name="Execute">
-          <command>jfprrd /var/lib/collectd/localhost/cpu-0/percent-active.rrd /var/lib/collectd/localhost/cpu-1/percent-active.rrd /var/lib/collectd/localhost/cpu-2/percent-active.rrd /var/lib/collectd/localhost/cpu-3/percent-active.rrd</command>
-        </action>
-      </keybind>
-      <keybind key="l">
-        <action name="Execute">
-          <command>jfprrd /var/lib/collectd/localhost/load/load.rrd</command>
-        </action>
-      </keybind>
       <keybind key="r">
         <action name="Execute">
           <command>jfprrd /var/lib/collectd/localhost/df-root/df_complex-free.rrd</command>
@@ -643,7 +628,32 @@
       </keybind>
       <keybind key="h">
         <action name="Execute">
-          <command>jfprrd /var/lib/collectd/localhost/df-home/df_complex-free.rrd</command>
+          <command>jfprrd /var/lib/collectd/localhost/df-mnt-st4000/df_complex-free.rrd</command>
+        </action>
+      </keybind>
+      <keybind key="p">
+        <action name="Execute">
+          <command>jfprrd /var/lib/collectd/localhost/cpu-0/percent-active.rrd /var/lib/collectd/localhost/cpu-1/percent-active.rrd /var/lib/collectd/localhost/cpu-2/percent-active.rrd /var/lib/collectd/localhost/cpu-3/percent-active.rrd</command>
+        </action>
+      </keybind>
+      <keybind key="m">
+        <action name="Execute">
+          <command>jfprrd /var/lib/collectd/localhost/memory/memory-free.rrd /var/lib/collectd/localhost/memory/memory-used.rrd /var/lib/collectd/localhost/memory/memory-cached.rrd</command>
+        </action>
+      </keybind>
+      <keybind key="l">
+        <action name="Execute">
+          <command>jfprrd /var/lib/collectd/localhost/load/load.rrd</command>
+        </action>
+      </keybind>
+      <keybind key="n">
+        <action name="Execute">
+          <command>jfprrd /var/lib/collectd/localhost/interface-enp2s0/if_octets.rrd</command>
+        </action>
+      </keybind>
+      <keybind key="d">
+        <action name="Execute">
+          <command>jfprrd /var/lib/collectd/localhost/disk-sdb/disk_octets.rrd</command>
         </action>
       </keybind>
     </keybind>
