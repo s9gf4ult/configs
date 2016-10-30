@@ -643,7 +643,12 @@
       </keybind>
       <keybind key="h">
         <action name="Execute">
-          <command>jfprrd /var/lib/collectd/localhost/df-home/df_complex-free.rrd</command>
+          <command>jfprrd /var/lib/collectd/localhost/df-mnt-secondary/df_complex-free.rrd</command>
+        </action>
+      </keybind>
+      <keybind key="t">
+        <action name="Execute">
+          <command>jfprrd /var/lib/collectd/localhost/sensors-k10temp-pci-00c3/temperature-temp1.rrd</command>
         </action>
       </keybind>
     </keybind>
