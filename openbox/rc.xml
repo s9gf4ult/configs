@@ -479,7 +479,7 @@
     </keybind>
     <keybind key="W-q">
       <action name="Execute">
-        <command>gnome-screensaver-command -l</command>
+        <command>xscreensaver-command -lock</command>
       </action>
     </keybind>
     <keybind key="W-x">
