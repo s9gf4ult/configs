@@ -578,6 +578,18 @@
           <command>nautilus</command>
         </action>
       </keybind>
+      <keybind key="x">
+        <keybind key="p">
+          <action name="Execute">
+            <command>sudo cpupower -c all frequency-set -g performance</command>
+          </action>
+        </keybind>
+        <keybind key="s">
+          <action name="Execute">
+            <command>sudo cpupower -c all frequency-set -g schedutil</command>
+          </action>
+        </keybind>
+      </keybind>
     </keybind>
     <keybind key="W-g">
       <!-- <keybind key="r"> -->
