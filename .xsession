@@ -1,5 +1,6 @@
 #!/bin/bash
 
+NETWORKING_IPV6=no
 xset m 0
 xset r rate 200 100
 setxkbmap -layout us -option '' # to reset posible stupid defaults
