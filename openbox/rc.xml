@@ -1092,7 +1092,7 @@
     <application class="Skype">
       <desktop>all</desktop>
     </application>
-    <application class="Telegram">
+    <application name="Telegram">
       <desktop>all</desktop>
     </application>
     <!--
