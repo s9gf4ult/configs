@@ -628,7 +628,7 @@
       </keybind>
       <keybind key="h">
         <action name="Execute">
-          <command>jfprrd /var/lib/collectd/localhost/df-mnt-st4000/df_complex-free.rrd</command>
+          <command>jfprrd /var/lib/collectd/localhost/df-mnt-ext4000/df_complex-free.rrd</command>
         </action>
       </keybind>
       <keybind key="p">
@@ -652,9 +652,16 @@
         </action>
       </keybind>
       <keybind key="d">
-        <action name="Execute">
-          <command>jfprrd /var/lib/collectd/localhost/disk-sdb/disk_octets.rrd</command>
-        </action>
+          <keybind key="1">
+              <action name="Execute">
+                  <command>jfprrd /var/lib/collectd/localhost/disk-sda/disk_octets.rrd</command>
+              </action>
+          </keybind>
+          <keybind key="2">
+              <action name="Execute">
+                  <command>jfprrd /var/lib/collectd/localhost/disk-sdb/disk_octets.rrd</command>
+              </action>
+          </keybind>
       </keybind>
     </keybind>
   </keyboard>
