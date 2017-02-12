@@ -38,11 +38,11 @@
     m:0x40 + c:121
     Mod4 + XF86AudioMute
 
-"burn-cli pomodoro"
+"burn-cli client -c pomodoro"
     m:0x40 + c:67
     Mod4 + F1
 
-"burn-cli pause"
+"burn-cli client -c pause"
     m:0x40 + c:68
     Mod4 + F2
 

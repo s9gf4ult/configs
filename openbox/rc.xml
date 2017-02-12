@@ -665,7 +665,7 @@
       </keybind>
       <keybind key="d">
         <action name="Execute">
-          <command>jfprrd /var/lib/collectd/localhost/disk-sda/disk_time.rrd</command>
+          <command>jfprrd /var/lib/collectd/localhost/disk-sda/disk_octets.rrd</command>
         </action>
       </keybind>
       <keybind key="t">
