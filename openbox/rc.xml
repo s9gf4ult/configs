@@ -648,6 +648,11 @@
           <command>jfprrd /var/lib/collectd/localhost/cpu-0/percent-active.rrd /var/lib/collectd/localhost/cpu-1/percent-active.rrd /var/lib/collectd/localhost/cpu-2/percent-active.rrd /var/lib/collectd/localhost/cpu-3/percent-active.rrd</command>
         </action>
       </keybind>
+      <keybind key="f">
+        <action name="Execute">
+          <command>jfprrd /var/lib/collectd/localhost/cpufreq/cpufreq-0.rrd /var/lib/collectd/localhost/cpufreq/cpufreq-1.rrd /var/lib/collectd/localhost/cpufreq/cpufreq-2.rrd /var/lib/collectd/localhost/cpufreq/cpufreq-3.rrd</command>
+        </action>
+      </keybind>>
       <keybind key="m">
         <action name="Execute">
           <command>jfprrd /var/lib/collectd/localhost/memory/memory-free.rrd /var/lib/collectd/localhost/memory/memory-used.rrd /var/lib/collectd/localhost/memory/memory-cached.rrd</command>
