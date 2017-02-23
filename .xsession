@@ -7,6 +7,7 @@ setxkbmap -layout us -option '' # to reset posible stupid defaults
 setxkbmap -layout us,ru -option 'grp:shift_toggle,grp_led:scroll'
 synclient TapButton1=1 TapButton2=3 TapButton3=2
 sudo xbacklight -set 35
+xmodmaprc ~/.xmodmaprc
 kbdd
 xbindkeys
 # mpd
