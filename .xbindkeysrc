@@ -74,6 +74,10 @@
     m:0x40 + c:73
     Mod4 + F7
 
+"burn-cli client -c 'tags rest, pomodoro'"
+    m:0x40 + c:74
+    Mod4 + F8
+
 "burn-cli client -c 'pause'"
     m:0x40 + c:75
     Mod4 + F9
