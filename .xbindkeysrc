@@ -42,14 +42,6 @@
     m:0x40 + c:121
     Mod4 + XF86AudioMute
 
-"burn-cli client -c pomodoro"
-    m:0x40 + c:67
-    Mod4 + F1
-
-"burn-cli client -c pause"
-    m:0x40 + c:68
-    Mod4 + F2
-
 "synclient TouchpadOff=0"
     m:0x40 + c:60
     Mod4 + period
@@ -65,3 +57,35 @@
 "sudo xbacklight -dec 5"
     m:0x0 + c:232
     XF86MonBrightnessDown
+
+"burn-cli client -c 'tags typeable.io, pomodoro'"
+    m:0x40 + c:67
+    Mod4 + F1
+
+"burn-cli client -c 'tags typeable.io haskell, pomodoro'"
+    m:0x40 + c:68
+    Mod4 + F2
+
+"burn-cli client -c 'tags personal, pomodoro'"
+    m:0x40 + c:71
+    Mod4 + F5
+
+"burn-cli client -c 'tags personal haskell, pomodoro'"
+    m:0x40 + c:72
+    Mod4 + F6
+
+"burn-cli client -c 'tags personal hata, pomodoro'"
+    m:0x40 + c:73
+    Mod4 + F7
+
+"burn-cli client -c 'tags rest, pomodoro'"
+    m:0x40 + c:74
+    Mod4 + F8
+
+"burn-cli client -c 'pause'"
+    m:0x40 + c:75
+    Mod4 + F9
+
+"burn-cli client -c 'pomodoro'"
+    m:0x40 + c:76
+    Mod4 + F10

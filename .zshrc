@@ -45,4 +45,7 @@ export TERM_DARK=false
 PATH="$HOME/.local/bin:$PATH" # for stack installed binaries
 
 export NVM_DIR="/home/razor/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
