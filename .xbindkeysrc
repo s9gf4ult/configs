@@ -78,6 +78,10 @@
     m:0x40 + c:68
     Mod4 + F2
 
+"burn-cli client -c 'tags rest, pomodoro'"
+    m:0x40 + c:70
+    Mod4 + F4
+
 "burn-cli client -c 'tags personal, pomodoro'"
     m:0x40 + c:71
     Mod4 + F5
@@ -90,7 +94,7 @@
     m:0x40 + c:73
     Mod4 + F7
 
-"burn-cli client -c 'tags rest, pomodoro'"
+"burn-cli client -c 'tags x, pomodoro'"
     m:0x40 + c:74
     Mod4 + F8
 
