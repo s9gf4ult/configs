@@ -545,17 +545,17 @@
       </keybind>
       <keybind key="m">
         <action name="Execute">
-          <command>xterm -e mc</command>
+          <command>alacritty -e mc</command>
         </action>
       </keybind>
       <keybind key="h">
         <action name="Execute">
-          <command>xterm -e htop</command>
+          <command>alacritty -e htop</command>
         </action>
       </keybind>
       <keybind key="o">
         <action name="Execute">
-          <command>xterm -e octave-cli</command>
+          <command>alacritty -e octave-cli</command>
         </action>
       </keybind>
       <keybind key="W-c">
