@@ -633,6 +633,11 @@
           <command>jfprrd /var/lib/collectd/localhost/df-root/df_complex-free.rrd</command>
         </action>
       </keybind>
+      <keybind key="t">
+        <action name="Execute">
+          <command>jfprrd /var/lib/collectd/localhost/sensors-coretemp-isa-0000/temperature-temp1.rrd /var/lib/collectd/localhost/sensors-coretemp-isa-0000/temperature-temp2.rrd /var/lib/collectd/localhost/sensors-coretemp-isa-0000/temperature-temp3.rrd /var/lib/collectd/localhost/sensors-coretemp-isa-0000/temperature-temp4.rrd</command>
+        </action>
+      </keybind>
       <keybind key="h">
         <action name="Execute">
           <command>jfprrd /var/lib/collectd/localhost/df-mnt-secondary/df_complex-free.rrd</command>
