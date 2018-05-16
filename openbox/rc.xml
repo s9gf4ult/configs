@@ -540,7 +540,7 @@
       </keybind>
       <keybind key="s">
         <action name="Execute">
-          <command>sqldeveloper</command>
+          <command>scrot -s</command>
         </action>
       </keybind>
       <keybind key="m">
