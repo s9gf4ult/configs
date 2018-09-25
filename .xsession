@@ -7,13 +7,14 @@ setxkbmap -layout us -option '' # to reset posible stupid defaults
 setxkbmap -layout us,ru -option 'grp:shift_toggle,grp_led:scroll'
 xmodmaprc ~/.xmodmaprc
 xrandr --output HDMI2 --primary --pos 0x0 --output HDMI1 --right-of HDMI2
-kbdd
+# kbdd
 xbindkeys
 mpd
-tint2 &
+# tint2 &
 
 # ssh-agent ~/.local/bin/xmonad-s9g
-ssh-agent openbox
+# ssh-agent openbox
+startxfce4
 
-kill %1
+# kill %1
 # mpd --kill
