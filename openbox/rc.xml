@@ -464,7 +464,7 @@
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>alacritty</command>
+        <command>xterm</command>
       </action>
     </keybind>
     <keybind key="W-Escape">
@@ -540,22 +540,22 @@
       </keybind>
       <keybind key="s">
         <action name="Execute">
-          <command>sqldeveloper</command>
+          <command>scrot -s</command>
         </action>
       </keybind>
       <keybind key="m">
         <action name="Execute">
-          <command>alacritty -e mc</command>
+          <command>xterm -e mc</command>
         </action>
       </keybind>
       <keybind key="h">
         <action name="Execute">
-          <command>alacritty -e htop</command>
+          <command>xterm -e htop</command>
         </action>
       </keybind>
       <keybind key="o">
         <action name="Execute">
-          <command>alacritty -e octave-cli</command>
+          <command>xterm -e octave-cli</command>
         </action>
       </keybind>
       <keybind key="W-c">

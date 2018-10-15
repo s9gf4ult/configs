@@ -30,6 +30,10 @@ bindkey '\eOF' end-of-line
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # Activation
 compinit
 
@@ -40,12 +44,18 @@ done
 stty start undef
 stty stop undef
 
-export TERM_DARK=false
+export TERM_DARK=true
 
 PATH="$HOME/.local/bin:$PATH" # for stack installed binaries
 
 export NVM_DIR="/home/razor/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+PATH="/home/razor/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/razor/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/razor/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/razor/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/razor/perl5"; export PERL_MM_OPT;
+
+if [ -e /home/razor/.nix-profile/etc/profile.d/nix.sh ]; then . /home/razor/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

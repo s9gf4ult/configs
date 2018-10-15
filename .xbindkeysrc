@@ -109,3 +109,7 @@
 "burn-cli client -c 'pomodoro'"
     m:0x40 + c:76
     Mod4 + F10
+
+"scrot -s"
+    m:0x41 + c:39
+    Shift+Mod4 + s

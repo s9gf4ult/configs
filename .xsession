@@ -15,7 +15,8 @@ tint2 &
 nm-applet &
 
 # ssh-agent ~/.local/bin/xmonad-s9g
-ssh-agent openbox
+# ssh-agent openbox
+# startxfce4
 
-kill %1
+# kill %1
 # mpd --kill
