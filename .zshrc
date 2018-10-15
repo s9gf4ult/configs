@@ -48,8 +48,8 @@ export TERM_DARK=true
 
 PATH="$HOME/.local/bin:$PATH" # for stack installed binaries
 
-export NVM_DIR="/home/razor/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="/home/razor/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
 PATH="/home/razor/perl5/bin${PATH:+:${PATH}}"; export PATH;
