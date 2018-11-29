@@ -464,7 +464,7 @@
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>xterm</command>
+        <command>xfce4-terminal</command>
       </action>
     </keybind>
     <keybind key="W-Escape">
@@ -545,22 +545,17 @@
       </keybind>
       <keybind key="m">
         <action name="Execute">
-          <command>xterm -e mc</command>
+          <command>xfce4-terminal -e mc</command>
         </action>
       </keybind>
       <keybind key="h">
         <action name="Execute">
-          <command>xterm -e htop</command>
+          <command>xfce4-terminal -e htop</command>
         </action>
       </keybind>
       <keybind key="o">
         <action name="Execute">
-          <command>xterm -e octave-cli</command>
-        </action>
-      </keybind>
-      <keybind key="W-c">
-        <action name="Execute">
-          <command>xterm -e clisp</command>
+          <command>xfce4-terminal -e octave-cli</command>
         </action>
       </keybind>
       <keybind key="k">

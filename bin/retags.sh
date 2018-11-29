@@ -1,2 +1,2 @@
-#!/bin/bash 
-cd platform && hasktags -e --ignore-close-implementation $(find `pwd` -iname *.hs -and \( -not -path *.stack-work* \) -and \( -not -name Setup.hs \) -and -type f) && cd ../tinkoff-travel && hasktags -e --ignore-close-implementation $(find `pwd` -iname *.hs -and \( -not -path *.stack-work* \) -and \( -not -name Setup.hs \) -and -type f) && cd ../b2b && hasktags -e --ignore-close-implementation $(find `pwd` -iname *.hs -and \( -not -path *.stack-work* \) -and \( -not -name Setup.hs \) -and -type f) && cd ..
+#!/bin/sh
+cd platform && hasktags -e  $(find `pwd` -iname *.hs -and \( -not -path *.stack-work* \) -and \( -not -name Setup.hs \) -and -type f) && cd ../tinkoff-travel && hasktags -e  $(find `pwd` -iname *.hs -and \( -not -path *.stack-work* \) -and \( -not -name Setup.hs \) -and -type f) && cd ../b2b && hasktags -e  $(find `pwd` -iname *.hs -and \( -not -path *.stack-work* \) -and \( -not -name Setup.hs \) -and -type f) && cd ..
