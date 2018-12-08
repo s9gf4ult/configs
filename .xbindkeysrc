@@ -30,22 +30,6 @@
     m:0x0 + c:195
     XF86Launch8
 
-"mpc volume +3"
-    m:0x0 + c:123
-    XF86AudioRaiseVolume
-
-"mpc volume +11"
-    m:0x40 + c:123
-    Mod4 + XF86AudioRaiseVolume
-
-"mpc volume -4"
-    m:0x0 + c:122
-    XF86AudioLowerVolume
-
-"mpc volume -14"
-    m:0x40 + c:122
-    Mod4 + XF86AudioLowerVolume
-
 "mpc toggle"
     m:0x0 + c:172
     XF86AudioPlay
