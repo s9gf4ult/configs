@@ -58,4 +58,3 @@ PERL_LOCAL_LIB_ROOT="/home/razor/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_R
 PERL_MB_OPT="--install_base \"/home/razor/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/razor/perl5"; export PERL_MM_OPT;
 
-if [ -e /home/razor/.nix-profile/etc/profile.d/nix.sh ]; then . /home/razor/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
