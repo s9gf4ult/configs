@@ -1040,11 +1040,6 @@
     <application class="oracle-ide-boot-Launcher">
       <desktop>8</desktop>
     </application>
-    <application name="emacs" class="Emacs" type="normal">
-      <desktop>3</desktop>
-      <decor>no</decor>
-      <maximized>yes</maximized>
-    </application>
     <application name="gajim" class="Gajim.py" role="roster">
       <layer>above</layer>
       <desktop>all</desktop>
