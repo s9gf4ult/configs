@@ -8,7 +8,7 @@ cat <<EOF > .bin/stack
 $oldStack "\$@" --internal-re-exec-version=$($oldStack --numeric-version)
 EOF
 chmod +x .bin/stack
-ln -sfT ~/configs/work/contractor/.bin/retags.sh .bin/retags
+ln -sfT ~/configs/work/contractor/bin/retags.sh .bin/retags
 
 eval "$(lorri direnv)"
 export PATH="$(realpath .bin):$PATH" # Make our scripts available for env
