@@ -47,3 +47,5 @@ stty stop undef
 export TERM_DARK=false
 
 PATH="$HOME/.local/bin:$PATH" # for stack installed binaries
+
+eval "$(direnv hook zsh)"
