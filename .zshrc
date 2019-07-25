@@ -48,4 +48,7 @@ export TERM_DARK=false
 
 PATH="$HOME/.local/bin:$PATH" # for stack installed binaries
 
+# shit for TRAMP
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '
+
 eval "$(direnv hook zsh)"
