@@ -1,2 +1,15 @@
-#!/bin/sh
-cd platform && hasktags -e  $(find `pwd` -iname *.hs -and \( -not -path *.stack-work* \) -and \( -not -name Setup.hs \) -and -type f) && cd ../tinkoff-travel && hasktags -e  $(find `pwd` -iname *.hs -and \( -not -path *.stack-work* \) -and \( -not -name Setup.hs \) -and -type f) && cd ../b2b && hasktags -e  $(find `pwd` -iname *.hs -and \( -not -path *.stack-work* \) -and \( -not -name Setup.hs \) -and -type f) && cd ..
+#!/bin/bash
+
+set -e
+
+runHT () {
+    name=$1
+    shift
+    pushd $name
+    hasktags -e  $(find `pwd` -iname *.hs -and \( -not -path *.stack-work* \) -and \( -not -name Setup.hs \) -and -type f)
+    popd
+}
+
+runHT platform
+runHT b2b
+runHT genfly
