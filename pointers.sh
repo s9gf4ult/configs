@@ -5,6 +5,7 @@ logitec='pointer:Logitech G403 Prodigy Gaming Mouse'
 
 xinput set-prop "$elecom" 'libinput Scroll Method Enabled' 0, 0, 1
 xinput set-prop "$elecom" 'libinput Button Scrolling Button' 11
+xinput set-prop "$elecom" "libinput Accel Speed" -0.85
 
 xinput set-prop "$logitec" 'libinput Accel Profile Enabled' 0, 1
 xinput set-prop "$logitec" 'libinput Accel Speed' 0
