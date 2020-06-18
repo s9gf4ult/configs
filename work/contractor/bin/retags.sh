@@ -15,3 +15,4 @@ runHT b2b
 runHT genfly
 runHT hotels
 runHT sso
+runHT common
