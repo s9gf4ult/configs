@@ -464,7 +464,7 @@
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>alacritty</command>
+        <command>mate-terminal</command>
       </action>
     </keybind>
     <keybind key="W-Escape">
