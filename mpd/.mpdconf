@@ -1,4 +1,6 @@
 port 										"6600"
+follow_outside_symlinks "yes"
+follow_inside_symlinks "yes"
 music_directory         "~/music"
 playlist_directory      "~/.mpd/playlists"
 db_file                 "~/.mpd/mpd.db"
