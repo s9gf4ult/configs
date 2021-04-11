@@ -448,7 +448,29 @@ for i = 1, 9 do
                           end
                       end
                   end,
-                  {description = "toggle focused client on tag #" .. i, group = "tag"})
+                  {description = "toggle focused client on tag #" .. i, group = "tag"}),
+        -- View tag on all screens
+        awful.key({ modkey, "Mod1" }, "#" .. i + 9,
+           function ()
+              for s in screen do
+                 local tag = s.tags[i]
+                 if tag then
+                    tag:view_only()
+                 end
+              end
+           end,
+           {description = "all screens view tag #"..i, group = "tag"}),
+        -- Toggle tag display on all screens.
+        awful.key({ modkey, "Mod1", "Control" }, "#" .. i + 9,
+           function ()
+              for s in screen do
+                 local tag = s.tags[i]
+                 if tag then
+                    awful.tag.viewtoggle(tag)
+                 end
+              end
+           end,
+           {description = "toggle tag #" .. i, group = "tag"})
     )
 end
 
