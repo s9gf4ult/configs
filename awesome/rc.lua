@@ -273,20 +273,44 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift", "Control" }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey,           }, "Up",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey,           }, "Up",
+       function ()
+          local t = awful.screen.focused({ client = true }).selected_tag
+          awful.tag.incmwfact( 0.05, t)
+       end,
        {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "Down",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey,           }, "Down",
+       function ()
+          local t = awful.screen.focused({ client = true }).selected_tag
+          awful.tag.incmwfact(-0.05, t)
+       end,
        {description = "decrease master width factor", group = "layout"}),
 
-    awful.key({ modkey, "Control"   }, "Up",     function () awful.tag.incnmaster( 1, nil, true) end,
-              {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Control"   }, "Down",     function () awful.tag.incnmaster(-1, nil, true) end,
+    awful.key({ modkey, "Control"   }, "Up",
+       function ()
+          local t = awful.screen.focused({ client = true }).selected_tag
+          awful.tag.incnmaster( 1, t, true)
+       end,
+       {description = "increase the number of master clients", group = "layout"}),
+    awful.key({ modkey, "Control"   }, "Down",
+       function ()
+          local t = awful.screen.focused({ client = true }).selected_tag
+          awful.tag.incnmaster(-1, t, true)
+       end,
        {description = "decrease the number of master clients", group = "layout"}),
 
-    awful.key({ modkey, "Mod1" }, "Up",     function () awful.tag.incncol( 1, nil, true)    end,
-              {description = "increase the number of columns", group = "layout"}),
-    awful.key({ modkey, "Mod1" }, "Down",     function () awful.tag.incncol(-1, nil, true)    end,
-              {description = "decrease the number of columns", group = "layout"}),
+    awful.key({ modkey, "Mod1" }, "Up",
+       function ()
+          local t = awful.screen.focused({ client = true }).selected_tag
+          awful.tag.incncol( 1, t, true)
+       end,
+       {description = "increase the number of columns", group = "layout"}),
+    awful.key({ modkey, "Mod1" }, "Down",
+       function ()
+          local t = awful.screen.focused({ client = true }).selected_tag
+          awful.tag.incncol(-1, t, true)
+       end,
+       {description = "decrease the number of columns", group = "layout"}),
 
     awful.key({ modkey,           }, "space",
        function ()
