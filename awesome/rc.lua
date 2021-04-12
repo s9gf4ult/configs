@@ -424,6 +424,14 @@ for i = 1, 9 do
                       local tag = screen.tags[i]
                       if tag then
                          awful.tag.viewtoggle(tag)
+                         if tag.selected then
+                            for _, c in ipairs(tag:clients()) do
+                               if c.minimized == false then
+                                  client.focus = c
+                                  break
+                               end
+                            end
+                         end
                       end
                   end,
                   {description = "toggle tag #" .. i, group = "tag"}),
