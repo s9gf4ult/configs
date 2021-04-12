@@ -288,10 +288,16 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Mod1" }, "Down",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
 
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
-              {description = "select next", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
-              {description = "select previous", group = "layout"}),
+    awful.key({ modkey,           }, "space",
+       function ()
+          awful.layout.inc( 1, awful.screen.focused( { client = true } ))
+       end,
+       {description = "select next", group = "layout"}),
+    awful.key({ modkey, "Shift"   }, "space",
+       function ()
+          awful.layout.inc(-1, awful.screen.focused( { client = true } ))
+       end,
+       {description = "select previous", group = "layout"}),
 
     awful.key({ modkey, "Shift" }, "z",
        function ()
