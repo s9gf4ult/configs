@@ -46,6 +46,10 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+my_border_width = 8
+my_border_color_select = "#CB1B20"
+my_border_color_norm = "#595959"
+
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -535,8 +539,8 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
+      properties = { border_width = my_border_width,
+                     border_color = my_border_color_norm,
                      focus = awful.client.focus.filter,
                      raise = true,
                      keys = clientkeys,
@@ -646,6 +650,6 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", function(c) c.border_color = my_border_color_select end)
+client.connect_signal("unfocus", function(c) c.border_color = my_border_color_norm end)
 -- }}}
