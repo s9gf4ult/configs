@@ -280,21 +280,20 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift", "Control" }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
+    awful.key({ modkey,           }, "j",     function () awful.tag.incmwfact( 0.05)          end,
+       {description = "increase master width factor", group = "layout"}),
+    awful.key({ modkey,           }, "y",     function () awful.tag.incmwfact(-0.05)          end,
+       {description = "decrease master width factor", group = "layout"}),
 
-    -- awful.key({ modkey,           }, "Up",     function () awful.tag.incmwfact( 0.05)          end,
-    --    {description = "increase master width factor", group = "layout"}),
-    -- awful.key({ modkey,           }, "Down",     function () awful.tag.incmwfact(-0.05)          end,
-    --    {description = "decrease master width factor", group = "layout"}),
+    awful.key({ modkey, "Control"   }, "j",     function () awful.tag.incnmaster( 1, nil, true) end,
+              {description = "increase the number of master clients", group = "layout"}),
+    awful.key({ modkey, "Control"   }, "y",     function () awful.tag.incnmaster(-1, nil, true) end,
+       {description = "decrease the number of master clients", group = "layout"}),
 
-    -- awful.key({ modkey, "Control"   }, "Up",     function () awful.tag.incnmaster( 1, nil, true) end,
-    --           {description = "increase the number of master clients", group = "layout"}),
-    -- awful.key({ modkey, "Control"   }, "Down",     function () awful.tag.incnmaster(-1, nil, true) end,
-    --    {description = "decrease the number of master clients", group = "layout"}),
-
-    -- awful.key({ modkey, "Mod1" }, "Up",     function () awful.tag.incncol( 1, nil, true)    end,
-    --           {description = "increase the number of columns", group = "layout"}),
-    -- awful.key({ modkey, "Mod1" }, "Down",     function () awful.tag.incncol(-1, nil, true)    end,
-    --           {description = "decrease the number of columns", group = "layout"}),
+    awful.key({ modkey, "Mod1" }, "j",     function () awful.tag.incncol( 1, nil, true)    end,
+              {description = "increase the number of columns", group = "layout"}),
+    awful.key({ modkey, "Mod1" }, "y",     function () awful.tag.incncol(-1, nil, true)    end,
+              {description = "decrease the number of columns", group = "layout"}),
 
     awful.key({ modkey,           }, "space",
        function ()
