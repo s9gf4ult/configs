@@ -632,13 +632,21 @@ client.connect_signal("request::geometry", function(c, _, _)
     end
 end)
 
+
+my_in_focus_recursion = false -- To prevent recursion of focus handler
 client.connect_signal("focus" ,
                       function(c)
                          c.border_color = my_border_color_select
                          local c_screen = c.screen
                          local m_screen = awful.screen.focused({ mouse = true })
                          if c_screen.index ~= m_screen.index then
-                            awful.screen.focus(c_screen)
+                            if my_in_focus_recursion then
+                               notify({ title = "Error", text = "Focus handing falled into recursion" })
+                            else
+                               my_in_focus_recursion = true
+                               awful.screen.focus(c_screen)
+                               my_in_focus_recursion = false
+                            end
                          end
 end)
 client.connect_signal("unfocus", function(c) c.border_color = my_border_color_norm end)
