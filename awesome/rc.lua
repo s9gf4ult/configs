@@ -501,19 +501,16 @@ clientkeys = gears.table.join(
             c.maximized = not c.maximized
             c:raise()
         end ,
-        {description = "(un)maximize", group = "client"})
-    -- awful.key({ modkey, "Control" }, "m",
-    --     function (c)
-    --         c.maximized_vertical = not c.maximized_vertical
-    --         c:raise()
-    --     end ,
-    --     {description = "(un)maximize vertically", group = "client"}),
-    -- awful.key({ modkey, "Shift"   }, "m",
-    --     function (c)
-    --         c.maximized_horizontal = not c.maximized_horizontal
-    --         c:raise()
-    --     end ,
-    --     {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize", group = "client"}),
+
+    awful.key({ modkey }, "b",
+       function (c)
+          local x = c.x + (c.width / 2)
+          local y = c.y + (c.height / 2)
+          mouse.coords({x = x, y = y}, true)
+       end,
+       {description = "centor cursor at", group = "client"})
+
 )
 
 clientbuttons = gears.table.join(
@@ -661,7 +658,7 @@ client.connect_signal("focus" ,
                          c.border_color = my_border_color_select
                          local c_screen = c.screen
                          local m_screen = awful.screen.focused({ mouse = true })
-                         if c_screen.index ~= m_screen.index then
+                         if c_screen.index ~= m_screen.index and c.class == "emacs" then
                             if my_in_focus_recursion then
                                notify({ title = "Error", text = "Focus handing falled into recursion" })
                             else
