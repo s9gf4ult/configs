@@ -46,7 +46,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-my_border_width = 8
+my_border_width = 7
 my_border_color_select = "#CB1B20"
 my_border_color_norm = "#595959"
 
@@ -143,9 +143,7 @@ local tasklist_buttons = gears.table.join(
                                                   )
                                               end
                                           end),
-                     awful.button({ }, 3, function()
-                                              awful.menu.client_list({ theme = { width = 250 } })
-                                          end),
+                     awful.button({ }, 3, function(c) c:kill() end),
                      awful.button({ }, 4, function ()
                                               awful.client.focus.byidx(1)
                                           end),
@@ -648,6 +646,14 @@ end)
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
+end)
+
+client.connect_signal("request::geometry", function(c, _, _)
+    if c.fullscreen then
+       c.border_width = 0
+    else
+       c.border_width = my_border_width
+    end
 end)
 
 client.connect_signal("focus", function(c) c.border_color = my_border_color_select end)
