@@ -656,6 +656,14 @@ client.connect_signal("request::geometry", function(c, _, _)
     end
 end)
 
-client.connect_signal("focus", function(c) c.border_color = my_border_color_select end)
+client.connect_signal("focus" ,
+                      function(c)
+                         c.border_color = my_border_color_select
+                         local c_screen = c.screen
+                         local m_screen = awful.screen.focused({ mouse = true })
+                         if c_screen.index ~= m_screen.index then
+                            awful.screen.focus(c_screen)
+                         end
+end)
 client.connect_signal("unfocus", function(c) c.border_color = my_border_color_norm end)
 -- }}}
