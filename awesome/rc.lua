@@ -502,7 +502,7 @@ clientkeys = gears.table.join(
         end ,
         {description = "(un)maximize", group = "client"}),
 
-    awful.key({ modkey }, "b",
+    awful.key({ modkey }, "e",
        function (c)
           local x = c.x + (c.width / 2)
           local y = c.y + (c.height / 2)
