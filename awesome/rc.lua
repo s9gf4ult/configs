@@ -244,34 +244,45 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
        {description="show help", group="awesome"}),
 
-    awful.key({ modkey,           }, "n",
-       function ()
+    awful.key({ modkey,           }, "n", function ()
           awful.client.focus.byidx( 1)
-       end,
-       {description = "focus next by index", group = "client"}
+          my_center_mouse_at()
+    end, {description = "focus next by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "p",
-       function ()
+    awful.key({ modkey,           }, "p", function ()
           awful.client.focus.byidx(-1)
-       end,
-       {description = "focus previous by index", group = "client"}
+          my_center_mouse_at()
+    end, {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey, "Control"   }, "n", function () awful.client.swap.byidx(  1)    end,
-              {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey, "Control"   }, "p", function () awful.client.swap.byidx( -1)    end,
-              {description = "swap with previous client by index", group = "client"}),
+    awful.key({ modkey, "Control"   }, "n", function ()
+          awful.client.swap.byidx(  1)
+          my_center_mouse_at()
+    end, {description = "swap with next client by index", group = "client"}),
+    awful.key({ modkey, "Control"   }, "p", function ()
+          awful.client.swap.byidx( -1)
+          my_center_mouse_at()
+    end, {description = "swap with previous client by index", group = "client"}),
 
-    awful.key({ modkey,           }, "Right", function () awful.client.focus.global_bydirection("right") end,
-       {description = "focus right client", group = "client"}),
-    awful.key({ modkey,           }, "Left", function () awful.client.focus.global_bydirection("left") end,
-       {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey,           }, "Up", function () awful.client.focus.global_bydirection("up") end,
-       {description = "focus upper client", group = "screen"}),
-    awful.key({ modkey,           }, "Down", function () awful.client.focus.global_bydirection("down") end,
-       {description = "focus lower client", group = "screen"}),
+    awful.key({ modkey,           }, "Right", function ()
+          awful.client.focus.global_bydirection("right")
+          my_center_mouse_at()
+    end, {description = "focus right client", group = "client"}),
+    awful.key({ modkey,           }, "Left", function ()
+          awful.client.focus.global_bydirection("left")
+          my_center_mouse_at()
+    end, {description = "focus the previous screen", group = "screen"}),
+    awful.key({ modkey,           }, "Up", function ()
+          awful.client.focus.global_bydirection("up")
+          my_center_mouse_at()
+    end, {description = "focus upper client", group = "screen"}),
+    awful.key({ modkey,           }, "Down", function ()
+          awful.client.focus.global_bydirection("down")
+          my_center_mouse_at()
+    end, {description = "focus lower client", group = "screen"}),
 
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-              {description = "jump to urgent client", group = "client"}),
+       {description = "jump to urgent client", group = "client"}),
+
     awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.history.previous()
@@ -282,8 +293,9 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "t", function () awful.spawn(terminal) end,
-       {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "t", function ()
+          awful.spawn(terminal)
+    end, {description = "open a terminal", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -308,11 +320,13 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "space",
        function ()
           awful.layout.inc( 1)
+          my_center_mouse_at()
        end,
        {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space",
        function ()
           awful.layout.inc(-1)
+          my_center_mouse_at()
        end,
        {description = "select previous", group = "layout"}),
 
@@ -324,12 +338,10 @@ globalkeys = gears.table.join(
           for _, t in ipairs(s.selected_tags) do
              ts[t.name] = t
           end
-          local lastclient = nil
           for _, c in ipairs(s.all_clients) do
              for _, t in ipairs(c:tags()) do
                 if ts[t.name] then
                    c.minimized = false
-                   lastclient = c
                    break
                 end
              end
@@ -400,6 +412,7 @@ for i = 1, 9 do
                         local tag = screen.tags[i]
                         if tag then
                            tag:view_only()
+                           my_center_mouse_at()
                         end
                   end,
                   {description = "view tag #"..i, group = "tag"}),
@@ -414,6 +427,7 @@ for i = 1, 9 do
                             for _, c in ipairs(tag:clients()) do
                                if c.minimized == false then
                                   client.focus = c
+                                  my_center_mouse_at(c)
                                   break
                                end
                             end
@@ -454,6 +468,7 @@ for i = 1, 9 do
                     end
                  end
               end
+              my_center_mouse_at()
            end,
            {description = "all screens view tag #"..i, group = "tag"}),
         -- Toggle tag display on all screens.
@@ -478,6 +493,7 @@ for s in screen do
           awful.key({ modkey }, key,
              function()
                 awful.screen.focus(s)
+                my_center_mouse_at()
              end
           )
       )
