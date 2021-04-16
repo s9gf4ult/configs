@@ -229,6 +229,16 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+
+function my_center_mouse_at(cl)
+   local c = cl or client.focus
+   if c then
+      local x = c.x + (c.width / 2)
+      local y = c.y + (c.height / 2)
+      mouse.coords({x = x, y = y}, true)
+   end
+end
+
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -367,6 +377,17 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"})
 )
 
+
+
+function my_screen_is_big(s)
+   if s.geometry.width > 2000 then
+      return true
+   else
+      return false
+   end
+end
+
+
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
@@ -426,9 +447,11 @@ for i = 1, 9 do
         awful.key({ modkey, "Mod1" }, "#" .. i + 9,
            function ()
               for s in screen do
-                 local tag = s.tags[i]
-                 if tag then
-                    tag:view_only()
+                 if my_screen_is_big(s) then
+                    local tag = s.tags[i]
+                    if tag then
+                       tag:view_only()
+                    end
                  end
               end
            end,
@@ -502,13 +525,8 @@ clientkeys = gears.table.join(
         end ,
         {description = "(un)maximize", group = "client"}),
 
-    awful.key({ modkey }, "i",
-       function (c)
-          local x = c.x + (c.width / 2)
-          local y = c.y + (c.height / 2)
-          mouse.coords({x = x, y = y}, true)
-       end,
-       {description = "centor cursor at", group = "client"})
+    awful.key({ modkey }, "i", my_center_mouse_at
+       , {description = "centor cursor at", group = "client"})
 
 )
 
