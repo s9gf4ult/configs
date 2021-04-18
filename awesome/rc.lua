@@ -297,6 +297,10 @@ globalkeys = gears.table.join(
           awful.spawn(terminal)
     end, {description = "open a terminal", group = "launcher"}),
 
+    awful.key({ modkey,           }, "x", function ()
+          awful.spawn("keepassxc")
+    end, {description = "open keepassxc", group = "launcher"}),
+
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift", "Control" }, "q", awesome.quit,
@@ -605,7 +609,14 @@ awful.rules.rules = {
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true }},
+    }, properties = { floating = true }},
+
+    { rule_any = {
+         class = {
+            "Gnucash"
+         }
+    }, properties = { floating = false }}
+
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
