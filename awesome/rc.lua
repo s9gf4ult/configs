@@ -229,13 +229,41 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+function client_center(c)
+   local x = c.x + (c.width / 2)
+   local y = c.y + (c.height / 2)
+   return { x = x, y = y }
+end
+
+
+function my_visible_clients()
+   local allClients = { }
+   for s in screen do
+      for _, c in ipairs(s.clients) do
+         if c:isvisible() then
+            table.insert(allClients, {client = c, center = client_center(c)})
+         end
+      end
+   end
+   table.sort(allClients,
+   function(a, b)
+      if a.center.x == b.center.x then
+         return a.center.y < b.center.y
+      else
+         return a.center.x < b.center.x
+      end
+   end)
+   local res = { }
+   for _, c in ipairs(allClients) do
+      table.insert(res, c.client)
+   end
+   return res
+end
 
 function my_center_mouse_at(cl)
    local c = cl or client.focus
    if c then
-      local x = c.x + (c.width / 2)
-      local y = c.y + (c.height / 2)
-      mouse.coords({x = x, y = y}, true)
+      mouse.coords(client_center(c), true)
    end
 end
 
@@ -409,8 +437,20 @@ end
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
     globalkeys = gears.table.join(globalkeys,
+        -- Focus at client at pos
+        awful.key({ modkey, }, "#" .. i + 9,
+                  function ()
+                     local vc = my_visible_clients()
+                     local c = vc[i] or vc[#vc]
+                     if c then
+                        client.focus = c
+                        my_center_mouse_at(c)
+                     end
+                  end,
+                  {description = "focus at client #" .. i, group = "client"}),
+
         -- View tag only.
-        awful.key({ modkey }, "#" .. i + 9,
+        awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
                         local screen = awful.screen.focused()
                         local tag = screen.tags[i]
@@ -420,8 +460,9 @@ for i = 1, 9 do
                         end
                   end,
                   {description = "view tag #"..i, group = "tag"}),
+
         -- Toggle tag display.
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
+        awful.key({ modkey, "Mod1", "Control" }, "#" .. i + 9,
                   function ()
                       local screen = awful.screen.focused()
                       local tag = screen.tags[i]
@@ -439,6 +480,7 @@ for i = 1, 9 do
                       end
                   end,
                   {description = "toggle tag #" .. i, group = "tag"}),
+
         -- Move client to tag.
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
@@ -450,17 +492,7 @@ for i = 1, 9 do
                      end
                   end,
                   {description = "move focused client to tag #"..i, group = "tag"}),
-        -- Toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
-                              client.focus:toggle_tag(tag)
-                          end
-                      end
-                  end,
-                  {description = "toggle focused client on tag #" .. i, group = "tag"}),
+
         -- View tag on all screens
         awful.key({ modkey, "Mod1" }, "#" .. i + 9,
            function ()
@@ -474,18 +506,7 @@ for i = 1, 9 do
               end
               my_center_mouse_at()
            end,
-           {description = "all screens view tag #"..i, group = "tag"}),
-        -- Toggle tag display on all screens.
-        awful.key({ modkey, "Mod1", "Control" }, "#" .. i + 9,
-           function ()
-              for s in screen do
-                 local tag = s.tags[i]
-                 if tag then
-                    awful.tag.viewtoggle(tag)
-                 end
-              end
-           end,
-           {description = "toggle tag #" .. i, group = "tag"})
+           {description = "all screens view tag #"..i, group = "tag"})
     )
 end
 
@@ -497,7 +518,9 @@ for s in screen do
           awful.key({ modkey }, key,
              function()
                 awful.screen.focus(s)
-                my_center_mouse_at()
+                if s.clients[1] then
+                   my_center_mouse_at()
+                end
              end
           )
       )
