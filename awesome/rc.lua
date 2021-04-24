@@ -504,7 +504,6 @@ for i = 1, 9 do
                     end
                  end
               end
-              my_center_mouse_at()
            end,
            {description = "all screens view tag #"..i, group = "tag"})
     )
@@ -620,7 +619,8 @@ awful.rules.rules = {
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-          "xtightvncviewer"},
+          "xtightvncviewer",
+          "mpv" },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
