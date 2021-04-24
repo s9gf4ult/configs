@@ -267,6 +267,29 @@ function my_center_mouse_at(cl)
    end
 end
 
+function find_client(pred)
+   for s in screen do
+      local cls = s:get_all_clients()
+      for _, c in ipairs(cls) do
+         if pred(c) then
+            return c
+         end
+      end
+   end
+end
+
+function toggle_client_tag(pred)
+   local c = find_client(pred)
+   if c then
+      local t = c.first_tag
+      local oldvis = c:isvisible()
+      awful.tag.viewtoggle(t)
+      if not oldvis then
+         my_center_mouse_at(c)
+      end
+   end
+end
+
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -324,6 +347,14 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "t", function ()
           awful.spawn(terminal)
     end, {description = "open a terminal", group = "launcher"}),
+
+    -- Toggle telegram
+    awful.key({ modkey }, "b", function ()
+          toggle_client_tag(
+             function (c)
+                return c.class == "TelegramDesktop"
+             end)
+    end, {description = "Toggle telegram", group = "client"}),
 
     awful.key({ modkey,           }, "x", function ()
           awful.spawn("keepassxc")
@@ -461,6 +492,20 @@ for i = 1, 9 do
                   end,
                   {description = "view tag #"..i, group = "tag"}),
 
+        -- View tag on all screens
+        awful.key({ modkey, "Mod1" }, "#" .. i + 9,
+           function ()
+              for s in screen do
+                 if my_screen_is_big(s) then
+                    local tag = s.tags[i]
+                    if tag then
+                       tag:view_only()
+                    end
+                 end
+              end
+           end,
+           {description = "all screens view tag #"..i, group = "tag"}),
+
         -- Toggle tag display.
         awful.key({ modkey, "Mod1", "Control" }, "#" .. i + 9,
                   function ()
@@ -493,19 +538,7 @@ for i = 1, 9 do
                   end,
                   {description = "move focused client to tag #"..i, group = "tag"}),
 
-        -- View tag on all screens
-        awful.key({ modkey, "Mod1" }, "#" .. i + 9,
-           function ()
-              for s in screen do
-                 if my_screen_is_big(s) then
-                    local tag = s.tags[i]
-                    if tag then
-                       tag:view_only()
-                    end
-                 end
-              end
-           end,
-           {description = "all screens view tag #"..i, group = "tag"})
+
     )
 end
 
