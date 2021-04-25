@@ -53,6 +53,7 @@ my_border_color_norm = "#595959"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
+terminal_class = "Alacritty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -281,18 +282,10 @@ function find_client(spred, cpred)
    return nil, nil
 end
 
-function toggle_client_tag(spred, cpred)
-   local s, c = find_client(spred, cpred)
-   if s and c then
-      local t = s.selected_tag
-      c:toggle_tag(t)
-      awful.layout.arrange(s)
-      -- local rest = s.tiled_clients[1]
-      -- -- Bug with redradwing
-      -- if rest then
-      --    rest.minimized = false
-      -- end
-   end
+function toggle_client_tag(s, c)
+   local t = s.selected_tag
+   c:toggle_tag(t)
+   awful.layout.arrange(s)
 end
 
 -- {{{ Key bindings
@@ -349,32 +342,72 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "t", function ()
+    awful.key({ modkey, "Shift" }, "t", function ()
           awful.spawn(terminal)
-    end, {description = "open a terminal", group = "launcher"}),
+    end, {description = "spawn a terminal", group = "launcher"}),
+
+    awful.key({ modkey }, "t", function ()
+          local this_screen = awful.screen.focused()
+          local this_tag = this_screen.selected_tag
+          local _, c = find_client(
+             function(s)
+                return s.index == this_screen.index
+             end,
+             function (c)
+                return c:isvisible() and c.first_tag == this_tag and c.class == terminal_class
+                -- Client is visible and placed on current tag
+          end)
+          if c then
+             -- Found visible client on current screen, so move it to the first
+             -- tag
+             c:move_to_tag(this_screen.tags[1])
+          else
+             local _, c = find_client(
+                function(s)
+                   return s.index == this_screen.index
+                end,
+                function (c)
+                   return c.minimized == false and c.class == terminal_class
+                   -- Client is visible on some other tag
+             end)
+             if c then
+                -- Found terminal somewhere on the screen. Toggle it
+                c:toggle_tag(this_tag)
+                awful.layout.arrange(this_screen)
+             else
+                -- Found no terminals. Spawn new
+                awful.spawn(terminal)
+             end
+          end
+    end, {description = "toggle terminal", group = "client"}),
 
     -- Toggle telegram
     awful.key({ modkey }, "b", function ()
-          toggle_client_tag(
+          local s, c = find_client(
              function(s)
                 return true
              end,
              function (c)
                 return c.class == "TelegramDesktop"
-             end)
+          end)
+          if s and c then
+             toggle_client_tag(s, c)
+          end
     end, {description = "Toggle telegram", group = "client"}),
 
     -- Toggle Firefox
     awful.key({ modkey }, "w", function ()
-          toggle_client_tag(
+          local s, c = find_client(
              function(s)
-                return s.index == 2
+                nreturn s.index == 2
              end,
              function (c)
                 return c.class == "Firefox" and c.minimized == false
-             end)
-    end, {description = "Toggle telegram", group = "client"}),
-
+          end)
+          if s and c then
+             toggle_client_tag(s, c)
+          end
+    end, {description = "Toggle Firefox", group = "client"}),
 
     awful.key({ modkey,           }, "x", function ()
           awful.spawn("keepassxc")
