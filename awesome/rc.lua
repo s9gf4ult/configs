@@ -348,36 +348,15 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey }, "t", function ()
           local this_screen = awful.screen.focused()
-          local this_tag = this_screen.selected_tag
-          local _, c = find_client(
+          local s, c = find_client(
              function(s)
                 return s.index == this_screen.index
              end,
              function (c)
-                return c:isvisible() and c.first_tag == this_tag and c.class == terminal_class
-                -- Client is visible and placed on current tag
+                return c.class == terminal_class and c.minimized == false
           end)
-          if c then
-             -- Found visible client on current screen, so move it to the first
-             -- tag
-             c:move_to_tag(this_screen.tags[1])
-          else
-             local _, c = find_client(
-                function(s)
-                   return s.index == this_screen.index
-                end,
-                function (c)
-                   return c.minimized == false and c.class == terminal_class
-                   -- Client is visible on some other tag
-             end)
-             if c then
-                -- Found terminal somewhere on the screen. Toggle it
-                c:toggle_tag(this_tag)
-                awful.layout.arrange(this_screen)
-             else
-                -- Found no terminals. Spawn new
-                awful.spawn(terminal)
-             end
+          if s and c then
+             toggle_client_tag(s, c)
           end
     end, {description = "toggle terminal", group = "client"}),
 
@@ -399,7 +378,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "w", function ()
           local s, c = find_client(
              function(s)
-                nreturn s.index == 2
+                return s.index == 2
              end,
              function (c)
                 return c.class == "Firefox" and c.minimized == false
