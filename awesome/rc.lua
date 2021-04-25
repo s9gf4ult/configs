@@ -273,22 +273,25 @@ function find_client(spred, cpred)
          local cls = s:get_all_clients()
          for _, c in ipairs(cls) do
             if cpred(c) then
-               return c
+               return s, c
             end
          end
       end
    end
+   return nil, nil
 end
 
 function toggle_client_tag(spred, cpred)
-   local c = find_client(spred, cpred)
-   if c then
-      local t = c.first_tag
-      local oldvis = c:isvisible()
-      awful.tag.viewtoggle(t)
-      if not oldvis then
-         my_center_mouse_at(c)
-      end
+   local s, c = find_client(spred, cpred)
+   if s and c then
+      local t = s.selected_tag
+      c:toggle_tag(t)
+      awful.layout.arrange(s)
+      -- local rest = s.tiled_clients[1]
+      -- -- Bug with redradwing
+      -- if rest then
+      --    rest.minimized = false
+      -- end
    end
 end
 
@@ -368,7 +371,7 @@ globalkeys = gears.table.join(
                 return s.index == 2
              end,
              function (c)
-                return c.class == "Firefox"
+                return c.class == "Firefox" and c.minimized == false
              end)
     end, {description = "Toggle telegram", group = "client"}),
 
@@ -557,15 +560,18 @@ for i = 1, 9 do
 
         -- Toggle tag on focused client.
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
-                              client.focus:toggle_tag(tag)
-                          end
-                      end
-                  end,
-                  {description = "toggle focused client on tag #" .. i, group = "tag"})
+           function ()
+              local c = client.focus
+              if c then
+                 local s = c.screen
+                 local tag = s.tags[i]
+                 if tag then
+                    client.focus:toggle_tag(tag)
+                    awful.layout.arrange(s)
+                 end
+              end
+           end,
+           {description = "toggle focused client on tag #" .. i, group = "tag"})
     )
 end
 
