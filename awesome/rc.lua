@@ -271,10 +271,13 @@ end
 function find_client(spred, cpred)
    for s in screen do
       if spred(s) then
-         local cls = s:get_all_clients()
-         for _, c in ipairs(cls) do
-            if cpred(c) then
-               return s, c
+         -- Counting tags from the start
+         for _, t in ipairs(s.tags) do
+            local cls = t:clients()
+            for _, c in ipairs(cls) do
+               if cpred(c) then
+                  return s, c
+               end
             end
          end
       end
