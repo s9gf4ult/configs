@@ -289,6 +289,10 @@ function toggle_client_tag(s, c)
    local t = s.selected_tag
    c:toggle_tag(t)
    awful.layout.arrange(s)
+   if c:isvisible() then
+      client.focus = c
+      my_center_mouse_at(c)
+   end
 end
 
 -- {{{ Key bindings
