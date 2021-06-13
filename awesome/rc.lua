@@ -68,7 +68,7 @@ modkey = "Mod4"
 awful.layout.layouts = {
     -- awful.layout.suit.floating,
     awful.layout.suit.tile,
-    -- awful.layout.suit.tile.left,
+    awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
@@ -77,7 +77,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
+    -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
@@ -394,6 +394,21 @@ globalkeys = gears.table.join(
              toggle_client_tag(s, c)
           end
     end, {description = "Toggle Firefox", group = "client"}),
+
+    -- Toggle emacs
+    awful.key({ modkey }, "d", function ()
+          local this_screen = awful.screen.focused()
+          local s, c = find_client(
+             function(s)
+                return  s.index == this_screen.index
+             end,
+             function (c)
+                return c.class == "Emacs" and c.minimized == false
+          end)
+          if s and c then
+             toggle_client_tag(s, c)
+          end
+    end, {description = "Toggle Emacs", group = "client"}),
 
     awful.key({ modkey,           }, "x", function ()
           awful.spawn("keepassxc")
