@@ -11,4 +11,6 @@ xrandr --dpi 168
 xrandr --output DisplayPort-0 --primary --pos 0x0 --output HDMI-A-0 --right-of DisplayPort-0 --output DVI-D-0 --scale 1.6x1.6 --pos -3072x0
 xbindkeys
 
-ssh-agent awesome
+ssh-agent awesome &
+redshift-gtk -l manual
+wait %1
