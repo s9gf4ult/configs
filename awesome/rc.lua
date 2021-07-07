@@ -509,7 +509,7 @@ globalkeys = gears.table.join(
 
 
 function my_screen_is_big(s)
-   if s.geometry.width > 2000 then
+   if s.geometry.width > 3800 then
       return true
    else
       return false

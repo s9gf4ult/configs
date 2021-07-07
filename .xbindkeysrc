@@ -82,11 +82,11 @@
     m:0x40 + c:74
     Mod4 + F8
 
-"burn-cli client -c 'pause'"
+"burn-cli client -c 'pause' ; emacsclient -e '(org-clock-out)'"
     m:0x40 + c:75
     Mod4 + F9
 
-"burn-cli client -c 'pomodoro'"
+"burn-cli client -c 'pomodoro' ; emacsclient -e '(org-clock-in-last)'"
     m:0x40 + c:76
     Mod4 + F10
 
