@@ -318,27 +318,21 @@ end
 
 function smart_toggle (s, cpred)
    local stags = s.selected_tags
-   for _, c in ipairs(s.all_clients) do
+   for _, c in ipairs(s.clients) do
       if cpred(c) then
          local ctags = c:tags()
-         if intersects(ctags, stags) then
-            if c.minimized then
-               c.minimized = false
-            else
-               local otherTags = difference(ctags, stags)
-               -- ctags is subset of stags, so otherTags is empty
-               if not next(otherTags) then
-                  c.minimized = true
-               else
-                  c:tags(oterTags)
-               end
-            end
+         local otherTags = difference(ctags, stags)
+         -- ctags is subset of stags
+         if not next(otherTags) then
+            c.minimized = true
          else
-            -- impl
+            c:tags(otherTags)
          end
+         awful.layout.arrange(s)
          return c
       end
    end
+
    return nil
 end
 
@@ -435,16 +429,21 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey }, "t", function ()
           local this_screen = awful.screen.focused()
-          local s, c = find_client(
-             function(s)
-                return s.index == this_screen.index
-             end,
+          smart_toggle(this_screen,
              function (c)
                 return c.class == terminal_class and c.minimized == false
-          end)
-          if s and c then
-             toggle_client_tag(s, c)
-          end
+             end
+          )
+          -- local s, c = find_client(
+          --    function(s)
+          --       return s.index == this_screen.index
+          --    end,
+          --    function (c)
+          --       return c.class == terminal_class and c.minimized == false
+          -- end)
+          -- if s and c then
+          --    toggle_client_tag(s, c)
+          -- end
     end, {description = "toggle terminal", group = "client"}),
 
     -- Toggle telegram
@@ -729,9 +728,6 @@ clientkeys = gears.table.join(
        {description = "move to next screen", group = "client"}),
     awful.key({ modkey, "Shift" }, "Left",  function (c) c:move_to_screen(c.screen.index-1) end,
        {description = "move to prev screen", group = "client"}),
-
-    -- awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-    --           {description = "toggle keep on top", group = "client"}),
 
     awful.key({ modkey,           }, "z",
         function (c)
