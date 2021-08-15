@@ -365,7 +365,8 @@ function find_client(spred, cpred)
    return nil, nil
 end
 
-function toggle_client_tag(t, c)
+function toggle_client_tag(s, c)
+   local t = s.selected_tag
    c:toggle_tag(t)
    awful.layout.arrange(s)
    if c:isvisible() then
@@ -442,7 +443,7 @@ globalkeys = gears.table.join(
                 return c.class == terminal_class and c.minimized == false
           end)
           if s and c then
-             toggle_client_tag(s.selected_tag, c)
+             toggle_client_tag(s, c)
           end
     end, {description = "toggle terminal", group = "client"}),
 
@@ -456,7 +457,7 @@ globalkeys = gears.table.join(
                 return c.class == "TelegramDesktop"
           end)
           if s and c then
-             toggle_client_tag(s.selected_tag, c)
+             toggle_client_tag(s, c)
           end
     end, {description = "Toggle telegram", group = "client"}),
 
@@ -470,7 +471,7 @@ globalkeys = gears.table.join(
                 return c.class == "Firefox" and c.minimized == false
           end)
           if s and c then
-             toggle_client_tag(s.selected_tag, c)
+             toggle_client_tag(s, c)
           end
     end, {description = "Toggle Firefox", group = "client"}),
 
@@ -485,7 +486,7 @@ globalkeys = gears.table.join(
                 return c.class == "Emacs" and c.minimized == false
           end)
           if s and c then
-             toggle_client_tag(s.selected_tag, c)
+             toggle_client_tag(s, c)
           end
     end, {description = "Toggle Emacs", group = "client"}),
 
