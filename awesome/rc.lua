@@ -268,6 +268,80 @@ function my_center_mouse_at(cl)
    end
 end
 
+
+function toset(a)
+   res = {}
+   for _, a in ipairs(a) do
+      res[a] = true
+   end
+   return res
+end
+
+-- function isSubset(a, b)
+--    for _, x in ipairs(a) do
+--       local found = false
+--       for _, y in ipairs(b) do
+--          if x == y then
+--             found = true
+--             break
+--          end
+--       end
+--       if not found then
+--          return false
+--       end
+--    end
+--    return true
+-- end
+
+-- Returns true if two lists intersect
+function intersects(a, b)
+   local bset = toset(b)
+   for _, x in ipairs(a) do
+      if bset[x] then
+         return true
+      end
+   end
+   return false
+end
+
+-- Returns difference between two lists
+function difference(a, b)
+   local aset = toset(a)
+   local res = {}
+   for _, x in ipairs(b) do
+      if not aset[x] then
+         table.insert(res, x)
+      end
+   end
+   return res
+end
+
+function smart_toggle (s, cpred)
+   local stags = s.selected_tags
+   for _, c in ipairs(s.all_clients) do
+      if cpred(c) then
+         local ctags = c:tags()
+         if intersects(ctags, stags) then
+            if c.minimized then
+               c.minimized = false
+            else
+               local otherTags = difference(ctags, stags)
+               -- ctags is subset of stags, so otherTags is empty
+               if not next(otherTags) then
+                  c.minimized = true
+               else
+                  c:tags(oterTags)
+               end
+            end
+         else
+            -- impl
+         end
+         return c
+      end
+   end
+   return nil
+end
+
 function find_client(spred, cpred)
    for s in screen do
       if spred(s) then
@@ -291,8 +365,7 @@ function find_client(spred, cpred)
    return nil, nil
 end
 
-function toggle_client_tag(s, c)
-   local t = s.selected_tag
+function toggle_client_tag(t, c)
    c:toggle_tag(t)
    awful.layout.arrange(s)
    if c:isvisible() then
@@ -369,7 +442,7 @@ globalkeys = gears.table.join(
                 return c.class == terminal_class and c.minimized == false
           end)
           if s and c then
-             toggle_client_tag(s, c)
+             toggle_client_tag(s.selected_tag, c)
           end
     end, {description = "toggle terminal", group = "client"}),
 
@@ -383,7 +456,7 @@ globalkeys = gears.table.join(
                 return c.class == "TelegramDesktop"
           end)
           if s and c then
-             toggle_client_tag(s, c)
+             toggle_client_tag(s.selected_tag, c)
           end
     end, {description = "Toggle telegram", group = "client"}),
 
@@ -397,7 +470,7 @@ globalkeys = gears.table.join(
                 return c.class == "Firefox" and c.minimized == false
           end)
           if s and c then
-             toggle_client_tag(s, c)
+             toggle_client_tag(s.selected_tag, c)
           end
     end, {description = "Toggle Firefox", group = "client"}),
 
@@ -412,7 +485,7 @@ globalkeys = gears.table.join(
                 return c.class == "Emacs" and c.minimized == false
           end)
           if s and c then
-             toggle_client_tag(s, c)
+             toggle_client_tag(s.selected_tag, c)
           end
     end, {description = "Toggle Emacs", group = "client"}),
 
