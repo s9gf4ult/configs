@@ -588,7 +588,7 @@ end
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 0, 9 do
    if i == 0 then
-      i = 10
+      i = 10 -- cause 0 is the last one and we count from 1 in lua
    end
    globalkeys = gears.table.join(globalkeys,
         -- Focus at client at pos
