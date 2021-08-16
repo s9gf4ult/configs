@@ -365,29 +365,6 @@ function smart_toggle (s, cpred)
    return nil
 end
 
-function find_client(spred, cpred)
-   for s in screen do
-      if spred(s) then
-         -- Counting tags from the start
-         found_selected = false
-         -- Found selected tag. We are searching clients only after first selected
-         -- tag. Tags bellow current selected tag are not used to search.
-         for _, t in ipairs(s.tags) do
-            found_selected = found_selected or t.selected
-            if found_selected then
-               local cls = t:clients()
-               for _, c in ipairs(cls) do
-                  if cpred(c) then
-                     return s, c
-                  end
-               end
-            end
-         end
-      end
-   end
-   return nil, nil
-end
-
 function toggle_client_tag(s, c)
    local t = s.selected_tag
    c:toggle_tag(t)
