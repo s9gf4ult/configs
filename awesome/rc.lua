@@ -321,12 +321,11 @@ end
 
 function smart_toggle (s, cpred)
    local stags = s.selected_tags
-   for _, c in ipairs(s.clients) do -- For all visible clients
+   local vis_clients = s.clients
+   local hid_clients = s.hidden_clients
+   for _, c in ipairs(vis_clients) do -- For all visible clients
       if cpred(c) then
          local otherTags = difference(c:tags(), stags)
-         -- naughty.notify({text = "ctags = " .. tagsNames(ctags) })
-         -- naughty.notify({text = "stags = " .. tagsNames(stags) })
-         -- naughty.notify({text = "otherTags = " .. tagsNames(otherTags) })
          -- ctags is subset of stags
          if not next(otherTags) then
             c.minimized = true
@@ -338,18 +337,28 @@ function smart_toggle (s, cpred)
       end
    end
 
-   for _, c in ipairs(s.all_clients) do -- For all clients
-      naughty.notify({text = "client"})
-      -- in current tags set
-      if cpred(c) then
-         naughty.notify({text = "fired"})
+   for _, c in ipairs(hid_clients) do -- For all hidden clients
+      if cpred(c) and isSubset(c:tags(), stags) then
+         c.minimized = false
+         awful.layout.arrange(s)
+         client.focus = c
+         my_center_mouse_at(c)
+         return c
+      end
+   end
 
-         naughty.notify({text = "difference(c:tags(), stags) = " .. tagsNames(difference(c:tags(), stags))})
-
-         -- If client was not catched by previous block then it must be minimized
-         -- c.minimized = false
-         -- awful.layout.arrange(s)
-         -- return c
+   local thistag = s.selected_tag
+   local gottag = false
+   for _, t in ipairs(s.tags) do
+      if not gottag and (t == thistag) then
+         gottag = true
+      elseif gottag then
+         for _, c in ipairs(t:clients()) do
+            if cpred(c) and c.minimized == false then
+               toggle_client_tag(s, c)
+               return c
+            end
+         end
       end
    end
 
@@ -451,7 +460,7 @@ globalkeys = gears.table.join(
           local this_screen = awful.screen.focused()
           smart_toggle(this_screen,
              function (c)
-                return c.class == terminal_class and c.minimized == false
+                return c.class == terminal_class
              end
           )
           -- local s, c = find_client(
