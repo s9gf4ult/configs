@@ -172,7 +172,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -236,7 +236,7 @@ function client_center(c)
    return { x = x, y = y }
 end
 
-
+-- All visible clients sorted from left to right and from top to bottom
 function my_visible_clients()
    local allClients = { }
    for s in screen do
@@ -586,8 +586,11 @@ end
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
-    globalkeys = gears.table.join(globalkeys,
+for i = 0, 9 do
+   if i == 0 then
+      i = 10
+   end
+   globalkeys = gears.table.join(globalkeys,
         -- Focus at client at pos
         awful.key({ modkey, }, "#" .. i + 9,
                   function ()
