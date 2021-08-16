@@ -277,22 +277,6 @@ function toset(a)
    return res
 end
 
--- function isSubset(a, b)
---    for _, x in ipairs(a) do
---       local found = false
---       for _, y in ipairs(b) do
---          if x == y then
---             found = true
---             break
---          end
---       end
---       if not found then
---          return false
---       end
---    end
---    return true
--- end
-
 -- Returns true if two lists intersect
 function intersects(a, b)
    local bset = toset(b)
@@ -305,7 +289,7 @@ function intersects(a, b)
 end
 
 -- Returns difference between two lists
-function difference(a, b)
+function difference(b, a)
    local aset = toset(a)
    local res = {}
    for _, x in ipairs(b) do
@@ -316,12 +300,33 @@ function difference(a, b)
    return res
 end
 
+function isSubset(a, b)
+   local rest = difference(a, b)
+   if not next(rest) then
+      -- rest is empty
+      return true
+   else
+      -- non-empty rest means a is not subset of b
+      return false
+   end
+end
+
+function tagsNames(tlist)
+   local res = {}
+   for _, tag in ipairs(tlist) do
+      table.insert(res, tag.name)
+   end
+   return table.concat(res, ",")
+end
+
 function smart_toggle (s, cpred)
    local stags = s.selected_tags
-   for _, c in ipairs(s.clients) do
+   for _, c in ipairs(s.clients) do -- For all visible clients
       if cpred(c) then
-         local ctags = c:tags()
-         local otherTags = difference(ctags, stags)
+         local otherTags = difference(c:tags(), stags)
+         -- naughty.notify({text = "ctags = " .. tagsNames(ctags) })
+         -- naughty.notify({text = "stags = " .. tagsNames(stags) })
+         -- naughty.notify({text = "otherTags = " .. tagsNames(otherTags) })
          -- ctags is subset of stags
          if not next(otherTags) then
             c.minimized = true
@@ -330,6 +335,21 @@ function smart_toggle (s, cpred)
          end
          awful.layout.arrange(s)
          return c
+      end
+   end
+
+   for _, c in ipairs(s.all_clients) do -- For all clients
+      naughty.notify({text = "client"})
+      -- in current tags set
+      if cpred(c) then
+         naughty.notify({text = "fired"})
+
+         naughty.notify({text = "difference(c:tags(), stags) = " .. tagsNames(difference(c:tags(), stags))})
+
+         -- If client was not catched by previous block then it must be minimized
+         -- c.minimized = false
+         -- awful.layout.arrange(s)
+         -- return c
       end
    end
 
