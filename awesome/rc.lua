@@ -463,59 +463,40 @@ globalkeys = gears.table.join(
                 return c.class == terminal_class
              end
           )
-          -- local s, c = find_client(
-          --    function(s)
-          --       return s.index == this_screen.index
-          --    end,
-          --    function (c)
-          --       return c.class == terminal_class and c.minimized == false
-          -- end)
-          -- if s and c then
-          --    toggle_client_tag(s, c)
-          -- end
-    end, {description = "toggle terminal", group = "client"}),
+    end, {description = "Toggle terminal", group = "client"}),
 
     -- Toggle telegram
     awful.key({ modkey }, "b", function ()
-          local s, c = find_client(
-             function(s)
-                return true
-             end,
-             function (c)
-                return c.class == "TelegramDesktop"
-          end)
-          if s and c then
-             toggle_client_tag(s, c)
+          for s in screen do
+             c = smart_toggle(s, function (c)
+                                 return c.class == "TelegramDesktop"
+             end)
+             if c then
+                break
+             end
           end
-    end, {description = "Toggle telegram", group = "client"}),
+    end ,{description = "Toggle telegram", group = "client"}),
 
     -- Toggle Firefox
     awful.key({ modkey }, "w", function ()
-          local s, c = find_client(
-             function(s)
-                return s.index == 2
-             end,
-             function (c)
-                return c.class == "Firefox" and c.minimized == false
-          end)
-          if s and c then
-             toggle_client_tag(s, c)
+          for s in screen do
+             if s.index == 2 then
+                smart_toggle(s, function (c)
+                                return c.class == "Firefox"
+                end)
+                break
+             end
           end
     end, {description = "Toggle Firefox", group = "client"}),
 
     -- Toggle emacs
     awful.key({ modkey }, "d", function ()
           local this_screen = awful.screen.focused()
-          local s, c = find_client(
-             function(s)
-                return  s.index == this_screen.index
-             end,
+          smart_toggle(this_screen,
              function (c)
-                return c.class == "Emacs" and c.minimized == false
-          end)
-          if s and c then
-             toggle_client_tag(s, c)
-          end
+                return c.class == "Emacs"
+             end
+          )
     end, {description = "Toggle Emacs", group = "client"}),
 
     awful.key({ modkey,           }, "x", function ()
