@@ -322,27 +322,29 @@ end
 function smart_hide (s, c)
    local otherTags = tagsDifference(c:tags(), s.selected_tags)
    -- c:tags is subset of s.selected_tags
-   naughty.notify({text = "otherTags = " .. tagsNames(otherTags) })
+   -- naughty.notify({text = "otherTags = " .. tagsNames(otherTags) })
    if not next(otherTags) then
-      naughty.notify({text = "minimize"})
+      -- naughty.notify({text = "minimize"})
       c.minimized = true
    else
-      naughty.notify({text = "set other tags"})
+      -- naughty.notify({text = "set other tags"})
       c:tags(otherTags)
    end
    awful.layout.arrange(s)
 end
 
-function smart_toggle (s, cpred)
+function smart_toggle (s, cpred, brokenFocus)
+   brokenFocus = brokenFocus or false
    local vis_clients = s.clients
    local hid_clients = s.hidden_clients
 
-   local fclient = client.focus
-   if fclient and cpred(fclient) then
-      naughty.notify({text = "fired focus"})
-      -- If desired client is active then smart hide it
-      smart_hide(s, fclient)
-      return fclient
+   if not brokenFocus then
+      local fclient = client.focus
+      if fclient and cpred(fclient) then
+         -- If desired client is active then smart hide it
+         smart_hide(s, fclient)
+         return fclient
+      end
    end
 
    -- Iterate over all visible clients and try to smart hide one
@@ -467,7 +469,7 @@ globalkeys = gears.table.join(
           for s in screen do
              c = smart_toggle(s, function (c)
                                  return c.class == "TelegramDesktop"
-             end)
+             end, true)
              if c then
                 break
              end
