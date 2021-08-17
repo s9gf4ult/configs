@@ -269,19 +269,19 @@ function my_center_mouse_at(cl)
 end
 
 
-function toset(a)
+function toTagsSet(a)
    res = {}
    for _, a in ipairs(a) do
-      res[a] = true
+      res[a.name] = a
    end
    return res
 end
 
 -- Returns true if two lists intersect
-function intersects(a, b)
-   local bset = toset(b)
+function tagsIntersect(a, b)
+   local bset = toTagsSet(b)
    for _, x in ipairs(a) do
-      if bset[x] then
+      if bset[x.name] then
          return true
       end
    end
@@ -289,19 +289,19 @@ function intersects(a, b)
 end
 
 -- Returns difference between two lists
-function difference(b, a)
-   local aset = toset(a)
+function tagsDifference(b, a)
+   local aset = toTagsSet(a)
    local res = {}
    for _, x in ipairs(b) do
-      if not aset[x] then
+      if not aset[x.name] then
          table.insert(res, x)
       end
    end
    return res
 end
 
-function isSubset(a, b)
-   local rest = difference(a, b)
+function tagsSubset(a, b)
+   local rest = tagsDifference(a, b)
    if not next(rest) then
       -- rest is empty
       return true
@@ -320,7 +320,7 @@ function tagsNames(tlist)
 end
 
 function smart_hide (s, c)
-   local otherTags = difference(c:tags(), s.selected_tags)
+   local otherTags = tagsDifference(c:tags(), s.selected_tags)
    -- c:tags is subset of s.selected_tags
    naughty.notify({text = "otherTags = " .. tagsNames(otherTags) })
    if not next(otherTags) then
@@ -356,7 +356,7 @@ function smart_toggle (s, cpred)
    -- Iterate over all hidden clients and placed on active tags. This means
    -- those clients may be only minimized
    for _, c in ipairs(hid_clients) do -- For all hidden clients
-      if cpred(c) and isSubset(c:tags(), s.selected_tags) then
+      if cpred(c) and tagsSubset(c:tags(), s.selected_tags) then
          c.minimized = false
          awful.layout.arrange(s)
          client.focus = c
