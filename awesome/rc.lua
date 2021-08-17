@@ -319,26 +319,43 @@ function tagsNames(tlist)
    return table.concat(res, ",")
 end
 
-function smart_toggle (s, cpred)
+function smart_hide (s, c)
    local stags = s.selected_tags
+   local otherTags = difference(c:tags(), stags)
+   -- c:tags is subset of stags
+   if not next(otherTags) then
+      c.minimized = true
+   else
+      c:tags(otherTags)
+   end
+   awful.layout.arrange(s)
+end
+
+function smart_toggle (s, cpred)
    local vis_clients = s.clients
    local hid_clients = s.hidden_clients
-   for _, c in ipairs(vis_clients) do -- For all visible clients
-      if cpred(c) then
-         local otherTags = difference(c:tags(), stags)
-         -- ctags is subset of stags
-         if not next(otherTags) then
-            c.minimized = true
-         else
-            c:tags(otherTags)
-         end
-         awful.layout.arrange(s)
+
+   do
+      local fclient = client.focus
+      if fclient and cpred(fclient) then
+         -- If desired client is active then smart hide it
+         smart_hide(s, fclient)
          return c
       end
    end
 
+   -- Iterate over all visible clients and try to smart hide one
+   for _, c in ipairs(vis_clients) do -- For all visible clients
+      if cpred(c) then
+         smart_hide(s, c)
+         return c
+      end
+   end
+
+   -- Iterate over all hidden clients and placed on active tags. This means
+   -- those clients may be only minimized
    for _, c in ipairs(hid_clients) do -- For all hidden clients
-      if cpred(c) and isSubset(c:tags(), stags) then
+      if cpred(c) and isSubset(c:tags(), s.selected_tags) then
          c.minimized = false
          awful.layout.arrange(s)
          client.focus = c
@@ -347,6 +364,8 @@ function smart_toggle (s, cpred)
       end
    end
 
+   -- Iterate over all tags above currently active and assign first client to
+   -- current tag to show it
    local thistag = s.selected_tag
    local gottag = false
    for _, t in ipairs(s.tags) do
