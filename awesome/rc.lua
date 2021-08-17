@@ -320,12 +320,14 @@ function tagsNames(tlist)
 end
 
 function smart_hide (s, c)
-   local stags = s.selected_tags
-   local otherTags = difference(c:tags(), stags)
-   -- c:tags is subset of stags
+   local otherTags = difference(c:tags(), s.selected_tags)
+   -- c:tags is subset of s.selected_tags
+   naughty.notify({text = "otherTags = " .. tagsNames(otherTags) })
    if not next(otherTags) then
+      naughty.notify({text = "minimize"})
       c.minimized = true
    else
+      naughty.notify({text = "set other tags"})
       c:tags(otherTags)
    end
    awful.layout.arrange(s)
@@ -335,13 +337,12 @@ function smart_toggle (s, cpred)
    local vis_clients = s.clients
    local hid_clients = s.hidden_clients
 
-   do
-      local fclient = client.focus
-      if fclient and cpred(fclient) then
-         -- If desired client is active then smart hide it
-         smart_hide(s, fclient)
-         return c
-      end
+   local fclient = client.focus
+   if fclient and cpred(fclient) then
+      naughty.notify({text = "fired focus"})
+      -- If desired client is active then smart hide it
+      smart_hide(s, fclient)
+      return fclient
    end
 
    -- Iterate over all visible clients and try to smart hide one
