@@ -10,8 +10,4 @@ runHT () {
     popd
 }
 
-runHT platform
-runHT b2b
-runHT genfly
-runHT sso
-runHT common
+runHT hotels
