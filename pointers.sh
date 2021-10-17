@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+xset m 0
+xset r rate 200 100
+
 elecom='pointer:ELECOM TrackBall Mouse HUGE TrackBall'
 logitec='pointer:Logitech G403 Prodigy Gaming Mouse'
 kana='pointer:SteelSeries Kana v2 Gaming Mouse'
