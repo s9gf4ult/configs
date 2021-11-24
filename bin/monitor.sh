@@ -2,7 +2,7 @@
 
 case $1 in
   high)
-    ddccontrol -r 0x14 -w 1 dev:/dev/i2c-1 && ddccontrol -r 0x10 -w 70 dev:/dev/i2c-1
+    ddccontrol -r 0x14 -w 1 dev:/dev/i2c-1 && ddccontrol -r 0x10 -w 100 dev:/dev/i2c-1
     ddccontrol -r 0x10 -w 100 dev:/dev/i2c-2
     ddccontrol -r 0x14 -w 1 dev:/dev/i2c-3 && ddccontrol -r 0x10 -w 70 dev:/dev/i2c-3
     redshift -x
