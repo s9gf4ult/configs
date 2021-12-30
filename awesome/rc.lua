@@ -700,7 +700,7 @@ for i = 0, 9 do
     )
 end
 
-my_monitor_keys = { "l", ",", "k" }
+my_monitor_keys = { "k", "l", "," }
 for s in screen do
    local key = my_monitor_keys[s.index]
    if key then
