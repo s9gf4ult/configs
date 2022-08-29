@@ -13,4 +13,4 @@ runHT () {
 ( runHT hotels )
 ( runHT hotels-api )
 ( runHT hotels-front-commons )
-( runHT contractor )
+( runHT common )
