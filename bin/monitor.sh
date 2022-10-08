@@ -11,6 +11,12 @@ case $1 in
     # ddccontrol -r 0x10 -w 100 $right
     redshift -x
     ;;
+  day)
+    ddccontrol -r 0x14 -w 11 $center && ddccontrol -r 0x10 -w 40 $center
+    ddccontrol -r 0x14 -w 11 $left && ddccontrol -r 0x10 -w 40 $left
+    # ddccontrol -r 0x10 -w 100 $right
+    redshift -x
+    ;;
   mid)
     ddccontrol -r 0x14 -w 11 $center && ddccontrol -r 0x10 -w 18 $center
     ddccontrol -r 0x14 -w 11 $left && ddccontrol -r 0x10 -w 18 $left
