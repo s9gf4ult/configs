@@ -5,6 +5,12 @@ left="dev:/dev/i2c-6"
 # right="dev:/dev/i2c-7"
 
 case $1 in
+  max)
+    ddccontrol -r 0x14 -w 1 $center && ddccontrol -r 0x10 -w 100 $center
+    ddccontrol -r 0x14 -w 1 $left && ddccontrol -r 0x10 -w 100 $left
+    # ddccontrol -r 0x10 -w 100 $right
+    redshift -x
+    ;;
   high)
     ddccontrol -r 0x14 -w 1 $center && ddccontrol -r 0x10 -w 70 $center
     ddccontrol -r 0x14 -w 1 $left && ddccontrol -r 0x10 -w 70 $left

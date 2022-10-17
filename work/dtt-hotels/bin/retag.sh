@@ -12,5 +12,7 @@ runHT () {
 
 ( runHT hotels )
 ( runHT hotels-api )
+( runHT auth-server-api )
+( runHT portal-public-api )
 ( runHT hotels-front-commons )
 ( runHT common )
