@@ -14,46 +14,6 @@
     m:0x41 + c:75
     Shift+Mod4 + F9
 
-"mpc next"
-    m:0x0 + c:171
-    XF86AudioNext
-
-"mpc next"
-    m:0x0 + c:196
-    XF86Launch9
-
-"mpc prev"
-    m:0x0 + c:173
-    XF86AudioPrev
-
-"mpc prev"
-    m:0x0 + c:195
-    XF86Launch8
-
-"mpc toggle"
-    m:0x0 + c:172
-    XF86AudioPlay
-
-"mpc stop"
-    m:0x0 + c:174
-    XF86AudioStop
-
-"mpc seek +0:0:39"
-    m:0x40 + c:35
-    Mod4 + bracketright
-
-"mpc seek -0:0:34"
-    m:0x40 + c:34
-    Mod4 + bracketleft
-
-"mpc volume 45"
-    m:0x0 + c:121
-    XF86AudioMute
-
-"mpc volume 20"
-    m:0x40 + c:121
-    Mod4 + XF86AudioMute
-
 "burn-cli client -c 'tags typeable.io, pomodoro'"
     m:0x40 + c:67
     Mod4 + F1
@@ -89,6 +49,10 @@
 "burn-cli client -c 'pomodoro' ; emacsclient -e '(org-clock-in-last)'"
     m:0x40 + c:76
     Mod4 + F10
+
+"display-flipper.sh"
+    m:0x40 + c:95
+    Mod4 + F11
 
 "scrot -s"
     m:0x41 + c:39
