@@ -22,7 +22,7 @@
     m:0x40 + c:68
     Mod4 + F2
 
-"burn-cli client -c 'set pomodoro 35, set pause 10, tags rest, pomodoro'"
+"burn-cli client -c 'set pomodoro 30, set pause 10, tags rest, pomodoro'"
     m:0x40 + c:70
     Mod4 + F4
 
