@@ -18,11 +18,15 @@
     m:0x40 + c:67
     Mod4 + F1
 
-"burn-cli client -c 'set pomodoro 25, set pause 7, tags typeable.io haskell, pomodoro'"
+"burn-cli client -c 'set pomodoro 20, set pause 7, tags srs, pomodoro'"
     m:0x40 + c:68
     Mod4 + F2
 
-"burn-cli client -c 'set pomodoro 30, set pause 10, tags rest, pomodoro'"
+"burn-cli client -c 'set pomodoro 25, set pause 7, tags study, pomodoro'"
+    m:0x40 + c:69
+    Mod4 + F3
+
+"burn-cli client -c 'set pomodoro 25, set pause 7, tags rest, pomodoro'"
     m:0x40 + c:70
     Mod4 + F4
 
@@ -30,11 +34,11 @@
     m:0x40 + c:71
     Mod4 + F5
 
-"burn-cli client -c 'set pomodoro 25, set pause 7, tags personal haskell, pomodoro'"
+"burn-cli client -c 'set pomodoro 25, set pause 7, tags programming, pomodoro'"
     m:0x40 + c:72
     Mod4 + F6
 
-"burn-cli client -c 'set pomodoro 20, set pause 7, tags srs, pomodoro'"
+"burn-cli client -c 'set pomodoro 25, set pause 7, tags workplace, pomodoro'"
     m:0x40 + c:73
     Mod4 + F7
 
