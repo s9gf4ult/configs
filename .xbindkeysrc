@@ -14,7 +14,7 @@
     m:0x41 + c:75
     Shift+Mod4 + F9
 
-"burn-cli client -c 'set pomodoro 25, set pause 7, tags typeable.io, pomodoro'"
+"burn-cli client -c 'set pomodoro 20, set pause 7, tags typeable.io, pomodoro'"
     m:0x40 + c:67
     Mod4 + F1
 
