@@ -18,7 +18,7 @@
     m:0x40 + c:67
     Mod4 + F1
 
-"burn-cli client -c 'set pomodoro 15, set pause 6, tags srs, pomodoro'"
+"burn-cli client -c 'set pomodoro 20, set pause 6, tags srs, pomodoro'"
     m:0x40 + c:68
     Mod4 + F2
 
