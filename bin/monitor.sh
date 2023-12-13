@@ -39,6 +39,6 @@ case $1 in
     ddccontrol -r 0x14 -w 11 $center && ddccontrol -r 0x10 -w 0 $center
     ddccontrol -r 0x14 -w 11 $left && ddccontrol -r 0x10 -w 0 $left
     # ddccontrol -r 0x10 -w 0 $right
-    redshift -x && redshift -O 2500
+    redshift -x && redshift -O 3500
 
 esac

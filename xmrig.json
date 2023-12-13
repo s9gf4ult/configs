@@ -34,8 +34,8 @@
         "astrobwt-avx2": false,
         "*": {
             "intensity": 1,
-            "threads": 8,
-            "affinity": 1755
+            "threads": 10,
+            "affinity": -1
         }
     },
     "opencl": {
