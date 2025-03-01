@@ -18,10 +18,10 @@ case $1 in
     redshift -x
     ;;
   day)
-    ddccontrol -r 0x14 -w 11 $center && ddccontrol -r 0x10 -w 45 $center
-    ddccontrol -r 0x14 -w 11 $left && ddccontrol -r 0x10 -w 45 $left
+    ddccontrol -r 0x14 -w 11 $center && ddccontrol -r 0x10 -w 55 $center
+    ddccontrol -r 0x14 -w 11 $left && ddccontrol -r 0x10 -w 55 $left
     # ddccontrol -r 0x10 -w 100 $right
-    redshift -x && redshift -O 6000
+    redshift -x
     ;;
   mid)
     ddccontrol -r 0x14 -w 11 $center && ddccontrol -r 0x10 -w 10 $center
