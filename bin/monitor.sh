@@ -23,6 +23,12 @@ case $1 in
     # ddccontrol -r 0x10 -w 100 $right
     redshift -x
     ;;
+  shady)
+    ddccontrol -r 0x14 -w 11 $center && ddccontrol -r 0x10 -w 30 $center
+    ddccontrol -r 0x14 -w 11 $left && ddccontrol -r 0x10 -w 30 $left
+    # ddccontrol -r 0x10 -w 100 $right
+    redshift -x
+    ;;
   mid)
     ddccontrol -r 0x14 -w 11 $center && ddccontrol -r 0x10 -w 10 $center
     ddccontrol -r 0x14 -w 11 $left && ddccontrol -r 0x10 -w 10 $left
